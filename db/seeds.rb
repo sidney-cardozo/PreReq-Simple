@@ -137,15 +137,15 @@ Review.destroy_all
 
 
 
-Review.create(product_id: 3, user_id: 1, rating:4, description: "Awesome")
-Review.create(product_id: 4, user_id: 1, rating:4, description: "this was the best product")
-Review.create(product_id: 5, user_id: 1, rating:5, description: "Awesome")
-Review.create(product_id: 5, user_id: 1, rating:5, description: "Awesome")
-Review.create(product_id: 3, user_id: 1, rating:5, description: "Awesomesdfdsf asdfdsf ")
-Review.create(product_id: 3, user_id: 2, rating:2, description: "good stuff")
-Review.create(product_id: 1, user_id: 2, rating:5, description: "Awesome  adfsdfdf")
-Review.create(product_id: 7, user_id: 2, rating:1, description: "Awesomesdfdsf ")
-Review.create(product_id: 8, user_id: 2, rating:5, description: "Awesome")
-Review.create(product_id: 9, user_id: 2, rating:4, description: "Awesome")
+Review.create({product_id: 3, user_id: 1, rating:4, description: Faker::Hipster.paragraph(1)})
+Review.create({product_id: 4, user_id: 1, rating:4, description: Faker::Hipster.paragraph(1)})
+Review.create({product_id: 5, user_id: 1, rating:5, description: Faker::Hipster.paragraph(1)})
+Review.create({product_id: 5, user_id: 1, rating:5, description: Faker::Hipster.paragraph(1)})
+Review.create({product_id: 3, user_id: 1, rating:5, description: Faker::Hipster.paragraph(1)})
+Review.create({product_id: 3, user_id: 2, rating:2, description: Faker::Hipster.paragraph(1)})
+Review.create({product_id: 1, user_id: 2, rating:5, description: Faker::Hipster.paragraph(1)})
+Review.create({product_id: 7, user_id: 2, rating:1, description: Faker::Hipster.paragraph(1)})
+Review.create({product_id: 8, user_id: 2, rating:5, description: Faker::Hipster.paragraph(1)})
+Review.create({product_id: 9, user_id: 2, rating:4, description: Faker::Hipster.paragraph(1)})
 
 puts "Reviews DONE!"

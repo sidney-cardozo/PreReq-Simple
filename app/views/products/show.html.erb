@@ -26,6 +26,12 @@
       </div>
     </div>
 
+    <div class="row">
+      <%= @product.reviews.each do |r| %>
+        <div> User No.<%= r.user_id %> said <%= r.description %> and has rating <%= r.rating %>
+        </div>
+      <% end %>
+    </div>
   </article>
 
 </section>
