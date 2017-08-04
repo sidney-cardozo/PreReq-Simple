@@ -132,7 +132,7 @@ cat3.products.create!({
   price: 2_483.75
 })
 
-puts "Creating Users"
+
 Review.destroy_all
 
 
