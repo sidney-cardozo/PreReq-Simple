@@ -133,9 +133,18 @@ cat3.products.create!({
 })
 
 
+puts "creating Users"
+(20.times).each do
+User.create({
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(8)
+  })
+end
+
+
 Review.destroy_all
-
-
 
 Review.create({product_id: 3, user_id: 1, rating:4, description: Faker::Hipster.paragraph(1)})
 Review.create({product_id: 4, user_id: 1, rating:4, description: Faker::Hipster.paragraph(1)})

@@ -26,9 +26,22 @@
       </div>
     </div>
 
+    <% if @user %>
+      <div class="row">
+        <%= form_for [@product, @review] do |f| %>
+          Description: <%= f.text_area :description %><br/>
+          Rating: <%= f.select :rating, options_for_select([*1..5]) %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    <% end %>
+
     <div class="row">
-      <%= @product.reviews.each do |r| %>
-        <div> User No.<%= r.user_id %> said <%= r.description %> and has rating <%= r.rating %>
+      <% @product.reviews.reverse_each do |r| %>
+        <div> User: <%= r.user.first_name %>  said <%= r.description %> and has rating <%= r.rating %>
+          <% if r.user == @user %>
+            <%= link_to "Delete", product_review_path(@product, r), method: :delete, data: {confirm: "Are you sure you want to delete this ?"} %>
+          <% end %>
         </div>
       <% end %>
     </div>
