@@ -14,21 +14,28 @@ RSpec.describe Product, type: :model do
     it 'should not be valid if it doesnt have a name' do
       @product = Product.new(price: 50, quantity: 2, category: @category)
       expect(@product.valid?).to be false
+      expect(@product.errors.full_messages).to include("should have a name")
+
     end
 
     it 'should not be valid if it doesnt have quantity specified' do
       @product = Product.new(name: "chair", price: 50, category: @category)
       expect(@product.valid?).to be false
+      expect(@product.errors.full_messages).to include("should have a quantity specified")
+
     end
 
     it 'should not be valid if it doesnt have a price' do
       @product = Product.new(name: "chair", quantity: 2, category: @category)
       expect(@product.valid?).to be false
+      expect(@product.errors.full_messages).to include("should have a price")
+
     end
 
     it 'should not be valid if it doesnt have a category' do
       @product = Product.new(name: "chair", price: 50, quantity: 2)
       expect(@product.valid?).to be false
+      expect(@product.errors.full_messages).to include("should have a category")
     end
 
   end
