@@ -85,7 +85,18 @@ RSpec.describe User, type: :model do
                        password: 'asdasdasd',
                        password_confirmation: 'asdasdasd')
       @user.save
-      expect(User.authenticate_with_credentials('test@test.com',@user.password)).to be_truthy
+      expect(User.authenticate_with_credentials('test@test.com ',@user.password)).to be_truthy
+      # expect(@user.errors.full_messages).to include("Password is too short (minimum is 4 characters)")
+    end
+
+    it 'when there are different cases with the email' do
+      @user = User.new(first_name: 'John',
+                       last_name: 'Snow',
+                       email: 'test@test.com',
+                       password: 'asdasdasd',
+                       password_confirmation: 'asdasdasd')
+      @user.save
+      expect(User.authenticate_with_credentials('Test@test.com ',@user.password)).to be_truthy
       # expect(@user.errors.full_messages).to include("Password is too short (minimum is 4 characters)")
     end
   end
