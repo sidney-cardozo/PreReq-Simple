@@ -8,13 +8,13 @@ class CreateUsers < ActiveRecord::Migration
     end
 
     create_table :employers do |t|
-      t.belongs_to :user_id, index: true
+      t.belongs_to :user, index: true
       t.text :description
       t.string :icon_url
     end
 
     create_table :applicants do |t|
-      t.belongs_to :user_id, index: true
+      t.belongs_to :user, index: true
       t.integer :phone_number
       t.text :description
       t.string :resume_link
@@ -23,7 +23,7 @@ class CreateUsers < ActiveRecord::Migration
     end
 
     create_table :jobs do |t|
-      t.belongs_to :employers, index: true
+      t.belongs_to :employer, index: true
       t.string :position
       t.text :description
       t.text :requirements
@@ -46,6 +46,11 @@ class CreateUsers < ActiveRecord::Migration
   end
 
   def down
-    drop_table :users, :employers, :applicants, :jobs, :students, :students_applicants
+    drop_table :users
+    drop_table :employers
+    drop_table :applicants
+    drop_table :jobs
+    drop_table :students
+    drop_table :students_applicants
   end
 end
