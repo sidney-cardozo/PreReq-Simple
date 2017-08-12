@@ -42,6 +42,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :students_applicants do |t|
       t.belongs_to :applicants, index: true
       t.belongs_to :students, index: true
+      t.text :story
     end
   end
 

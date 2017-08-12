@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20170812001511) do
   create_table "students_applicants", force: :cascade do |t|
     t.integer "applicants_id"
     t.integer "students_id"
+    t.text    "story"
   end
 
   add_index "students_applicants", ["applicants_id"], name: "index_students_applicants_on_applicants_id", using: :btree
