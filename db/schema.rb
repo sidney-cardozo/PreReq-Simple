@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20170812001511) do
   enable_extension "plpgsql"
 
   create_table "applicants", force: :cascade do |t|
-    t.integer "user_id_id"
+    t.integer "user_id"
     t.integer "phone_number"
     t.text    "description"
     t.string  "resume_link"
@@ -25,18 +25,18 @@ ActiveRecord::Schema.define(version: 20170812001511) do
     t.boolean "paired"
   end
 
-  add_index "applicants", ["user_id_id"], name: "index_applicants_on_user_id_id", using: :btree
+  add_index "applicants", ["user_id"], name: "index_applicants_on_user_id", using: :btree
 
   create_table "employers", force: :cascade do |t|
-    t.integer "user_id_id"
+    t.integer "user_id"
     t.text    "description"
     t.string  "icon_url"
   end
 
-  add_index "employers", ["user_id_id"], name: "index_employers_on_user_id_id", using: :btree
+  add_index "employers", ["user_id"], name: "index_employers_on_user_id", using: :btree
 
   create_table "jobs", force: :cascade do |t|
-    t.integer "employers_id"
+    t.integer "employer_id"
     t.string  "position"
     t.text    "description"
     t.text    "requirements"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20170812001511) do
     t.text    "tags",         default: [], array: true
   end
 
-  add_index "jobs", ["employers_id"], name: "index_jobs_on_employers_id", using: :btree
+  add_index "jobs", ["employer_id"], name: "index_jobs_on_employer_id", using: :btree
 
   create_table "students", force: :cascade do |t|
     t.string "name"
