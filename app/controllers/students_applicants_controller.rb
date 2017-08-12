@@ -3,6 +3,8 @@ class StudentsApplicantsController < ApplicationController
     pair = StudentsApplicants.create(pair_params)
 
     if pair.save
+      Students.update(params[:student_id], paired: true)
+      Applicants.update(params[:applicant_id], paired: true)
       redirect_to students_applicants
     else
       redirect_to students_applicants
@@ -14,6 +16,21 @@ class StudentsApplicantsController < ApplicationController
     @student_applicant.destroy
     redirect_to students_applicants
   end
+
+  def edit
+    @pair = StudentsApplicants.find(params[:students_applicant_id])
+
+    if @pair
+      StudentsApplicants.update(params[:students_applicant_id], story: params[:story])
+    else
+      redirect_to students_applicants
+    end
+  end
+
+  def show
+    @pair = StudentsApplicants.find(params[:id])
+  end
+
 
   private
 

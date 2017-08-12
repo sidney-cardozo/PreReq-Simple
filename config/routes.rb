@@ -53,7 +53,8 @@ Rails.application.routes.draw do
     delete :remove_student
   end
 
-  resources :students_applicants, only: [:create] do
+  resources :students_applicants, only: [:create, :show] do
+    post :edit
     delete :remove_pair
   end
 
