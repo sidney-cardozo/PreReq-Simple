@@ -51,10 +51,11 @@ ActiveRecord::Schema.define(version: 20170812001511) do
   add_index "jobs", ["employer_id"], name: "index_jobs_on_employer_id", using: :btree
 
   create_table "students", force: :cascade do |t|
-    t.string "name"
-    t.string "concentration"
-    t.string "industry"
-    t.string "resume_link"
+    t.string  "name"
+    t.string  "concentration"
+    t.string  "industry"
+    t.string  "resume_link"
+    t.boolean "paired"
   end
 
   create_table "students_applicants", force: :cascade do |t|

@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   # post '/login' => 'sessions#create'
   # get '/logout' => 'sessions#destroy'
 
-  root to: 'jobs#index'
+  root to: 'users#welcome'
 
   get '/signup' => 'users#new'
   get '/login' => 'sessions#new'
@@ -48,11 +48,14 @@ Rails.application.routes.draw do
   resources :applicants, only: [:edit]
 
   resources :students, only: [:show, :create] do
+    get :show
     put :edit
     delete :remove_student
   end
 
-  resources :students_applicants, only: [:create, :edit, :delete]
+  resources :students_applicants, only: [:create] do
+    delete :remove_pair
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

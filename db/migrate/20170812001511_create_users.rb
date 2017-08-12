@@ -39,6 +39,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :concentration
       t.string :industry
       t.string :resume_link
+      t.boolean :paired
     end
 
     create_table :students_applicants do |t|
