@@ -35,6 +35,9 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
+  get '/search' => 'jobs#index'
+  get '/student_index' => 'student#index'
+
   resources :employers, only: [:edit] do
     resources :jobs, only: [:show, :new] do
       put :edit
@@ -44,7 +47,10 @@ Rails.application.routes.draw do
 
   resources :applicants, only: [:edit]
 
-  resources :students, only: [:show, :create, :edit, :delete]
+  resources :students, only: [:show, :create] do
+    put :edit
+    delete :remove_student
+  end
 
   resources :students_applicants, only: [:create, :edit, :delete]
 

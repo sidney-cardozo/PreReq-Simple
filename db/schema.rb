@@ -67,9 +67,9 @@ ActiveRecord::Schema.define(version: 20170812001511) do
   add_index "students_applicants", ["students_id"], name: "index_students_applicants_on_students_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string "email"
-    t.string "password_digest"
-    t.string "role"
+    t.string  "email"
+    t.string  "password_digest"
+    t.integer "role"
   end
 
 end
