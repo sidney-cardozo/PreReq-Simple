@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 20170812001511) do
 
   create_table "applicants", force: :cascade do |t|
     t.integer "user_id"
+    t.string  "first_name"
+    t.string  "last_name"
     t.integer "phone_number"
     t.text    "description"
     t.string  "resume_link"
@@ -28,6 +30,7 @@ ActiveRecord::Schema.define(version: 20170812001511) do
   add_index "applicants", ["user_id"], name: "index_applicants_on_user_id", using: :btree
 
   create_table "employers", force: :cascade do |t|
+    t.string  "name"
     t.integer "user_id"
     t.text    "description"
     t.string  "icon_url"
@@ -64,7 +67,6 @@ ActiveRecord::Schema.define(version: 20170812001511) do
   add_index "students_applicants", ["students_id"], name: "index_students_applicants_on_students_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
     t.string "email"
     t.string "password_digest"
     t.string "role"

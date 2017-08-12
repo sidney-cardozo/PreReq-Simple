@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'products#index'
+  # root to: 'products#index'
 
   # resources :products, only: [:index, :show]
   # resources :categories, only: [:show]
@@ -22,29 +22,31 @@ Rails.application.routes.draw do
   #   resources :categories, only: [:new, :index, :create]
   # end
 
-  # get '/signup' => 'users#new'
   # post '/users' => 'users#create'
 
   # get '/login' => 'sessions#new'
   # post '/login' => 'sessions#create'
   # get '/logout' => 'sessions#destroy'
 
-  # root to: ''
+  root to: 'jobs#index'
 
+  get '/signup' => 'users#new'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-  resources :employers do
-    resources :jobs, only: [:show, :create] do
+  resources :employers, only: [:edit] do
+    resources :jobs, only: [:show, :new] do
       put :edit
       delete :delete_job
     end
   end
 
-  resources :students, only: [:show, :create, :edit]
+  resources :applicants, only: [:edit]
 
-  # resources :
+  resources :students, only: [:show, :create, :edit, :delete]
+
+  resources :students_applicants, only: [:create, :edit, :delete]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

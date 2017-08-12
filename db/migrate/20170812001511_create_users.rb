@@ -1,13 +1,13 @@
 class CreateUsers < ActiveRecord::Migration
   def up
     create_table :users do |t|
-      t.string :name
       t.string :email
       t.string :password_digest
       t.string :role
     end
 
     create_table :employers do |t|
+      t.string :name
       t.belongs_to :user, index: true
       t.text :description
       t.string :icon_url
@@ -15,6 +15,8 @@ class CreateUsers < ActiveRecord::Migration
 
     create_table :applicants do |t|
       t.belongs_to :user, index: true
+      t.string :first_name
+      t.string :last_name
       t.integer :phone_number
       t.text :description
       t.string :resume_link
