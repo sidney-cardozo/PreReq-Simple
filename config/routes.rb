@@ -38,14 +38,16 @@ Rails.application.routes.draw do
   get '/search' => 'jobs#index'
   get '/student_index' => 'student#index'
 
-  namespace :employer, only: [:edit] do
+  namespace :employer do
     resources :jobs, only: [:show, :new] do
       put :edit
       delete :delete_job
     end
   end
 
-  resources :applicants, only: [:edit]
+  resources :employer, only: [:show, :edit]
+
+  resources :applicants, only: [:show, :edit]
 
   namespace :admin do
     resources :students, only: [:show, :create] do
