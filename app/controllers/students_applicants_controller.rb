@@ -11,12 +11,13 @@ class StudentsApplicantsController < ApplicationController
 
   def remove_pair
     @student_applicant = StudentsApplicants.find(params[:students_applicant_id])
+    @student_applicant.destroy
     redirect_to students_applicants
   end
 
   private
 
   def pair_params
-    params.require(:pair).permit(:student_id, :applicant_id)
+    params.require(:student_applicant).permit(:student_id, :applicant_id)
   end
 end
