@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   get '/search' => 'jobs#index'
   get '/student_index' => 'student#index'
 
-  resources :employers, only: [:edit] do
+  namespace :employer, only: [:edit] do
     resources :jobs, only: [:show, :new] do
       put :edit
       delete :delete_job
@@ -47,16 +47,19 @@ Rails.application.routes.draw do
 
   resources :applicants, only: [:edit]
 
-  resources :students, only: [:show, :create] do
-    get :show
-    put :edit
-    delete :remove_student
+  namespace :admin do
+    resources :students, only: [:show, :create] do
+      get :show
+      put :edit
+      delete :remove_student
+    end
+
+    resources :students_applicants, only: [:create, :show] do
+      post :edit
+      delete :remove_pair
+    end
   end
 
-  resources :students_applicants, only: [:create, :show] do
-    post :edit
-    delete :remove_pair
-  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
