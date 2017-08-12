@@ -7,5 +7,4 @@ class Job < ActiveRecord::Base
   validates :job_type, presence: true
   validates :apply_info, presence: true
 
-
 end
