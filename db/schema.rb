@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20170812001511) do
     t.integer "user_id"
     t.string  "first_name"
     t.string  "last_name"
-    t.integer "phone_number"
+    t.string  "phone_number"
     t.text    "description"
     t.string  "resume_link"
     t.text    "fields",       default: [], array: true

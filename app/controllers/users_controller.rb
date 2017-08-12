@@ -8,10 +8,6 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       session[:role] = @user.role
-      # if @user.role == 'employer'
-      # elsif @user.role === 'applicant'
-      # elsif @user.role === 'admin'
-      # end
       redirect_to '/'
     else
       redirect_to :back
@@ -19,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def welcome
+
   end
 
   private

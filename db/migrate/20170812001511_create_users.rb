@@ -17,7 +17,7 @@ class CreateUsers < ActiveRecord::Migration
       t.belongs_to :user, index: true
       t.string :first_name
       t.string :last_name
-      t.integer :phone_number
+      t.string :phone_number
       t.text :description
       t.string :resume_link
       t.text :fields, array: true, default: []
