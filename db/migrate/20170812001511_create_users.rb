@@ -1,5 +1,5 @@
 class CreateUsers < ActiveRecord::Migration
-  def change
+  def up
     create_table :users do |t|
       t.string :name
       t.string :email
@@ -13,7 +13,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :icon_url
     end
 
-    create_tale :applicants do |t|
+    create_table :applicants do |t|
       t.belongs_to :user_id, index: true
       t.integer :phone_number
       t.text :description
@@ -43,5 +43,9 @@ class CreateUsers < ActiveRecord::Migration
       t.belongs_to :applicants, index: true
       t.belongs_to :students, index: true
     end
+  end
+
+  def down
+    drop_table :users, :employers, :applicants, :jobs, :students, :students_applicants
   end
 end
