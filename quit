@@ -1,0 +1,10 @@
+ id           | integer           | not null default nextval('applicants_id_seq'::regclass)
+ user_id      | integer           | 
+ first_name   | character varying | 
+ last_name    | character varying | 
+ phone_number | character varying | 
+ description  | text              | 
+ resume_link  | character varying | 
+ fields       | text[]            | default '{}'::text[]
+ paired       | boolean           | 
+
