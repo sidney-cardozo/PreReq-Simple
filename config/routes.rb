@@ -47,11 +47,10 @@ Rails.application.routes.draw do
 
   resources :employer, only: [:show, :edit]
 
-  resources :applicant, only: [:show, :edit]
+  resources :applicants, only: [:show, :edit]
 
   namespace :admin do
     resources :students, only: [:show, :create] do
-      get :show
       put :edit
       delete :remove_student
     end
