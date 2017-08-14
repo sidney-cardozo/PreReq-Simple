@@ -1,6 +1,6 @@
-class StudentsApplicantsController < ApplicationController
+class PairsController < ApplicationController
   def create
-    pair = StudentsApplicants.new(pair_params)
+    pair = Pair.new(pair_params)
 
     if pair.save
       Student.update(params[:student_id], paired: true)
@@ -12,7 +12,7 @@ class StudentsApplicantsController < ApplicationController
   end
 
   def remove_pair
-    @student_applicant = StudentsApplicants.find(params[:students_applicant_id])
+    @student_applicant = Pair.find(params[:students_applicant_id])
     if @student_applicant
       @student_applicant.destroy
       redirect_to students_applicants, alert: "Pair deleted!"
@@ -21,17 +21,17 @@ class StudentsApplicantsController < ApplicationController
   end
 
   def edit
-    @pair = StudentsApplicants.find(params[:students_applicant_id])
+    @pair = Pair.find(params[:students_applicant_id])
 
     if @pair
-      StudentsApplicants.update(params[:students_applicant_id], story: params[:story]), notice: "Pair story updated!"
+      Pair.update(params[:students_applicant_id], story: params[:story]), notice: "Pair story updated!"
     else
       redirect_to students_applicants, error: "Couldnt find pair, make sure the id's are correct!"
     end
   end
 
   def show
-    @pair = StudentsApplicants.find(params[:id])
+    @pair = Pair.find(params[:id])
   end
 
 
