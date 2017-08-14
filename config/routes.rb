@@ -47,11 +47,10 @@ Rails.application.routes.draw do
 
   resources :employer, only: [:show, :edit]
 
-  resources :applicant, only: [:show, :edit]
+  resources :applicants, only: [:show, :edit]
 
   namespace :admin do
     resources :students, only: [:show, :create] do
-      get :show
       put :edit
       delete :remove_student
     end
@@ -61,6 +60,7 @@ Rails.application.routes.draw do
       delete :remove_pair
     end
   end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
