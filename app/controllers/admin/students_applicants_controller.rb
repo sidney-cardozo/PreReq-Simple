@@ -5,7 +5,7 @@ class StudentsApplicantsController < ApplicationController
     if pair.save
       Students.update(params[:student_id], paired: true)
       Applicants.update(params[:applicant_id], paired: true)
-      redirect_to students_applicants
+      redirect_to students_applicants, notice: "Pair Created !"
     else
       redirect_to students_applicants
     end
