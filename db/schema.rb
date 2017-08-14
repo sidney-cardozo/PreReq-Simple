@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20170812001511) do
     t.string  "phone_number"
     t.text    "description"
     t.string  "resume_link"
+    t.string  "image"
     t.text    "fields",       default: [], array: true
     t.boolean "paired"
   end

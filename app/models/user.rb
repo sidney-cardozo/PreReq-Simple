@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 4 }
   enum role: [ :applicant, :employer, :admin ]
 
+  mount_uploader :image, ProfileImageUploader
+
   def self.authenticate_with_credentials(email, password)
     user = User.where('lower(email) = lower(?)', email.strip).first
     if user && user.authenticate(password)

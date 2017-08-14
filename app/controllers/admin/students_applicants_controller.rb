@@ -1,6 +1,6 @@
 class StudentsApplicantsController < ApplicationController
   def create
-    pair = StudentsApplicants.create(pair_params)
+    pair = StudentsApplicants.new(pair_params)
 
     if pair.save
       Students.update(params[:student_id], paired: true)

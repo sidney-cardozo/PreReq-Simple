@@ -20,6 +20,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :phone_number
       t.text :description
       t.string :resume_link
+      t.string :image
       t.text :fields, array: true, default: []
       t.boolean :paired
     end
