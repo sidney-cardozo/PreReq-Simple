@@ -13,8 +13,6 @@ class UsersController < ApplicationController
         redirect_to "/applicants/#{@user.id}"
       elsif @user.employer?
         redirect_to "/employers/#{@user.id}"
-      elsif @user.admin?
-        redirect_to "/admin/students"
       end
     else
       redirect_to :back
