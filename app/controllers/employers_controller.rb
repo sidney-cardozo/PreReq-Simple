@@ -1,8 +1,8 @@
 class EmployersController < ApplicationController
   def edit
     @employer_id = current_user.user_id
-    employer_user = Users.find(@employer_id)
-    employer = Employers.where(user_id: employer_id).first
+    employer_user = User.find(@employer_id)
+    employer = Employer.where(user_id: employer_id).first
 
     if employer_user
       if !employer

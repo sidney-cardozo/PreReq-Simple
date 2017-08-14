@@ -1,33 +1,5 @@
 Rails.application.routes.draw do
 
-  # root to: 'products#index'
-
-  # resources :products, only: [:index, :show]
-  # resources :categories, only: [:show]
-
-  # resources :products do
-  #   resources :reviews, only: [:create, :destroy]
-  # end
-
-  # resource :cart, only: [:show] do
-  #   put    :add_item
-  #   delete :remove_item
-  # end
-
-  # resources :orders, only: [:create, :show]
-
-  # namespace :admin do
-  #   root to: 'dashboard#show'
-  #   resources :products, except: [:edit, :update, :show]
-  #   resources :categories, only: [:new, :index, :create]
-  # end
-
-  # post '/users' => 'users#create'
-
-  # get '/login' => 'sessions#new'
-  # post '/login' => 'sessions#create'
-  # get '/logout' => 'sessions#destroy'
-
   root to: 'users#welcome'
 
   get '/signup' => 'users#new'
@@ -36,32 +8,17 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   get '/search' => 'jobs#index'
-  get '/student_index' => 'student#index'
 
-  namespace :employer do
-    resources :jobs, only: [:show, :new] do
-      put :edit
-      delete :delete_job
-    end
+  resources :employers, except: [:index, :destroy] do
+    resources :jobs, except: [:show]
   end
 
-  resources :employer, only: [:show, :edit]
-
-  resources :applicants, only: [:show, :edit]
+  resources :applicants, except: [:destroy]
 
   namespace :admin do
-    resources :students, only: [:show, :create] do
-      put :edit
-      delete :remove_student
-    end
-
-    resources :students_applicants, only: [:create, :show] do
-      post :edit
-      delete :remove_pair
-    end
+    resources :students, except: [:new]
+    resources :pairs, except: [:show]
   end
-
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
