@@ -56,6 +56,6 @@ class CreateUsers < ActiveRecord::Migration
     drop_table :applicants
     drop_table :jobs
     drop_table :students
-    drop_table :students_applicants
+    drop_table :pairs
   end
 end
