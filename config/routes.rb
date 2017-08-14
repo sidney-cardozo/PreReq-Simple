@@ -51,7 +51,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :students, only: [:show, :create] do
-      get :show
       put :edit
       delete :remove_student
     end

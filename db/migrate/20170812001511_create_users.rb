@@ -20,6 +20,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :phone_number
       t.text :description
       t.string :resume_link
+      t.string :image
       t.text :fields, array: true, default: []
       t.boolean :paired
     end
@@ -42,7 +43,7 @@ class CreateUsers < ActiveRecord::Migration
       t.boolean :paired
     end
 
-    create_table :students_applicants do |t|
+    create_table :pairs do |t|
       t.belongs_to :applicants, index: true
       t.belongs_to :students, index: true
       t.text :story
@@ -55,6 +56,6 @@ class CreateUsers < ActiveRecord::Migration
     drop_table :applicants
     drop_table :jobs
     drop_table :students
-    drop_table :students_applicants
+    drop_table :pairs
   end
 end
