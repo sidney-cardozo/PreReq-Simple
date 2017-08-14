@@ -10,7 +10,7 @@ class StudentsApplicantsController < ApplicationController
       Applicant.update(params[:applicant_id], paired: true)
       redirect_to students_applicants, notice: "Pair Created !"
     else
-      redirect_to students_applicants, notice: "Pair was not created!"
+      redirect_to students_applicants, error: "Pair was not created!"
     end
   end
 
@@ -18,7 +18,7 @@ class StudentsApplicantsController < ApplicationController
     @student_applicant = StudentsApplicant.find(params[:students_applicant_id])
     if @student_applicant
       @student_applicant.destroy
-      redirect_to students_applicants, notice: "Pair deleted!"
+      redirect_to students_applicants, alert: "Pair deleted!"
     else
       redirect_to students_applicants, notice: "Couldnt find pair, make sure the id's are correct!"
   end
@@ -29,7 +29,7 @@ class StudentsApplicantsController < ApplicationController
     if @pair
       StudentsApplicants.update(params[:students_applicant_id], story: params[:story]), notice: "Pair story updated!"
     else
-      redirect_to students_applicants, notice: "Couldnt find pair, make sure the id's are correct!"
+      redirect_to students_applicants, error: "Couldnt find pair, make sure the id's are correct!"
     end
   end
 

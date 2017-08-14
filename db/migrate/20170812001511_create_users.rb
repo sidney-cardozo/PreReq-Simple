@@ -43,7 +43,7 @@ class CreateUsers < ActiveRecord::Migration
       t.boolean :paired
     end
 
-    create_table :students_applicants do |t|
+    create_table :pairs do |t|
       t.belongs_to :applicants, index: true
       t.belongs_to :students, index: true
       t.text :story

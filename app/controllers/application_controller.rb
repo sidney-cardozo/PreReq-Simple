@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize_admin
-    redirect_to '/login', notice: "" unless current_user.admin?
+    redirect_to '/login', notice: "You need admin credentials" unless current_user
   end
 
   def signed_in?
