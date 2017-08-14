@@ -1,4 +1,5 @@
 class PairsController < ApplicationController
+  before_filter :authorize_admin
   def create
     pair = Pair.new(pair_params)
 
