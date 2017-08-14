@@ -5,7 +5,7 @@ class StudentsApplicantsController < ApplicationController
     if pair.save
       Students.update(params[:student_id], paired: true)
       Applicants.update(params[:applicant_id], paired: true)
-      redirect_to students_applicants
+      redirect_to students_applicants, notice: "Pair Created !"
     else
       redirect_to students_applicants
     end
@@ -13,8 +13,11 @@ class StudentsApplicantsController < ApplicationController
 
   def remove_pair
     @student_applicant = StudentsApplicants.find(params[:students_applicant_id])
-    @student_applicant.destroy
-    redirect_to students_applicants
+    if @student_applicant
+      @student_applicant.destroy
+      redirect_to students_applicants, notice: "Pair deleted!"
+    else
+      redirect_to students_applicants, notice: "Couldnt find pair, make sure the id's are correct!"
   end
 
   def edit
