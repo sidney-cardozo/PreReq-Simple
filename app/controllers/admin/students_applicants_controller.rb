@@ -1,10 +1,13 @@
 class StudentsApplicantsController < ApplicationController
+
+  before_filter :signed_in?, :is_admin?
+
   def create
-    pair = StudentsApplicants.new(pair_params)
+    pair = StudentsApplicant.new(pair_params)
 
     if pair.save
-      Students.update(params[:student_id], paired: true)
-      Applicants.update(params[:applicant_id], paired: true)
+      Student.update(params[:student_id], paired: true)
+      Applicant.update(params[:applicant_id], paired: true)
       redirect_to students_applicants, notice: "Pair Created !"
     else
       redirect_to students_applicants
@@ -12,7 +15,7 @@ class StudentsApplicantsController < ApplicationController
   end
 
   def remove_pair
-    @student_applicant = StudentsApplicants.find(params[:students_applicant_id])
+    @student_applicant = StudentsApplicant.find(params[:students_applicant_id])
     if @student_applicant
       @student_applicant.destroy
       redirect_to students_applicants, notice: "Pair deleted!"
@@ -21,17 +24,17 @@ class StudentsApplicantsController < ApplicationController
   end
 
   def edit
-    @pair = StudentsApplicants.find(params[:students_applicant_id])
+    @pair = StudentsApplicant.find(params[:students_applicant_id])
 
     if @pair
-      StudentsApplicants.update(params[:students_applicant_id], story: params[:story])
+      StudentsApplicant.update(params[:students_applicant_id], story: params[:story])
     else
       redirect_to students_applicants
     end
   end
 
   def show
-    @pair = StudentsApplicants.find(params[:id])
+    @pair = StudentsApplicant.find(params[:id])
   end
 
 
