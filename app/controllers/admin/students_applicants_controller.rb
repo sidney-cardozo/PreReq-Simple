@@ -3,11 +3,11 @@ class StudentsApplicantsController < ApplicationController
     pair = StudentsApplicants.new(pair_params)
 
     if pair.save
-      Students.update(params[:student_id], paired: true)
-      Applicants.update(params[:applicant_id], paired: true)
+      Student.update(params[:student_id], paired: true)
+      Applicant.update(params[:applicant_id], paired: true)
       redirect_to students_applicants, notice: "Pair Created !"
     else
-      redirect_to students_applicants
+      redirect_to students_applicants, notice: "Pair was not created!"
     end
   end
 
@@ -24,9 +24,9 @@ class StudentsApplicantsController < ApplicationController
     @pair = StudentsApplicants.find(params[:students_applicant_id])
 
     if @pair
-      StudentsApplicants.update(params[:students_applicant_id], story: params[:story])
+      StudentsApplicants.update(params[:students_applicant_id], story: params[:story]), notice: "Pair story updated!"
     else
-      redirect_to students_applicants
+      redirect_to students_applicants, notice: "Couldnt find pair, make sure the id's are correct!"
     end
   end
 
