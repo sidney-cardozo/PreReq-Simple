@@ -1,8 +1,8 @@
 class ApplicantsController < ApplicationController
   def edit
     @applicant_id = current_user.user_id
-    applicant_user = Users.find(@applicant_id)
-    applicant = Applicants.where(user_id: @applicant_id).first
+    applicant_user = User.find(@applicant_id)
+    applicant = Applicant.where(user_id: @applicant_id).first
 
     if applicant_user
       if !applicant
