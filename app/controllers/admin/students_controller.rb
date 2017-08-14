@@ -11,11 +11,11 @@ class StudentsController < ApplicationController
   end
 
   def index
-    @students = Students.all
+    @students = Student.all
   end
 
   def delete
-    @student = Students.find(params[:id])
+    @student = Student.find(params[:id])
     @student.destroy
     redirect_to students
   end

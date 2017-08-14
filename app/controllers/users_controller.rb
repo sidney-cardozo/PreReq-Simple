@@ -9,15 +9,13 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       session[:role] = @user.role
 
-      if @user.applicant
-        redirect_to "/applicant/#{@user.id}"
-      elsif @user.employer
-        redirect_to "/employer/#{@user.id}"
-      elsif @user.admin
+      if @user.applicant?
+        redirect_to "/applicants/#{@user.id}"
+      elsif @user.employer?
+        redirect_to "/employers/#{@user.id}"
+      elsif @user.admin?
         redirect_to "/admin/students"
       end
-
-      redirect_to '/'
     else
       redirect_to :back
     end

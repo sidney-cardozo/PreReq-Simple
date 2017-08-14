@@ -20,7 +20,7 @@
 <!-- WELCOME MSG SECTION END-->
 
 <br>
-
+<% if !current_user %>
 <!-- FOR EMPLOYERS FOR IMMIGRANT BOXES SECTION -->
 <section class="container">
 <div class="row hidden-xs hidden-sm visible-md visible-lg">
@@ -34,7 +34,7 @@
       <p>Ladyship it daughter securing procured or am moreover mr. Put sir she exercise vicinity cheerful wondered.</p>
       </div>
       <div class="col-xs-2 vcenter text-center">
-      <a class="btn btn-primary" href="#" role="button">Register</a>
+      <a class="btn btn-primary" href="/signup" role="button">Register</a>
       </div>
     </div>
   </div>
@@ -53,13 +53,12 @@
       <p>Ladyship it daughter securing procured or am moreover mr. Put sir she exercise vicinity cheerful wondered.</p>
       </div>
       <div class="col-xs-2 vcenter text-center">
-      <a class="btn btn-primary" href="#" role="button">Register</a>
+      <a class="btn btn-primary" href="/signup" role="button">Register</a>
       </div>
     </div>
   </div>
   <div class="col-xs-2"></div>
 </div>
-
 <!-- FOR MOBILE XS -->
 
 
@@ -111,6 +110,7 @@
 </div>
 
 </section>
+<% end %>
 <!-- FOR EMPLOYERS FOR IMMIGRANT BOXES SECTION END -->
 
 <br>

@@ -1,14 +1,17 @@
 
 <h1>Signup!</h1>
 
-<%= form_for :user, url: '/users' do |f| %>
+<%= form_for :user, url: '/signup' do |f| %>
   <ul>
-    <li>First Name: <%= f.text_field :first_name %></li>
-    <li>Last Name: <%= f.text_field :last_name %></li>
     <li>Email: <%= f.text_field :email %></li>
     <li>Password: <%= f.password_field :password %></li>
     <li>Password Confirmation: <%= f.password_field :password_confirmation %></li>
   </ul>
+  <%= f.radio_button :role, 'applicant', checked: true %>
+  <%= label :role_applicant, 'applicant' %>
+
+  <%= f.radio_button :role, 'employer' %>
+  <%= label :role_employer, 'employer' %>
   <%= f.submit "Submit" %>
    <% if @user.errors.any? %>
     <div id="error_explanation">
