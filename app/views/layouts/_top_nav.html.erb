@@ -14,6 +14,17 @@
         <li>
           <%= link_to 'Home', :root %>
         </li>
+        <% if current_user %>
+          <% if current_user.employer %>
+            <li>
+              <%= link_to 'Profile', employer_path(current_user.id) %>
+            </li>
+          <% elsif current_user.applicant %>
+            <li>
+              <%= link_to 'Profile', applicant_path(current_user.id)%>
+            </li>
+          <% end %>
+        <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-left">
        <li>
