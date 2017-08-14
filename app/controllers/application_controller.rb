@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  helper_method :cart, :current_user, :signed_in?, :is_admin?, :authorize
+  helper_method :cart, :current_user, :authorize
 
   def cart
     # value = cookies[:cart] || JSON.generate({})
@@ -24,15 +24,12 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
+  def authorized_to_changes(params)
+    redirect_to '/', notice: "Action forbidden" unless current_user.id === params
+  end
+
   def authorize_admin
     redirect_to '/login', notice: "You need admin credentials" unless current_user
   end
 
-  # def signed_in?
-  #   !!current_user
-  # end
-
-  # def is_admin?
-  #   signed_in? ? current_user.admin : false
-  # end
 end

@@ -1,6 +1,9 @@
 class EmployersController < ApplicationController
+
+  before_filter :authorized_to_changes, only: [:edit]
+
   def edit
-    @employer_id = current_user.user_id
+    @employer_id = current_user.id
     employer_user = Users.find(@employer_id)
     employer = Employers.where(user_id: employer_id).first
 
@@ -18,4 +21,9 @@ class EmployersController < ApplicationController
   def employer_params
     params.require(:employer).permit(:name, :description, :icon_url)
   end
+
+  def authorized_to_changes
+    redirect_to '/', notice: "Action forbidden" unless current_user.id == params[:id]
+  end
+
 end

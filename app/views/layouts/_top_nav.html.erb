@@ -31,13 +31,14 @@
           <% if current_user %>
             <% user = User.find(current_user.id) %>
             <% if current_user.employer? %>
-            <a>Signed in as <%=  Employer.find_by_user_id(user.id) || Employer%></a>
+            <a>Signed in as <%=  Employer.find_by_user_id(user.id) ? Employer.find_by_user_id(user.id).name : Employer%></a>
             <% elsif current_user.applicant? %>
-            <a>Signed in as <%=  Applicant.find_by_user_id(user.id) || Applicant %></a>
+            <a>Signed in as <%=  Applicant.find_by_user_id(user.id) ? Applicant.find_by_user_id(user.id).name : Applicant%></a>
             <% else %>
             <a>Signed in as admin</a>
             <% end %>
-        </li><li> <%= link_to "Logout", '/logout' %></li>
+        </li>
+        <li> <%= link_to "Logout", '/logout' %></li>
           <% else %>
             <li><%= link_to 'Login', '/login' %></li>
           <% end %>
