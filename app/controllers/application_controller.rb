@@ -28,11 +28,11 @@ class ApplicationController < ActionController::Base
     redirect_to '/login', notice: "You need admin credentials" unless current_user
   end
 
-  def signed_in?
-    !!current_user
-  end
+  # def signed_in?
+  #   !!current_user
+  # end
 
-  def is_admin?
-    signed_in? ? current_user.admin : false
-  end
+  # def is_admin?
+  #   signed_in? ? current_user.admin : false
+  # end
 end
