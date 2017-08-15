@@ -16,13 +16,17 @@ class JobsController < ApplicationController
 
   def create
     employer = Employer.find(params[:employer_id])
-    job = Job.employer.create(job_params)
+    job = Job.employer.new(job_params)
 
     if job.save
-      redirect_to jobs
+      redirect_to employer_jobs_path
     else
-      redirect_to jobs
+      redirect_to new_employer_job
     end
+  end
+
+  def new
+    @job = Job.new
   end
 
   private
