@@ -20,6 +20,7 @@ class ApplicantsController < ApplicationController
   end
 
   def show
+    @applicant = Applicant.find_by_user_id(current_user.id)
   end
 
   private

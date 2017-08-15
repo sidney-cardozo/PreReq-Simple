@@ -8,9 +8,9 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       if @user.applicant?
-        redirect_to "/applicants/new"
+        redirect_to new_applicant_path
       elsif @user.employer?
-        redirect_to "/employers/new"
+        redirect_to new_employer_path
       end
     else
       redirect_to :back
