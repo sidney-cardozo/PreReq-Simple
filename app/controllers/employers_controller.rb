@@ -20,9 +20,9 @@ class EmployersController < ApplicationController
     @employer = Employer.new(employer_params)
     @employer.user = current_user
     if @employer.save
-      redirect_to employer_path(@employer.id)
+      redirect_to employer_path(@employer.id), notice: "Employer profile saved"
     else
-      render :new
+      render :new, error: "Couldnt save employer profile"
     end
   end
 
