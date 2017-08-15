@@ -7,11 +7,11 @@
     <li>Password: <%= f.password_field :password %></li>
     <li>Password Confirmation: <%= f.password_field :password_confirmation %></li>
   </ul>
-  <%= f.radio_button :role, 'applicant', checked: true %>
-  <%= label :role_applicant, 'applicant' %>
+  <%= f.radio_button :role,'applicant', checked: true %>
+  <%= f.label :role, 'Applicant', :value => 'applicant' %>
 
   <%= f.radio_button :role, 'employer' %>
-  <%= label :role_employer, 'employer' %>
+  <%= f.label :role, 'Employer', :value => 'employer' %>
   <%= f.submit "Submit" %>
    <% if @user.errors.any? %>
     <div id="error_explanation">

@@ -9,13 +9,19 @@
 // Applicant
 @import "applicant";
 
+// Employer
+@import "employer";
+
+// Jobs
+@import "jobs";
+
 // Global
 body {
-  padding-top: 70px;
+  padding-top: 65px;
 }
 
-.footer {
-    bottom: 0;
-    width: 100%;
-    background-color: #eee;
-}
+// .footer {
+//     bottom: 0;
+//     width: 100%;
+//     background-color: #eee;
+// }

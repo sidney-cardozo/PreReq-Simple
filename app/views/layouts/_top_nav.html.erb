@@ -9,7 +9,8 @@
       </button>
       <a class="navbar-brand" href="/">PreReq</a>
     </div>
-    <div id="navbar" class="navbar-collapse collapse navbar-right">
+
+  <div id="navbar" class="navbar-collapse collapse navbar-right">
       <ul class="nav navbar-nav">
         <li>
           <%= link_to 'Home', :root %>
@@ -30,12 +31,14 @@
        <li>
           <% if current_user %>
             <% user = User.find(current_user.id) %>
-            <% if current_user.employer? %>
+            <% if Employer.find_by_user_id(user.id) %>
             <a>Signed in as <%=  Employer.find_by_user_id(user.id) ? Employer.find_by_user_id(user.id).name : Employer%></a>
-            <% elsif current_user.applicant? %>
-            <a>Signed in as <%=  Applicant.find_by_user_id(user.id) ? Applicant.find_by_user_id(user.id).name : Applicant%></a>
-            <% else %>
+            <% elsif Employer.find_by_user_id(user.id) %>
+            <a>Signed in as <%=  Applicant.find_by_user_id(user.id) ? Applicant.find_by_user_id(user.id).first_name : Applicant%></a>
+            <% elsif current_user.admin? %>
             <a>Signed in as admin</a>
+
+
             <% end %>
         </li>
         <li> <%= link_to "Logout", '/logout' %></li>

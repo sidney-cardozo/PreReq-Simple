@@ -4,7 +4,7 @@ class Employer < ActiveRecord::Base
 
   validates :description, presence: true
   validates :user_id, presence: true
-  validates :icon_url, presence: true
+
 
 
 end
