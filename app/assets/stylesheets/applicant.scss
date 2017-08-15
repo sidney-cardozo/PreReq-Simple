@@ -1,0 +1,25 @@
+main section.applicant-profile{
+  .im-profile-pic{
+    width: 100%;
+  }
+  .take-out-padding-lr{
+    padding: 0px;
+  }
+  .take-out-margin-t{
+    margin-top: 0px;
+  }
+  .profile-email{
+    font-size: 18px;
+  }
+}
+
+main section.applicant-profile-edit{
+  .im-profile-pic{
+    width:100%;
+    height: auto;
+  }
+
+  .form-control{
+    width:100%;
+  }
+}

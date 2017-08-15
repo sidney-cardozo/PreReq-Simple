@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  helper_method :cart, :current_user, :authorize
+  helper_method :cart, :current_user, :authorize_admin
 
   def cart
     # value = cookies[:cart] || JSON.generate({})
@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize_admin
-    redirect_to '/login', notice: "You need admin credentials" unless current_user
+    redirect_to '/login', notice: "You need admin credentials" unless current_user.admin?
   end
 
 end
