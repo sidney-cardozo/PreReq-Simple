@@ -26,6 +26,9 @@ class EmployersController < ApplicationController
     end
   end
 
+
+
+
   def new
     @employer = Employer.new
   end
