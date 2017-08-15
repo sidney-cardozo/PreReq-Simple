@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :applicants, except: [:destroy]
 
   namespace :admin do
-    resources :students, except: [:new]
+    resources :students
     resources :pairs, except: [:show]
   end
   # The priority is based upon order of creation: first created -> highest priority.
