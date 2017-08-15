@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorized_to_changes(params)
-    redirect_to '/', notice: "Action forbidden" unless current_user.id === params
+    redirect_to '/', notice: "Action forbidden" unless current_user.id == params
   end
 
   def authorize_admin
