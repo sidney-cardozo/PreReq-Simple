@@ -17,6 +17,14 @@ class ApplicantsController < ApplicationController
   end
 
   def new
+    applicant_user = User.find(current_user.id)
+    # applicant = applicant_user.applicants.create(applicant_params)
+
+    # if applicant.save
+    #   redirect_to "/search", notice: "Profile Creation successful !"
+    # else
+    #   redirect_to :back, notice: "Profile Creation failed !"
+    # end
   end
 
   def show
