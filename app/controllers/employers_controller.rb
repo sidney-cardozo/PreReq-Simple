@@ -16,10 +16,23 @@ class EmployersController < ApplicationController
     end
   end
 
+   def create
+    @employer = Employer.new(employer_params)
+    @employer.user = current_user
+    if @employer.save
+      redirect_to employer_path(@employer.id)
+    else
+      render :new
+    end
+  end
+
   def new
+    @employer = Employer.new
   end
 
   def show
+    @employer = Employer.find_by_user_id(current_user.id)
+
   end
 
 
