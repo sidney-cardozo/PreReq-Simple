@@ -15,11 +15,11 @@
           <%= link_to 'Home', :root %>
         </li>
         <% if current_user %>
-          <% if current_user.employer %>
+          <% if current_user.employer? %>
             <li>
               <%= link_to 'Profile', employer_path(current_user.id) %>
             </li>
-          <% elsif current_user.applicant %>
+          <% elsif current_user.applicant? %>
             <li>
               <%= link_to 'Profile', applicant_path(current_user.id)%>
             </li>
@@ -29,7 +29,14 @@
       <ul class="nav navbar-nav">
        <li>
           <% if current_user %>
-            <a>Signed in as <%= current_user.first_name %></a>
+            <% user = User.find(current_user.id) %>
+            <% if current_user.employer? %>
+            <a>Signed in as <%=  Employer.find_by_user_id(user.id) || Employer%></a>
+            <% elsif current_user.applicant? %>
+            <a>Signed in as <%=  Applicant.find_by_user_id(user.id) || Applicant %></a>
+            <% else %>
+            <a>Signed in as admin</a>
+            <% end %>
         </li><li> <%= link_to "Logout", '/logout' %></li>
           <% else %>
             <li><%= link_to 'Login', '/login' %></li>
