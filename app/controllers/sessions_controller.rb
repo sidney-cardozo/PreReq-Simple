@@ -3,14 +3,23 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if user = User.authenticate_with_credentials(params[:email], params[:password])
+    user = User.authenticate_with_credentials(params[:email], params[:password])
+
+    if user
       session[:user_id] = user.id
-      session[:role] = user.role
 
       if user.applicant?
-        redirect_to "/applicants/#{user.id}"
+        if applicant = Applicant.find_by_user_id(user.id)
+          redirect_to "/applicants/#{applicant.id}"
+        else
+          redirect_to "/applicants/new"
+        end
       elsif user.employer?
-        redirect_to "/employers/#{user.id}"
+        if employer = Employer.find_by_user_id(user.id)
+          redirect_to "/employers/#{employer.id}"
+        else
+          redirect_to "/employers/new"
+        end
       elsif user.admin?
         redirect_to "/admin/students"
       end

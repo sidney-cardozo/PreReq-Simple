@@ -7,14 +7,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      session[:role] = @user.role
-
       if @user.applicant?
-        redirect_to "/applicants/#{@user.id}"
+        redirect_to "/applicants/new"
       elsif @user.employer?
-        redirect_to "/employers/#{@user.id}"
-      elsif @user.admin?
-        redirect_to "/admin/students"
+        redirect_to "/employers/new"
       end
     else
       redirect_to :back
