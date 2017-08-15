@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'users#welcome'
 
   get '/signup' => 'users#new'
+  post '/signup' => 'users#create'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
@@ -12,6 +13,8 @@ Rails.application.routes.draw do
   resources :employers, except: [:index, :destroy] do
     resources :jobs, except: [:show]
   end
+
+  resources :employers, only: [:show, :edit]
 
   resources :applicants, except: [:destroy]
 

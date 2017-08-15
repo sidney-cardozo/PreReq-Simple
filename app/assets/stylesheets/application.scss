@@ -6,12 +6,16 @@
 // App
 @import "homepage";
 
+// Applicant
+@import "applicant";
+
 // Global
 body {
   padding-top: 70px;
-  .footer {
-    width: 100%;
-    background-color: #eee;
-  }
 }
 
+.footer {
+    bottom: 0;
+    width: 100%;
+    background-color: #eee;
+}
