@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'users#welcome'
 
   get '/signup' => 'users#new'
+  post '/signup' => 'users#create'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
@@ -13,10 +14,12 @@ Rails.application.routes.draw do
     resources :jobs, except: [:show]
   end
 
+  resources :employers, only: [:show, :edit]
+
   resources :applicants, except: [:destroy]
 
   namespace :admin do
-    resources :students, except: [:new]
+    resources :students
     resources :pairs, except: [:show]
   end
   # The priority is based upon order of creation: first created -> highest priority.
