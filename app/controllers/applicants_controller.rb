@@ -16,10 +16,23 @@ class ApplicantsController < ApplicationController
     end
   end
 
+  def create
+    @applicant = Applicant.new(applicant_params)
+    @applicant.user = current_user
+    if @applicant.save
+      redirect_to applicant_path(@applicant.id)
+    else
+      render :new
+    end
+  end
+
   def new
+    @applicant = Applicant.new
   end
 
   def show
+    @applicant = Applicant.find_by_user_id(current_user.id)
+
   end
 
   private
