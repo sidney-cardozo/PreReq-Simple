@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   def index
-    @jobs = Jobs.all.order(created_at: :desc)
+     @jobs = Job.all.order(created_at: :desc)
   end
 
   def show
@@ -16,7 +16,7 @@ class JobsController < ApplicationController
 
   def create
     employer = Employer.find(params[:employer_id])
-    job = Job.employer.new(job_params)
+    job = employer.jobs.new(job_params)
 
     if job.save
       redirect_to employer_jobs_path
