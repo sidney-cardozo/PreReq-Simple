@@ -35,6 +35,7 @@ class ApplicantsController < ApplicationController
   def show
     if Applicant.exists?(id: params[:id])
       @applicant = Applicant.find(params[:id])
+      @user = User.find(@applicant.user_id)
     else
       redirect_to :back, notice: "Applicant not existant"
     end
@@ -43,7 +44,7 @@ class ApplicantsController < ApplicationController
   private
 
   def applicant_params
-    params.require(:applicant).permit(:first_name, :last_name, :phone_number, :description, :resume_link, :fields)
+    params.require(:applicant).permit(:first_name, :last_name, :phone_number, :description, :resume_link, :fields, :image)
   end
 
   def authorized_to_view_applicants
