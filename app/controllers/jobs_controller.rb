@@ -6,7 +6,7 @@ class JobsController < ApplicationController
 
   def index
     @employer = Employer.find(params[:employer_id])
-    @jobs = @employer.jobs.order(position: :asc)
+    @jobs = @employer.jobs.order(:created_at :desc)
   end
 
   def show
