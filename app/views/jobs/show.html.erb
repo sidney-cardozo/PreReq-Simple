@@ -15,32 +15,72 @@
         <img class="comp-logo" src="http://lorempixel.com/400/400/">
       </div>
       <div class="col-xs-8 col-lg-4 take-out-padding-lr">
-        <h3 class="take-out-margin-t">Crymson Technologies</h3>
-        <p class="comp-description hidden-xs hidden-sm visible-md visible-lg">Maids table how learn drift but purse stand yet set. Music me house could among oh as their. Piqued our sister shy nature almost his wicket. Hand dear so we hour to. He we be hastily offence effects he service.</p>
+        <h3 class="take-out-margin-t"><%= @employer.name %></h3>
+        <p class="comp-description hidden-xs hidden-sm visible-md visible-lg"><%= @employer.description %></p>
       </div>
       <div class="col-xs-0 col-lg-3"></div>
     </div>
 
+
+<br>
+
+<div class="row text-center">
+  <h3 class="job-position"><%= @job.position %></h3>
+</div>
+
+<br>
+
+
     <div class="row">
       <div class="col-xs-1 col-lg-3"></div>
       <div class="col-xs-10 col-lg-6 text-center">
-        <h3 class="job-position">Position</h3>
-        <h4>Job type</h4>
-        <h4>Description</h4>
-        <h4>Requirements</h4>
-        <h4>Tags</h4>
-        <h4>To apply</h4>
+
+
+
+
+
+<table class="table table-responsive">
+    <tbody>
+    <tr>
+      <th scope="row" class="table-head">Job type:</th>
+      <td class="table-content"><%= @job.job_type %></td>
+
+    </tr>
+    <tr>
+      <th scope="row" class="table-head">Description:</th>
+      <td class="table-content"><%= @job.description %></td>
+
+    </tr>
+    <tr>
+      <th scope="row" class="table-head">Requirements:</th>
+      <td class="table-content"><%= @job.requirements %></td>
+
+    </tr>
+
+
+
+    <tr>
+      <th scope="row" class="table-head">To apply:</th>
+      <td class="table-content"><%= @job.apply_info %></td>
+
+    </tr>
+  </tbody>
+    </table>
+
+
+
+
       </div>
       <div class="col-xs-1 col-lg-3"></div>
     </div>
 
-    <br>
-    <br>
 
-    <div class="row">
-      <form class="text-center">
-        <button type="submit" class="btn btn-default">Add/edit content</button>
-      </form>
+
+    <div class="row text-center">
+
+<a type="submit" href="<%= edit_employer_job_path(@employer, @job) %>">Add/edit content</a>
+
+
     </div>
 
   </div>

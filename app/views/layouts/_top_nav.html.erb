@@ -36,8 +36,6 @@
             <a>Signed in as <%=  current_user.applicant.first_name ? current_user.applicant.first_name : Applicant%></a>
             <% elsif current_user.admin? %>
             <a>Signed in as Admin</a>
-
-
             <% end %>
         </li>
         <li> <%= link_to "Logout", '/logout' %></li>
