@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-  get '/search' => 'jobs#index'
+  get '/jobs' => 'jobs#search_index'
 
   resources :employers, except: [:index, :destroy] do
     resources :jobs, except: [:show, :destroy]
