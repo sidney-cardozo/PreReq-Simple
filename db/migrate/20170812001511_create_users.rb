@@ -10,7 +10,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.belongs_to :user, index: true
       t.text :description
-      t.string :icon_url
+      t.string :image
     end
 
     create_table :applicants do |t|

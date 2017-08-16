@@ -7,7 +7,7 @@ class Applicant < ActiveRecord::Base
   mount_uploader :image, ProfileImageUploader
 
   has_attached_file :image,
-  default_url: "default.png"
+  default_url: "/image/default.png"
 end
 
 

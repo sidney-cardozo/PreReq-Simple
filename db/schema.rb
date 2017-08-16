@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20170812001511) do
     t.string  "name"
     t.integer "user_id"
     t.text    "description"
-    t.string  "icon_url"
+    t.string  "image"
   end
 
   add_index "employers", ["user_id"], name: "index_employers_on_user_id", using: :btree
