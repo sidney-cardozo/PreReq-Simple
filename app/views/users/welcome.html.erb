@@ -34,7 +34,7 @@
       <p>Ladyship it daughter securing procured or am moreover mr. Put sir she exercise vicinity cheerful wondered.</p>
       </div>
       <div class="col-xs-2 vcenter text-center">
-      <a class="btn btn-primary" role="button" data-toggle="modal" data-target="#signup">Register</a>
+      <a id="register-employer" class="btn btn-primary" role="button" data-toggle="modal" data-target="#signup">Register</a>
       </div>
     </div>
   </div>
@@ -53,7 +53,7 @@
       <p>Ladyship it daughter securing procured or am moreover mr. Put sir she exercise vicinity cheerful wondered.</p>
       </div>
       <div class="col-xs-2 vcenter text-center">
-      <a class="btn btn-primary" role="button" data-toggle="modal" data-target="#signup">Register</a>
+      <a id="register-applicant" class="btn btn-primary" role="button" data-toggle="modal" data-target="#signup">Register</a>
       </div>
     </div>
   </div>
@@ -78,7 +78,7 @@
     </div>
     <div class="row">
     <div class="col-xs-12 text-center">
-      <a class="btn btn-primary" role="button" data-toggle="modal" data-target="#signup">Register</a>
+      <a id="register-employer" class="btn btn-primary" role="button" data-toggle="modal" data-target="#signup">Register</a>
       </div>
     </div>
 
@@ -102,7 +102,7 @@
     </div>
     <div class="row">
     <div class="col-xs-12 text-center">
-      <a class="btn btn-primary" role="button" data-toggle="modal" data-target="#signup">Register</a>
+      <a id="register-applicant" class="btn btn-primary" role="button" data-toggle="modal" data-target="#signup">Register</a>
       </div>
     </div>
 
@@ -114,7 +114,7 @@
 <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header row">
+      <div class="modal-header">
         <div class="col-xs-10">
           <h4 class="modal-title" id="loginLabel">Login</h4>
         </div>
@@ -140,7 +140,7 @@
 <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header row">
+      <div class="modal-header ">
         <div class="col-xs-10">
           <h4 class="modal-title" id="loginLabel">Register</h4>
         </div>
@@ -152,16 +152,32 @@
       </div>
         <%= form_for :user, url: '/signup' do |f| %>
         <div class="modal-body">
-          <ul>
-            <li>Email: <%= f.text_field :email %></li>
-            <li>Password: <%= f.password_field :password %></li>
-            <li>Password Confirmation: <%= f.password_field :password_confirmation %></li>
-          </ul>
-          <%= f.radio_button :role,'applicant'%>
-          <%= f.label :role, 'Applicant', :value => 'applicant' %>
-
-          <%= f.radio_button :role, 'employer' %>
-          <%= f.label :role, 'Employer', :value => 'employer' %>
+          <table class="table table-responsive">
+            <tbody>
+              <tr>
+                <th>Email: </th>
+                <td><%= f.text_field :email %></td>
+              </tr>
+              <tr>
+                <th>Password: </th>
+                <td><%= f.password_field :password %></td>
+              </tr>
+              <tr>
+                <th>Password Confirmation: </th>
+                <td><%= f.password_field :password_confirmation %></td>
+              </tr>
+              <tr>
+                <th>
+                <%= f.radio_button :role,'applicant', id: "radio-applicant"%>
+                <%= f.label :role, 'Applicant'%>
+                </th>
+                <th>
+                <%= f.radio_button :role, 'employer', id: "radio-employer"%>
+                <%= f.label :role, 'Employer'%>
+                </th>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary">Submit</button>
@@ -170,6 +186,19 @@
     </div>
   </div>
 </div>
+
+<script>
+$(document).ready(function(){
+  $("#register-employer").on("click", function(){
+    $("#radio-employer").is(":checked")
+  });
+
+  $("#register-applicant").on("click", function(){
+    $("#radio-applicant").is(":checked")
+  });
+});
+
+</script>
 
 <!-- FOR EMPLOYERS FOR IMMIGRANT BOXES SECTION END -->
 
