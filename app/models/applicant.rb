@@ -4,10 +4,10 @@ class Applicant < ActiveRecord::Base
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :description, presence: true
-  mount_uploader :image, ProfileImageUploader
+  # mount_uploader :image, ProfileImageUploader
 
-  has_attached_file :image,
-  default_url: "/image/default.png"
+  # has_attached_file :image,
+  # default_url: "/image/default.png"
 end
 
 

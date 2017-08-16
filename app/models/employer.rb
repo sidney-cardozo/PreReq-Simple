@@ -5,9 +5,9 @@ class Employer < ActiveRecord::Base
   validates :description, presence: true
   validates :user_id, presence: true
 
-  mount_uploader :image, ProfileImageUploader
+  # mount_uploader :image, ProfileImageUploader
 
-  has_attached_file :image,
-  default_url: "/image/default.png"
+  # has_attached_file :image,
+  # default_url: "/image/default.png"
 
 end
