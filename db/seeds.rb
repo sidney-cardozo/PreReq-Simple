@@ -32,7 +32,7 @@ Student.create({
   concentration: Faker::Hipster.word,
   industry: Faker::Hipster.sentence,
   resume_link: Faker::Internet.url,
-  paired: true
+  paired: false
   })
 end
 puts "students created"

@@ -65,15 +65,15 @@ ActiveRecord::Schema.define(version: 20170812001511) do
   add_index "jobs", ["employer_id"], name: "index_jobs_on_employer_id", using: :btree
 
   create_table "pairs", force: :cascade do |t|
-    t.integer  "applicants_id"
-    t.integer  "students_id"
+    t.integer  "applicant_id"
+    t.integer  "student_id"
     t.text     "story"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
-  add_index "pairs", ["applicants_id"], name: "index_pairs_on_applicants_id", using: :btree
-  add_index "pairs", ["students_id"], name: "index_pairs_on_students_id", using: :btree
+  add_index "pairs", ["applicant_id"], name: "index_pairs_on_applicant_id", using: :btree
+  add_index "pairs", ["student_id"], name: "index_pairs_on_student_id", using: :btree
 
   create_table "students", force: :cascade do |t|
     t.string   "name"
