@@ -1,5 +1,3 @@
-<!-- LIST OF JOB POSTINGS BY COMPANY w/ CREATE NEW BBUTTON -->
-
 <section class="job-postings-index">
   <div class="container">
     <div class="row">
@@ -12,10 +10,24 @@
 
     <div class="row">
       <div class="col-xs-0 col-lg-3"></div>
+      <% if @jobs.count != 0 %>
       <div class="col-xs-12 col-lg-6 job-postings-box">
+
+
+        <% @jobs.each do |job| %>
+          <%= render 'job', job: job, employer: @employer %>
+          <% end %>
+          <% else %>
+          <h3>You haven't posted any jobs yet</h3>
+
+        <% end %>
 
       </div>
       <div class="col-xs-0 col-lg-3"></div>
     </div>
+    <div class="row">
+<div class="col-xs-12 text-center">
+<%= link_to 'Create new job', "jobs/new" %>
 
-    <!-- CREATE NEW POSTING BUTTON -->
+</div>
+</div>

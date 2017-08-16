@@ -11,8 +11,10 @@ Rails.application.routes.draw do
   get '/search' => 'jobs#index'
 
   resources :employers, except: [:index, :destroy] do
-    resources :jobs, except: [:show]
+    resources :jobs, except: [:show, :destroy]
   end
+
+  resources :jobs, only: [:show, :destroy]
 
   resources :employers, only: [:show, :edit]
 

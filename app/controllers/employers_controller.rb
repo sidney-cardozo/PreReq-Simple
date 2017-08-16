@@ -24,6 +24,9 @@ class EmployersController < ApplicationController
     end
   end
 
+
+
+
   def new
     redirect_to "/login" unless current_user && current_user.employer? && Employer.where(user_id: current_user.id).blank? || current_user.admin?
 

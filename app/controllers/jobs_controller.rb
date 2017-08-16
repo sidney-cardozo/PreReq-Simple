@@ -5,7 +5,8 @@ class JobsController < ApplicationController
   before_filter :authorized_to_changes, only: [:create, :delete_job]
 
   def index
-    @jobs = Jobs.all.order(created_at: :desc)
+    @employer = Employer.find(params[:employer_id])
+    @jobs = @employer.jobs.order(position: :asc)
   end
 
   def show
@@ -17,7 +18,7 @@ class JobsController < ApplicationController
     end
   end
 
-  def delete_job
+  def destroy
     @job = Job.find(params[:id])
     @job.destroy
     redirect_to :back
@@ -25,13 +26,17 @@ class JobsController < ApplicationController
 
   def create
     employer = Employer.find(params[:employer_id])
-    job = Job.employer.create(job_params)
+    job = employer.jobs.new(job_params)
 
     if job.save
-      redirect_to jobs
+      redirect_to employer_jobs_path
     else
-      redirect_to jobs
+      redirect_to new_employer_job
     end
+  end
+
+  def new
+    @job = Job.new
   end
 
   private

@@ -25,3 +25,15 @@ main section.job-details{
     margin-top: 0px;
   }
 }
+
+main section.job-postings-index{
+  .job-postings-box{
+    border: 1px black solid;
+    .job-posting-item{
+      border: 1px black solid;
+      margin: 5px;
+      padding: 10px;
+
+    }
+  }
+}
