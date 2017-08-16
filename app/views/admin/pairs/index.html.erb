@@ -63,12 +63,43 @@
           </table>
 
 
-
-
         </div>
       </div>
       <div class="col-xs-1"></div>
     </div>
+
+
+  <div class="row">
+  <div class="row text-center">
+          <h3>List of pairs</h3>
+        </div>
+        <div class="row">
+    <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Applicant name</th>
+      <th>Student name</th>
+      <th>Story</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @pairs.each do |pair| %>
+    <tr>
+
+      <td><%= pair.applicants_id %></td>
+      <td><%= pair.students_id %></td>
+      <td><% if pair.story %> Y <% else %> N <% end %></td>
+      <td>X</td>
+    </tr>
+    <% end %>
+
+  </tbody>
+</table>
+</div>
+
+  </div>
+
 
   </div>
 </section>
