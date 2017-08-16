@@ -7,7 +7,7 @@ main section.new-job{
   }
 }
 
-main section.job-edit{
+main section.edit-job{
   .take-out-margin-t{
     margin-top: 0px;
   }
@@ -23,6 +23,13 @@ main section.job-details{
   }
   .take-out-margin-t{
     margin-top: 0px;
+  }
+  .table-head{
+    width: 25%;
+    text-align: right;
+  }
+  .table-content{
+    text-align: left;
   }
 }
 

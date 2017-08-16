@@ -28,6 +28,7 @@ class PairsController < ApplicationController
       redirect_to admin_pairs_path, alert: "Pair deleted!"
     else
       redirect_to admin_pairs_path, notice: "Couldnt find pair, make sure the id's are correct!"
+    end
   end
 
   def edit

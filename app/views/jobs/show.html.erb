@@ -80,7 +80,9 @@
 
 <a type="submit" href="<%= edit_employer_job_path(@employer, @job) %>">Add/edit content</a>
 
-
+<% if current_user.employer %>
+<a type="submit" href="<%= employer_jobs_path(@employer, @job) %>">My job postings</a>
+<% end %>
     </div>
 
   </div>
