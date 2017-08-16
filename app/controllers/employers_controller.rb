@@ -24,11 +24,7 @@ class EmployersController < ApplicationController
     end
   end
 
-
-
-
   def new
-
     if current_user
       if !current_user.employer?
         redirect_to "/", notice: "User not an employer"
