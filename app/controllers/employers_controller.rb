@@ -28,13 +28,19 @@ class EmployersController < ApplicationController
 
 
   def new
+
     if current_user
-      redirect_to "/", notice: "User not an employer" unless current_user.employer? && current_user.blank? || current_user.admin?
+      if !current_user.employer?
+        redirect_to "/", notice: "User not an employer"
+      elsif current_user.employer != nil
+        redirect_to "/", notice: "Profile Page already created"
+      end
     else
       redirect_to "/login", notice: "Not logged in"
     end
 
     @employer = Employer.new
+
   end
 
   def show

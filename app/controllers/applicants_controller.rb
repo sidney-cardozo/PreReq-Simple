@@ -32,7 +32,11 @@ class ApplicantsController < ApplicationController
 
   def show
     if current_user
-      redirect_to "/", notice: "User not an applicant" unless current_user.applicant? && current_user.applicant.blank? || current_user.admin?
+      if !current_user.applicant?
+        redirect_to "/", notice: "User not an applicant"
+      elsif current_user.applicant != nil
+        redirect_to "/", notice: "Profile Page already created"
+      end
     else
       redirect_to "/login", notice: "Not logged in"
     end
