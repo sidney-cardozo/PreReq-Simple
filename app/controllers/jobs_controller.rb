@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
   def index
-     @jobs = Job.all.order(created_at: :desc)
+    @employer = Employer.find(params[:employer_id])
+    @jobs = @employer.jobs.order(position: :asc)
   end
 
   def show
@@ -8,7 +9,7 @@ class JobsController < ApplicationController
     @user = current_user
   end
 
-  def delete_job
+  def destroy
     @job = Job.find(params[:id])
     @job.destroy
     redirect_to :back

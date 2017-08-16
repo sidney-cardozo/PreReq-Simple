@@ -1,0 +1,16 @@
+
+<div class="job-posting-item">
+<div class="row">
+<div class="col-xs-8">
+  <h4><%= job.position %> | <%= employer.name %></h4>
+  <p class="job-item-description"><%= job.description %></p>
+</div>
+<div class="col-xs-4">
+  <%= link_to 'Details', job %>
+
+
+  <%= link_to 'Remove', [job], method: :delete, data: { confirm: "Are you sure?" } %>
+</div>
+
+</div>
+</div>
