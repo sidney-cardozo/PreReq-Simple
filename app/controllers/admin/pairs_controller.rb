@@ -28,13 +28,14 @@ class PairsController < ApplicationController
       redirect_to admin_pairs_path, alert: "Pair deleted!"
     else
       redirect_to admin_pairs_path, notice: "Couldnt find pair, make sure the id's are correct!"
+    end
   end
 
   def edit
-    @pair = Pair.find(params[:students_applicant_id])
+    @pair = Pair.find(params[:id])
 
     if @pair
-      Pair.update(params[:students_applicant_id], story: params[:story]), notice: "Pair story updated!"
+      Pair.update(params[:id], story: params[:story]), notice: "Pair story updated!"
     else
       redirect_to admin_pairs_path, error: "Couldnt find pair, make sure the id's are correct!"
     end
@@ -48,6 +49,6 @@ class PairsController < ApplicationController
   private
 
   def pair_params
-    params.require(:pair).permit(:student_id, :applicant_id)
+    params.require(:pair).permit(:student_id, :applicant_id, :story)
   end
 end
