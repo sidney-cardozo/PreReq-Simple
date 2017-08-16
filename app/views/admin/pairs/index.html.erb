@@ -87,8 +87,8 @@
   <% @pairs.each do |pair| %>
     <tr>
 
-      <td><%= pair.applicants_id %></td>
-      <td><%= pair.students_id %></td>
+      <td><%= pair.applicant.first_name %> </td>
+      <td><%= pair.student.name %></td>
       <td><% if pair.story %> Y <% else %> N <% end %></td>
       <td>X</td>
     </tr>
