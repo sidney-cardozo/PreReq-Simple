@@ -1,6 +1,13 @@
 class PairsController < ApplicationController
   before_filter :authorize_admin
 
+  def index
+    @students = Student.all
+    @applicants = Applicant.all
+    @pairs = Pair.all
+  end
+
+
   def create
     pair = Pair.new(pair_params)
 
