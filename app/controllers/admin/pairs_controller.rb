@@ -21,7 +21,7 @@ class PairsController < ApplicationController
     end
   end
 
-  def remove_pair
+  def destroy
     @pair = Pair.find(params[:id])
     if @pair
       @pair.destroy
