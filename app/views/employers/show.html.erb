@@ -14,27 +14,40 @@
         <img class="comp-logo" src="http://lorempixel.com/400/400/">
       </div>
       <div class="col-xs-8 col-lg-4 take-out-padding-lr">
-        <h3 class="take-out-margin-t">Crymson Technologies</h3>
-        <a class="company-email" href="#">crymson@technologies.com</a>
+        <h3 class="take-out-margin-t"><%= @employer.name %></h3>
+        <a class="company-email" href="#"><%= @user.email %></a>
       </div>
       <div class="col-xs-0 col-lg-3"></div>
       </div>
 
+<br>
+      <br>
 
       <div class="row">
 
         <div class="col-xs-1 col-lg-3"></div>
         <div class="col-xs-10 col-lg-6 text-center">
 
-          <h4>Description</h4>
+          <table class="table table-responsive">
+    <tbody>
+
+    <tr>
+      <th scope="row" class="table-head">Description:</th>
+      <td class="table-content"><%= @employer.description %></td>
+
+    </tr>
+
+  </tbody>
+    </table>
 
 
         </div>
         <div class="col-xs-1 col-lg-3"></div>
 
       </div>
-      <br>
-      <br>
+
+
+
       <div class="row text-center">
 
           <a type="submit" href="<%= edit_employer_path(@employer) %>">Add/edit content</a>

@@ -6,15 +6,31 @@ class JobsController < ApplicationController
 
   def index
     @employer = Employer.find(params[:employer_id])
-    @jobs = @employer.jobs.order(:created_at :desc)
+    @jobs = @employer.jobs.order(created_at: :desc)
   end
 
   def show
+
     # if Employer.exists?(params[:employer_id]) && Job.exists?(params[:id])
       @job = Job.find(params[:id])
+      @employer = @job.employer
+
+
     # else
     #   redirect_to "/", notice: "Employer or Job not existant"
     # end
+  end
+
+  def edit
+    @job = Job.find(params[:id])
+    @employer = @job.employer
+  end
+
+  def update
+    @job = Job.find(params[:id])
+    @job.update(job_params)
+    redirect_to job_path(@job)
+    # try for updating this later
   end
 
   def destroy

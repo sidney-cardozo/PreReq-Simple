@@ -36,6 +36,7 @@ class EmployersController < ApplicationController
   def show
     # if Employer.exists?(params[:id])
       @employer = Employer.find_by_user_id(current_user.id)
+      @user = User.find(@employer.user_id)
     # else
     #   redirect_to :back, notice: "Employer not existant"
     # end
