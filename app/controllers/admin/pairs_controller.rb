@@ -35,7 +35,7 @@ class PairsController < ApplicationController
     @pair = Pair.find(params[:id])
 
     if @pair
-      Pair.update(params[:id], story: params[:story]), notice: "Pair story updated!"
+      Pair.update(pair_params), notice: "Pair story updated!"
     else
       redirect_to admin_pairs_path, error: "Couldnt find pair, make sure the id's are correct!"
     end
