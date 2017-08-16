@@ -10,12 +10,11 @@ class JobsController < ApplicationController
   end
 
   def show
-    if Employer.exists?(id: params[:employer_id]) && Job.exists?(id: params[:id])
+    # if Employer.exists?(params[:employer_id]) && Job.exists?(params[:id])
       @job = Job.find(params[:id])
-      @user = current_user
-    else
-      redirect_to "/", notice: "Employer or Job not existant"
-    end
+    # else
+    #   redirect_to "/", notice: "Employer or Job not existant"
+    # end
   end
 
   def destroy

@@ -34,11 +34,11 @@ class EmployersController < ApplicationController
   end
 
   def show
-    if Employer.exists?(id: params[:id])
+    # if Employer.exists?(params[:id])
       @employer = Employer.find_by_user_id(current_user.id)
-    else
-      redirect_to :back, notice: "Employer not existant"
-    end
+    # else
+    #   redirect_to :back, notice: "Employer not existant"
+    # end
   end
 
 
