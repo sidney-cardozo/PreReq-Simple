@@ -31,6 +31,12 @@ class ApplicantsController < ApplicationController
   end
 
   def show
+    if current_user
+      redirect_to "/", notice: "User not an applicant" unless current_user.applicant? && current_user.applicant.blank? || current_user.admin?
+    else
+      redirect_to "/login", notice: "Not logged in"
+    end
+
     puts "checkingtheparams"
     puts Applicant.find(params[:id])
     puts "done"

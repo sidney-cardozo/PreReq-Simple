@@ -28,24 +28,29 @@ class EmployersController < ApplicationController
 
 
   def new
-    redirect_to "/login" unless current_user && current_user.employer? && Employer.where(user_id: current_user.id).blank? || current_user.admin?
+    if current_user
+      redirect_to "/", notice: "User not an employer" unless current_user.employer? && current_user.blank? || current_user.admin?
+    else
+      redirect_to "/login", notice: "Not logged in"
+    end
 
     @employer = Employer.new
   end
 
   def show
-    # if Employer.exists?(params[:id])
-      @employer = Employer.find_by_user_id(current_user.id)
-    # else
-    #   redirect_to :back, notice: "Employer not existant"
-    # end
+    if Employer.exists?(params[:id])
+      @employer = Employer.find(params[:id])
+      @user = User.find(@employer.user_id)
+    else
+      redirect_to "/", notice: "Employer not existant"
+    end
   end
 
 
   private
 
   def employer_params
-    params.require(:employer).permit(:name, :description, :icon_url)
+    params.require(:employer).permit(:name, :description, :image)
   end
 
   def authorized_to_view_employers
@@ -53,10 +58,10 @@ class EmployersController < ApplicationController
       if Employer.exists?(id: params[:id])
         redirect_to "/", notice: "Action Forbidden" unless view_context.is_owner(Employer, params[:id], current_user)
       else
-        redirect_to :back, notice: "Employer not existant"
+        redirect_to "/", notice: "Employer not existant"
       end
     else
-      redirect_to :back, notice: "Action Forbidden"
+      redirect_to "/", notice: "Action Forbidden"
     end
   end
 end
