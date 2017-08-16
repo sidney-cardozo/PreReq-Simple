@@ -5,6 +5,7 @@ class PairsController < ApplicationController
     @students = Student.all
     @applicants = Applicant.all
     @pairs = Pair.all
+    @pair = Pair.new
   end
 
 
@@ -14,19 +15,19 @@ class PairsController < ApplicationController
     if pair.save
       Student.update(params[:student_id], paired: true)
       Applicant.update(params[:applicant_id], paired: true)
-      redirect_to students_applicants, notice: "Pair Created !"
+      redirect_to admin_pairs_path, notice: "Pair Created !"
     else
-      redirect_to students_applicants, error: "Pair was not created!"
+      redirect_to admin_pairs_path, error: "Pair was not created!"
     end
   end
 
   def remove_pair
-    @student_applicant = Pair.find(params[:students_applicant_id])
-    if @student_applicant
-      @student_applicant.destroy
-      redirect_to students_applicants, alert: "Pair deleted!"
+    @pair = Pair.find(params[:id])
+    if @pair
+      @pair.destroy
+      redirect_to admin_pairs_path, alert: "Pair deleted!"
     else
-      redirect_to students_applicants, notice: "Couldnt find pair, make sure the id's are correct!"
+      redirect_to admin_pairs_path, notice: "Couldnt find pair, make sure the id's are correct!"
   end
 
   def edit
@@ -35,7 +36,7 @@ class PairsController < ApplicationController
     if @pair
       Pair.update(params[:students_applicant_id], story: params[:story]), notice: "Pair story updated!"
     else
-      redirect_to students_applicants, error: "Couldnt find pair, make sure the id's are correct!"
+      redirect_to admin_pairs_path, error: "Couldnt find pair, make sure the id's are correct!"
     end
   end
 
@@ -47,6 +48,6 @@ class PairsController < ApplicationController
   private
 
   def pair_params
-    params.require(:student_applicant).permit(:student_id, :applicant_id)
+    params.require(:pair).permit(:student_id, :applicant_id)
   end
 end
