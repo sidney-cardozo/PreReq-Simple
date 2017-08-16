@@ -3,17 +3,15 @@ class EmployersController < ApplicationController
   # before_filter :authorized_to_changes, only: [:edit]
 
   def edit
-    @employer_id = current_user.id
-    employer_user = User.find(@employer_id)
-    employer = Employer.find_by_user_id (employer_id)
+    @employer = Employer.find_by_user_id(current_user)
 
-    if employer_user
-      if !employer
-        new_employer = employer_user.create!(employer_params)
-      else
-        Employer.update(employer.id, employer_params)
-      end
-    end
+  end
+
+  def update
+    @employer = Employer.find_by_user_id(current_user)
+    @employer.update(employer_params)
+    redirect_to employer_path(@employer)
+    # try for updating this later
   end
 
    def create

@@ -29,6 +29,16 @@
         </div>
 
         <%= form.submit 'Create account', class: 'btn btn-primary' %>
+        <% if form.object.errors.any? %>
+          <div class="alert alert-danger">
+            <strong>The following errors prevented saving:</strong>
+            <ul>
+              <% form.object.errors.full_messages.each do |error| %>
+                <li><%= error %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
 
       <% end %>
 
