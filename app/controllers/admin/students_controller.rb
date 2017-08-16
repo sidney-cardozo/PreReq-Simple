@@ -1,5 +1,6 @@
 class StudentsController < ApplicationController
   before_filter :authorize_admin
+
   def create
     student = Student.create(student_params)
 
