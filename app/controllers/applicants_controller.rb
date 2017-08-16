@@ -3,17 +3,15 @@ class ApplicantsController < ApplicationController
   before_filter :authorized_to_view_applicants, only: [:edit]
 
   def edit
-    @applicant_id = current_user.id
-    applicant_user = User.find(@applicant_id)
-    applicant = Applicant.where(user_id: @applicant_id).first
+    @applicant = Applicant.find_by_user_id(current_user)
 
-    if applicant_user
-      if !applicant
-        new_applicant = applicant_user.create(applicant_params)
-      else
-        Applicant.update(applicant.id, applicant_params)
-      end
-    end
+  end
+
+  def update
+    @applicant = Applicant.find_by_user_id(current_user)
+    @applicant.update(applicant_params)
+    redirect_to applicant_path(@applicant)
+    # try for updating this later
   end
 
   def create
