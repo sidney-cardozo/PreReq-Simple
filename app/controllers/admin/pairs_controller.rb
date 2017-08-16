@@ -31,15 +31,15 @@ class PairsController < ApplicationController
     end
   end
 
-  def edit
-    @pair = Pair.find(params[:id])
+  # def edit
+  #   @pair = Pair.find(params[:id])
 
-    if @pair
-      Pair.update(pair_params), notice: "Pair story updated!"
-    else
-      redirect_to admin_pairs_path, error: "Couldnt find pair, make sure the id's are correct!"
-    end
-  end
+  #   if @pair
+  #     Pair.update(pair_params), notice: "Pair story updated!"
+  #   else
+  #     redirect_to admin_pairs_path, error: "Couldnt find pair, make sure the id's are correct!"
+  #   end
+  # end
 
   def show
     @pair = Pair.find(params[:id])
