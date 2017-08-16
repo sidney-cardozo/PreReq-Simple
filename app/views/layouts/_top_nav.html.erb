@@ -16,13 +16,13 @@
           <%= link_to 'Home', :root %>
         </li>
         <% if current_user %>
-          <% if current_user.employer? %>
+          <% if current_user.employer %>
             <li>
-              <%= link_to 'Profile', employer_path(current_user.id) %>
+              <%= link_to 'Profile', employer_path(current_user.employer.id) %>
             </li>
-          <% elsif current_user.applicant? %>
+          <% elsif current_user.applicant %>
             <li>
-              <%= link_to 'Profile', applicant_path(current_user.id)%>
+              <%= link_to 'Profile', applicant_path(current_user.applicant)%>
             </li>
           <% end %>
         <% end %>
@@ -30,13 +30,12 @@
       <ul class="nav navbar-nav">
        <li>
           <% if current_user %>
-            <% user = User.find(current_user.id) %>
-            <% if Employer.find_by_user_id(user.id) %>
-            <a>Signed in as <%=  Employer.find_by_user_id(user.id) ? Employer.find_by_user_id(user.id).name : Employer%></a>
-            <% elsif Employer.find_by_user_id(user.id) %>
-            <a>Signed in as <%=  Applicant.find_by_user_id(user.id) ? Applicant.find_by_user_id(user.id).first_name : Applicant%></a>
+            <% if current_user.employer %>
+            <a>Signed in as <%=  current_user.employer.name ? current_user.employer.name : Employer%></a>
+            <% elsif current_user.applicant %>
+            <a>Signed in as <%=  current_user.applicant.first_name ? current_user.applicant.first_name : Applicant%></a>
             <% elsif current_user.admin? %>
-            <a>Signed in as admin</a>
+            <a>Signed in as Admin</a>
 
 
             <% end %>

@@ -16,4 +16,15 @@ class User < ActiveRecord::Base
     end
   end
 
+  def applicant
+    Applicant.find_by_user_id(self.id)
+  end
+
+  def employer
+    Employer.find_by_user_id(self.id)
+  end
+
+  def admin
+    Admin.find_by_user_id(self.id)
+  end
 end

@@ -31,6 +31,9 @@ class ApplicantsController < ApplicationController
   end
 
   def show
+    puts "checkingtheparams"
+    puts Applicant.find(params[:id])
+    puts "done"
     if Applicant.exists?(id: params[:id])
       @applicant = Applicant.find(params[:id])
       @user = User.find(@applicant.user_id)
