@@ -12,3 +12,27 @@ User.create!({
   password: "alloha",
   role: 2
   })
+
+puts "creating paired Students"
+(10.times).each do
+Student.create({
+  name: Faker::Name.first_name,
+  concentration: Faker::Hipster.word,
+  industry: Faker::Hipster.sentence,
+  resume_link: Faker::Internet.url,
+  paired: true
+  })
+end
+puts "students created"
+
+puts "creating paired Students"
+(10.times).each do
+Student.create({
+  name: Faker::Name.first_name,
+  concentration: Faker::Hipster.word,
+  industry: Faker::Hipster.sentence,
+  resume_link: Faker::Internet.url,
+  paired: false
+  })
+end
+puts "students created"

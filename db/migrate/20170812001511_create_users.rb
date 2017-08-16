@@ -47,8 +47,8 @@ class CreateUsers < ActiveRecord::Migration
     end
 
     create_table :pairs do |t|
-      t.belongs_to :applicants, index: true
-      t.belongs_to :students, index: true
+      t.belongs_to :applicant, index: true
+      t.belongs_to :student, index: true
       t.text :story
       t.timestamps null: false
     end
@@ -70,5 +70,7 @@ class CreateUsers < ActiveRecord::Migration
     drop_table :jobs
     drop_table :students
     drop_table :pairs
+    drop_table :tags
+    drop_table :job_tags
   end
 end

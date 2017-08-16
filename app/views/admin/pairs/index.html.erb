@@ -1,30 +1,106 @@
-<section class="admin-products-index">
+<section class="admin-dashboard">
+  <div class="container">
 
-  <header class="page-header">
-    <h1>Admin &raquo; All Products</h1>
-  </header>
+    <div class="row">
+      <div class="col-xs-1"></div>
+      <div class="col-xs-5">
+        <div class="row text-center">
+          <h3>List of applicants</h3>
+        </div>
+        <div class="row">
 
-  <div class="well">
-    <%= link_to '+ New Product', [:new, :admin, :product], class: 'btn btn-info' %>
-  </div>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>D</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @applicants.each do |app| %>
+              <tr>
+                <th scope="row"><%= app.id %></th>
+                <td><%= app.first_name %> <%= app.last_name %></td>
+                <td>X</td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
 
-  <div class="panel panel-default products">
 
+
+
+        </div>
+
+      </div>
+      <div class="col-xs-5">
+
+                <div class="row text-center">
+          <h3>List of MBA students</h3>
+        </div>
+        <div class="row">
+
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>D</th>
+                <th>E</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @students.each do |mba| %>
+              <tr>
+                <th scope="row"><%= mba.id %></th>
+                <td><%= mba.name %></td>
+                <td>X</td>
+                <td>/</td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+
+
+        </div>
+      </div>
+      <div class="col-xs-1"></div>
+    </div>
+
+
+  <div class="row">
+  <div class="row text-center">
+          <h3>List of pairs</h3>
+        </div>
+        <div class="row">
     <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th colspan="2">Product</th>
-          <th>Category</th>
-          <th>Price</th>
-          <th>Qty Remaining</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= render @products %>
-      </tbody>
-    </table>
+  <thead>
+    <tr>
+      <th>Applicant name</th>
+      <th>Student name</th>
+      <th>Story</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @pairs.each do |pair| %>
+    <tr>
+
+      <td><%= pair.applicant.first_name %> </td>
+      <td><%= pair.student.name %></td>
+      <td><% if pair.story %> Y <% else %> N <% end %></td>
+      <td>X</td>
+    </tr>
+    <% end %>
+
+  </tbody>
+</table>
+</div>
 
   </div>
 
+
+  </div>
 </section>
+

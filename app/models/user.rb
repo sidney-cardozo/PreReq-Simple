@@ -25,7 +25,4 @@ class User < ActiveRecord::Base
     Employer.find_by_user_id(self.id)
   end
 
-  def admin
-    Admin.find_by_user_id(self.id)
-  end
 end

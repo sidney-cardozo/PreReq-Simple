@@ -5,9 +5,9 @@ class StudentsController < ApplicationController
     student = Student.create(student_params)
 
     if student.save
-      redirect_to students
+      redirect_to admin_pairs_path
     else
-      redirect_to students
+      redirect_to admin_pairs_path
     end
   end
 
@@ -18,7 +18,7 @@ class StudentsController < ApplicationController
   def delete
     @student = Student.find(params[:id])
     @student.destroy
-    redirect_to students
+    redirect_to admin_pairs_path
   end
 
   private
