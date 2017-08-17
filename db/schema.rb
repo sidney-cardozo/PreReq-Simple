@@ -24,10 +24,10 @@ ActiveRecord::Schema.define(version: 20170812001511) do
     t.text     "description"
     t.string   "resume_link"
     t.string   "image"
-    t.text     "fields",       default: [],              array: true
-    t.boolean  "paired"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.text     "fields",       default: [],                 array: true
+    t.boolean  "paired",       default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   add_index "applicants", ["user_id"], name: "index_applicants_on_user_id", using: :btree
@@ -68,8 +68,9 @@ ActiveRecord::Schema.define(version: 20170812001511) do
     t.integer  "applicant_id"
     t.integer  "student_id"
     t.text     "story"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.boolean  "story_on_display", default: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   add_index "pairs", ["applicant_id"], name: "index_pairs_on_applicant_id", using: :btree
@@ -82,9 +83,9 @@ ActiveRecord::Schema.define(version: 20170812001511) do
     t.string   "concentration"
     t.string   "industry"
     t.string   "resume_link"
-    t.boolean  "paired"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.boolean  "paired",        default: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "tags", force: :cascade do |t|

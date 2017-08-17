@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def welcome
-
+    @pairs = Pair.where(story_on_display: true).take(3)
   end
 
   private
