@@ -46,8 +46,8 @@
               <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>D</th>
-                <th>E</th>
+                <th>Edit</th>
+                <th>Delete</th>
               </tr>
             </thead>
             <tbody>
@@ -55,8 +55,8 @@
               <tr>
                 <th scope="row"><%= mba.id %></th>
                 <td><%= mba.name %></td>
-                <td>X</td>
                 <td>/</td>
+                <td>X</td>
               </tr>
               <% end %>
             </tbody>
@@ -80,6 +80,7 @@
       <th>Applicant name</th>
       <th>Student name</th>
       <th>Story</th>
+      <th>E</th>
       <th>D</th>
     </tr>
   </thead>
@@ -87,9 +88,10 @@
   <% @pairs.each do |pair| %>
     <tr>
 
-      <td><%= pair.applicant.first_name %> </td>
+      <td><%= pair.applicant.first_name %> <%= pair.applicant.last_name %></td>
       <td><%= pair.student.name %></td>
       <td><% if pair.story %> Y <% else %> N <% end %></td>
+      <td>/</td>
       <td>X</td>
     </tr>
     <% end %>
@@ -100,6 +102,38 @@
 
   </div>
 
+<div class="row">
+  <div class="col-xs-4"></div>
+  <div class="col-xs-4 text-center">
+
+    <%= form_for @pair, url: {action: "create"} do |form| %>
+
+          <div class="form-group">
+          <%= form.label :applicant_id, "Applicant ID:" %>
+          <%= form.text_field :applicant_id, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= form.label :student_id, "MBA Student ID:" %>
+          <%= form.text_field :student_id, class: 'form-control' %>
+        </div>
+
+        <%= form.submit 'Create pair', class: 'btn btn-primary' %>
+
+<% if form.object.errors.any? %>
+          <div class="alert alert-danger">
+            <strong>The following errors prevented saving:</strong>
+            <ul>
+              <% form.object.errors.full_messages.each do |error| %>
+                <li><%= error %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      <% end %>
+
+  </div>
+  <div class="col-xs-4"></div>
+</div>
 
   </div>
 </section>
