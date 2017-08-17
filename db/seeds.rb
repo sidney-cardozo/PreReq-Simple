@@ -7,15 +7,16 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
+
+puts "creating applicant users"
+
+User.destroy_all
+
 User.create!({
   email: "allo",
   password: "alloha",
   role: 2
   })
-
-puts "creating applicant users"
-
-User.destroy_all
 
 (10.times).each do
 User.create!({
@@ -46,7 +47,6 @@ end
 puts "applicant profiles created"
 
 puts "creating paired Students"
-
 Student.destroy_all
 
 (10.times).each do
