@@ -91,9 +91,16 @@
       <td><%= pair.applicant.first_name %> <%= pair.applicant.last_name %></td>
       <td><%= pair.student.name %></td>
       <td><% if pair.story %> Y <% else %> N <% end %></td>
-      <td>/</td>
-      <td><%= link_to fa_icon('trash'), admin_pair_path(pair,
+
+      <td>
+
+        <a type="submit" href="<%= edit_admin_pair_path(pair) %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+      </td>
+
+
+      <td><%= link_to fa_icon('trash'), pair,
             data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
+
     </tr>
     <% end %>
 
