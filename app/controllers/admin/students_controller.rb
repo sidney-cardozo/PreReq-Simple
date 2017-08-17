@@ -15,6 +15,11 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
   end
 
+  def update
+    @student = Student.find(params[:id])
+    @student.update(student_params)
+  end
+
   def delete
     @student = Student.find(params[:id])
     @student.destroy
