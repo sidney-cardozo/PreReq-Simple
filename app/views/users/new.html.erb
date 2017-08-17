@@ -7,7 +7,7 @@
     <li>Password: <%= f.password_field :password %></li>
     <li>Password Confirmation: <%= f.password_field :password_confirmation %></li>
   </ul>
-  <%= f.radio_button :role,'applicant', checked: true %>
+  <%= f.radio_button :role,'applicant'%>
   <%= f.label :role, 'Applicant', :value => 'applicant' %>
 
   <%= f.radio_button :role, 'employer' %>

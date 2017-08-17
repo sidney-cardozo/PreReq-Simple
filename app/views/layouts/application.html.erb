@@ -16,11 +16,18 @@
 
   <main>
     <% flash.each do |name, msg| -%>
-        <%= content_tag :div, msg, class: name %>
+      <%= content_tag :div, msg, class: name, id: "flash"%>
+      <%= javascript_include_tag do %>
+      $(document).ready(function(){
+        setTimeout(function(){
+          $("#flash").remove();
+        }, 5000);
+       })
+      <% end %>
     <% end -%>
     <%= yield %>
-  </main>
 
+  </main>
 
   <%= render 'layouts/footer' %>
 </body>
