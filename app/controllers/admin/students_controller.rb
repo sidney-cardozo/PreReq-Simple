@@ -1,4 +1,4 @@
-class StudentsController < ApplicationController
+class Admin::StudentsController < ApplicationController
   before_filter :authorize_admin
 
   def create
@@ -22,6 +22,7 @@ class StudentsController < ApplicationController
   def update
     @student = Student.find(params[:id])
     @student.update(student_params)
+    redirect_to admin_pairs_path
   end
 
   def delete
