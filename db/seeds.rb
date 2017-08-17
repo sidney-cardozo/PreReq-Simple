@@ -12,12 +12,6 @@ puts "creating applicant users"
 
 User.destroy_all
 
-User.create!({
-  email: "allo",
-  password: "alloha",
-  role: 2
-  })
-
 (10.times).each do
 User.create!({
   email: Faker::Internet.email,
@@ -25,6 +19,7 @@ User.create!({
   role: 0
   })
 end
+
 
 puts "applicant users created"
 
@@ -45,6 +40,11 @@ User.all.each do |user|
 end
 
 puts "applicant profiles created"
+User.create!({
+  email: "allo",
+  password: "alloha",
+  role: 2
+})
 
 puts "creating Students"
 Student.destroy_all

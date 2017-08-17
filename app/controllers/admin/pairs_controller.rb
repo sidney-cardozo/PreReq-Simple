@@ -2,8 +2,12 @@ class Admin::PairsController < ApplicationController
   before_filter :authorize_admin
 
   def index
-    @students = Student.all
-    @applicants = Applicant.all
+    @students = Student.where(paired: false)
+    # @students = Student.all
+
+    @applicants = Applicant.where(paired: false)
+    # @applicants = Applicant.all
+
     @pairs = Pair.all
     @pair = Pair.new
   end
@@ -15,8 +19,6 @@ class Admin::PairsController < ApplicationController
     if pair.save
       pair.student.update(paired: true)
       pair.applicant.update(paired: true)
-      # Student.update(params[:student_id], paired: true)
-      # Applicant.update(params[:applicant_id], paired: true)
       redirect_to admin_pairs_path, notice: "Pair Created !"
     else
       redirect_to admin_pairs_path, error: "Pair was not created!"
