@@ -24,7 +24,7 @@ main section.welcome-page{
       top: 0px;
       left: 30px;
       z-index: 1;
-      background: orange;
+
     }
     .story-mba-pic{
       width: 150px;
@@ -34,22 +34,37 @@ main section.welcome-page{
       top: 100px;
       left: 105px;
       z-index: 0;
-      background: green;
+
     }
 
     .story-box{
       width: 600px;
       height: 188px;
+
+
       position: absolute;
       top: 31px;
       left: 140px;
       z-index: -1;
       background: #eee;
-      .story-para{
-        position: absolute;
-        left: 120px;
-        margin: 10px;
       }
+      .story-scroll{
+        position: absolute;
+        top: 41px;
+        left: 270px;
+        max-height: 168px;
+        // margin: 10px;
+
+        width: 450px;
+        overflow-y:auto;
+
+        z-index: 1000;
+
+
+
+
+
+
     }
 
 
@@ -97,6 +112,6 @@ main section.welcome-page{
   .take-out-padding-lr{
   padding-left: 0px;
   padding-right: 0px;
-}
+  }
 }
 
