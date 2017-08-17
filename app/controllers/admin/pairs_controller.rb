@@ -2,8 +2,8 @@ class Admin::PairsController < ApplicationController
   before_filter :authorize_admin
 
   def index
-    @students = Student.where(paired: false)
-    @applicants = Applicant.all
+    @students = Student.where(paired: false).order(:name)
+    @applicants = Applicant.where(paired: false).order(:first_name)
     @pairs = Pair.all
     @pair = Pair.new
   end
@@ -24,6 +24,8 @@ class Admin::PairsController < ApplicationController
   def destroy
     @pair = Pair.find(params[:id])
     if @pair
+      @pair.student.update(paired: false)
+      @pair.applicant.update(paired: false)
       @pair.destroy
       redirect_to admin_pairs_path, alert: "Pair deleted!"
     else
