@@ -6,16 +6,6 @@
 </div>
 
 
-create_table "students", force: :cascade do |t|
-    t.string   "name"
-    t.string   "concentration"
-    t.string   "industry"
-    t.string   "resume_link"
-    t.boolean  "paired"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",
-
-
 
 <div class="row">
         <div class="col-xs-1 col-lg-3"></div>
@@ -23,14 +13,16 @@ create_table "students", force: :cascade do |t|
           <div class="row">
 
         <%= form_for @student, url: {action: "update"} do |form| %>
-        <div class="form-group">
-          <%= form.label :name, "Name:" %>
-          <%= form.file_field :name %>
-        </div>
+
 
         <div class="form-group">
           <%= form.label :id, "Student ID:" %>
-          <%= form.file_field :id %>
+          <%= @student.id %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :name, "Name:" %>
+          <%= form.text_field :name, class: 'form-control' %>
         </div>
           <div class="form-group">
           <%= form.label :concentration, "Concentration:" %>
@@ -45,6 +37,11 @@ create_table "students", force: :cascade do |t|
         <div class="form-group">
           <%= form.label :resume_link, "Link to resume:" %>
           <%= form.text_field :resume_link, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :paired, "Paired status:" %>
+          <%= @student.paired %>
         </div>
 
 
