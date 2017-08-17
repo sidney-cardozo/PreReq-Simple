@@ -11,8 +11,8 @@ class StudentsController < ApplicationController
     end
   end
 
-  def index
-    @students = Student.all
+  def edit
+    @student = Student.find(params[:id])
   end
 
   def delete

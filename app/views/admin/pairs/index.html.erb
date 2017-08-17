@@ -92,7 +92,7 @@
       <td><%= pair.student.name %></td>
       <td><% if pair.story %> Y <% else %> N <% end %></td>
       <td>/</td>
-      <td><%= link_to fa_icon('trash'), pair,
+      <td><%= link_to fa_icon('trash'), admin_pair_path(pair,
             data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
     </tr>
     <% end %>
