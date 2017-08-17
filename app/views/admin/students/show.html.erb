@@ -8,7 +8,7 @@
 <div class="row">
       <div class="col-xs-0 col-lg-3"></div>
       <div class="col-xs-4 col-lg-2">
-        <img class="mba-profile-pic" src="http://lorempixel.com/200/200/">
+        <%= image_tag @applicant.image.thumb, class: "mba-profile-pic"%>
       </div>
       <div class="col-xs-8 col-lg-4 take-out-padding-lr">
         <h3 class="take-out-margin-t"><%= @student.name %></h3>

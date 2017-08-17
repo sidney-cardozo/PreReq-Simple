@@ -21,7 +21,7 @@
               <% @applicants.each do |app| %>
               <tr>
                 <th scope="row"><%= app.id %></th>
-                <td><%= app.first_name %> <%= app.last_name %></td>
+                <td><a type="submit" href="<%= applicant_path(app) %>"><%= app.first_name %> <%= app.last_name %></a></td>
                 <td>X</td>
               </tr>
               <% end %>
@@ -55,7 +55,7 @@
               <% @students.each do |mba| %>
               <tr>
                 <th scope="row"><%= mba.id %></th>
-                <td><%= mba.name %></td>
+                <td><a type="submit" href="<%= admin_student_path(mba) %>"><%= mba.name %></a></td>
                 <td><a type="submit" href="<%= edit_admin_student_path(mba) %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                 <td><%= link_to fa_icon('trash'), admin_student_path(mba.id),
             data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
@@ -90,8 +90,12 @@
   <% @pairs.each do |pair| %>
     <tr>
 
-      <td><%= pair.applicant.first_name %> <%= pair.applicant.last_name %></td>
-      <td><%= pair.student.name %></td>
+
+      <td><a type="submit" href="<%= applicant_path(pair) %>"><%= pair.applicant.first_name %> <%= pair.applicant.last_name %></a></td>
+      <td><a type="submit" href="<%= admin_student_path(pair) %>"><%= pair.student.name %></a></td>
+
+
+
       <td><% if pair.story %> Y <% else %> N <% end %></td>
 
       <td>
