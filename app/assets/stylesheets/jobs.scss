@@ -40,7 +40,11 @@ main section.job-postings-index{
       border: 1px black solid;
       margin: 5px;
       padding: 10px;
-
+      .description-overflow{
+        height: 4em;
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }
     }
   }
 }
