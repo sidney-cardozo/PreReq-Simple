@@ -8,11 +8,12 @@
 <div class="row">
       <div class="col-xs-0 col-lg-3"></div>
       <div class="col-xs-4 col-lg-2">
-        <img src="http://lorempixel.com/200/200/">
+        <img class="mba-profile-pic" src="http://lorempixel.com/200/200/">
       </div>
       <div class="col-xs-8 col-lg-4 take-out-padding-lr">
         <h3 class="take-out-margin-t"><%= @student.name %></h3>
-        <span><% if @student.paired %> Paired <% else %> Not paired <% end %></span>
+        <span>ID: <%= @student.id %></span><br>
+        <span><% if @student.paired %> Paired with <%= @student.applicants.first.first_name %> <%= @student.applicants.first.last_name%> <% else %> Not paired <% end %></span>
 
       </div>
       <div class="col-xs-0 col-lg-3"></div>
