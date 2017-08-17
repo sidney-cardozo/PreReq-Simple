@@ -190,42 +190,53 @@ $(document).ready(function(){
   <div class="col-xs-2"></div>
 </div>
 
+
+
+<% @pairs.each do |pair| %>
+
 <div class="row hidden-xs hidden-sm hidden-md visible-lg">
   <div class="col-xs-2"></div>
 
   <div class="col-xs-8 story-container">
-  <img class="story-im-pic" src="http://lorempixel.com/200/200/">
-  <img class="story-mba-pic" src="http://lorempixel.com/200/200/sports/">
-  <div class="story-box"></div>
-  <p class="story-im-name text-right">Philippe-Jean Desrosiers</p>
-  <p class="story-mba-name text-right">Nicholas Blain-Carpenter</p>
+<%= image_tag pair.applicant.image.thumb, class="story-im-pic"%>
+<%= image_tag pair.student.image.thumb, class="story-mba-pic"%>
+
+  <div class="story-box">
+    <p><%= pair.story %></p>
+  </div>
+  <p class="story-im-name text-right"><%= pair.applicant.first_name %> <%= pair.applicant.last_name %></p>
+  <p class="story-mba-name text-right"><%= pair.student.name %></p>
   </div>
   <div class="col-xs-2"></div>
 </div>
 
-<div class="row hidden-xs visible-lg">
-  <div class="col-xs-2"></div>
-  <div class="col-xs-8 story-container">
-  <img class="story-im-pic" src="http://lorempixel.com/200/200/">
-  <img class="story-mba-pic" src="http://lorempixel.com/200/200/sports/">
-  <div class="story-box"></div>
-  <p class="story-im-name text-right">Philippe-Jean Desrosiers</p>
-  <p class="story-mba-name text-right">Nicholas Blain-Carpenter</p>
+<div class="story-box-sm hidden-lg hidden-md hidden-sm visible-xs">
+<div class="row">
+<div class="col-xs-2">
+  <p class="story-im-name-mobile text-right"><%= pair.applicant.first_name %> <%= pair.applicant.last_name %></p>
+</div>
+  <div class="col-xs-4">
+  <%= image_tag pair.applicant.image.thumb, class="im-story-pic-mobile"%>
   </div>
-  <div class="col-xs-2"></div>
+
+  <div class="col-xs-4">
+  <%= image_tag pair.student.image.thumb, class="mba-story-pic-mobile"%>
+  </div>
+  <div class="col-xs-2">
+    <p class="story-mba-name text-right"><%= pair.student.name %></p>
+
+  </div>
+</div>
+  <div class="row">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-10 text-center">
+      <p class="story-para"><%= pair.story %></p>
+    </div>
+    <div class="col-xs-1"></div>
+  </div>
 </div>
 
-<div class="row hidden-xs visible-lg">
-  <div class="col-xs-2"></div>
-  <div class="col-xs-8 story-container">
-  <img class="story-im-pic" src="http://lorempixel.com/200/200/">
-  <img class="story-mba-pic" src="http://lorempixel.com/200/200/sports/">
-  <div class="story-box"></div>
-  <p class="story-im-name text-right">Philippe-Jean Desrosiers</p>
-  <p class="story-mba-name text-right">Nicholas Blain-Carpenter</p>
-  </div>
-  <div class="col-xs-2"></div>
-</div>
+<% end %>
 
 
 <!-- FOR MOBILE XS -->

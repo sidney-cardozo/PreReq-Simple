@@ -67,7 +67,11 @@
 
 
     <div class="row text-center">
+<% if current_user.role == "applicant" %>
         <a type="submit" href="<%= edit_applicant_path(@applicant) %>">Add/edit content</a>
+<% elsif current_user.role == "admin" %>
+<a type="submit" href="<%= admin_pairs_path %>">Back to dashboard</a>
+<%end%>
       </div>
 
 

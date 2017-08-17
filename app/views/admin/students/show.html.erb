@@ -13,7 +13,7 @@
       <div class="col-xs-8 col-lg-4 take-out-padding-lr">
         <h3 class="take-out-margin-t"><%= @student.name %></h3>
         <a class="profile-email" href="#"><%= @student.email %></a>
-        <span>ID: <%= @student.id %></span><br>
+
         <span><% if @student.paired %> Paired with <%= @student.applicants.first.first_name %> <%= @student.applicants.first.last_name%> <% else %> Not paired <% end %></span>
 
       </div>
@@ -54,7 +54,7 @@
 
       </div>
       <br>
-      <br>
+
 
       </div>
 
