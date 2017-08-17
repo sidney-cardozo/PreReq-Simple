@@ -16,11 +16,16 @@
 
   <main>
     <% flash.each do |name, msg| -%>
-        <%= content_tag :div, msg, class: name %>
+      <%= content_tag :div, msg, class: "#{name} text-center", id: "flash"%>
     <% end -%>
     <%= yield %>
-  </main>
 
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $("#flash").delay(1500).slideUp(300);
+     })
+    </script>
+  </main>
 
   <%= render 'layouts/footer' %>
 </body>
