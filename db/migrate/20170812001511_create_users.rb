@@ -58,8 +58,8 @@ class CreateUsers < ActiveRecord::Migration
     end
 
     create_table :job_tags do |t|
-      t.belongs_to :jobs, index: true
-      t.belongs_to :tags, index: true
+      t.belongs_to :job, index: true
+      t.belongs_to :tag, index: true
     end
   end
 
