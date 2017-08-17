@@ -1,4 +1,4 @@
-class StudentsController < ApplicationController
+class Admin::StudentsController < ApplicationController
   before_filter :authorize_admin
 
   def create
