@@ -13,8 +13,10 @@ class Admin::PairsController < ApplicationController
     pair = Pair.new(pair_params)
 
     if pair.save
-      Student.update(params[:student_id], paired: true)
-      Applicant.update(params[:applicant_id], paired: true)
+      pair.student.update(paired: true)
+      pair.applicant.update(paired: true)
+      # Student.update(params[:student_id], paired: true)
+      # Applicant.update(params[:applicant_id], paired: true)
       redirect_to admin_pairs_path, notice: "Pair Created !"
     else
       redirect_to admin_pairs_path, error: "Pair was not created!"
@@ -47,6 +49,14 @@ class Admin::PairsController < ApplicationController
 
 
   private
+
+  def applicant_params
+    params.require(:applicant).permit(:paired)
+  end
+
+  def student_params
+    params.require(:student).permit(:paired)
+  end
 
   def pair_params
     params.require(:pair).permit(:student_id, :applicant_id, :story)
