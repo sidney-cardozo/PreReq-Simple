@@ -44,12 +44,12 @@ ActiveRecord::Schema.define(version: 20170812001511) do
   add_index "employers", ["user_id"], name: "index_employers_on_user_id", using: :btree
 
   create_table "job_tags", force: :cascade do |t|
-    t.integer "jobs_id"
-    t.integer "tags_id"
+    t.integer "job_id"
+    t.integer "tag_id"
   end
 
-  add_index "job_tags", ["jobs_id"], name: "index_job_tags_on_jobs_id", using: :btree
-  add_index "job_tags", ["tags_id"], name: "index_job_tags_on_tags_id", using: :btree
+  add_index "job_tags", ["job_id"], name: "index_job_tags_on_job_id", using: :btree
+  add_index "job_tags", ["tag_id"], name: "index_job_tags_on_tag_id", using: :btree
 
   create_table "jobs", force: :cascade do |t|
     t.integer  "employer_id"
