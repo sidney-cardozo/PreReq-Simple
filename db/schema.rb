@@ -77,6 +77,8 @@ ActiveRecord::Schema.define(version: 20170812001511) do
 
   create_table "students", force: :cascade do |t|
     t.string   "name"
+    t.string   "email"
+    t.string   "image"
     t.string   "concentration"
     t.string   "industry"
     t.string   "resume_link"

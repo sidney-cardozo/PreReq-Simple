@@ -13,7 +13,10 @@
           <div class="row">
 
         <%= form_for @student, url: {action: "create"} do |form| %>
-
+          <div class="form-group">
+          <%= form.label :image, "Photo:" %>
+          <%= form.file_field :image %>
+        </div>
 
 
 
