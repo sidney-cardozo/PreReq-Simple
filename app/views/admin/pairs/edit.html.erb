@@ -1,63 +1,55 @@
-<section class="admin-products-new">
+<section class="edit-pair">
+<div class="container">
 
-  <header class="page-header">
-    <h1>Admin &raquo; New Product</h1>
-  </header>
+<div class="row text-center">
+  <h2 class="take-out-margin-t">Edit my profile</h2>
+</div>
 
-  <div class="well">
-    <%= link_to 'All Products', [:admin, :products], class: 'btn btn-info' %>
-  </div>
+   <div class="row">
+        <div class="col-xs-1 col-lg-3"></div>
+        <div class="col-xs-10 col-lg-6">
+          <div class="row">
+          <div class="col-xs-6">
+            <span>Applicant ID: <%= @pair.
+          </div>
+          <div class="col-xs-6">
 
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-1">
-      <%= form_for [:admin, @product] do |form| %>
+          </div>
+          </div>
+          <div class="row">
+        <%= form_for @pair, url: {action: "update"} do |form| %>
+
+
+        <div class="form-group">
+          <%= form.label :story, "Story:" %>
+          <%= form.text_area :story, class: 'form-control' %>
+        </div>
+
+
+
+        <%= form.submit 'Save changes', class: 'btn btn-primary' %>
 
         <% if form.object.errors.any? %>
-          <div class="alert alert-danger">
-            <strong>The following errors prevented saving:</strong>
-            <ul>
-              <% form.object.errors.full_messages.each do |error| %>
-                <li><%= error %></li>
-              <% end %>
-            </ul>
-          </div>
+            <div class="alert alert-danger">
+              <strong>The following errors prevented saving:</strong>
+              <ul>
+                <% form.object.errors.full_messages.each do |error| %>
+                  <li><%= error %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
         <% end %>
 
-        <div class="form-group">
-          <%= form.label :name %>
-          <%= form.text_field :name, class: 'form-control' %>
+          </div>
         </div>
 
-        <div class="form-group">
-          <%= form.label :description %>
-          <%= form.text_area :description, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= form.label :category %>
-          <%= form.select :category_id, options_from_collection_for_select(Category.all.order(:name), :id, :name), { include_blank: true }, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= form.label :quantity %>
-          <%= form.number_field :quantity, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= form.label :price %>
-          <%= form.text_field :price, class: 'form-control' %>
-        </div>
+        <div class="col-xs-1 col-lg-3"></div>
+      </div>
 
 
 
-        <div class="form-group">
-          <%= form.label :image %>
-          <%= form.file_field :image %>
-        </div>
 
-        <%= form.submit 'Create Product', class: 'btn btn-primary' %>
-      <% end %>
-    </div>
-  </div>
+</div>
 
 </section>
