@@ -39,8 +39,7 @@ User.where(role: 0).each do |user|
     phone_number: Faker::PhoneNumber.cell_phone,
     description: Faker::Hipster.paragraph(4),
     resume_link: Faker::Internet.email,
-    user_id: user.id,
-    paired: false
+    user_id: user.id
   })
 end
 
@@ -51,11 +50,11 @@ Student.destroy_all
 
 (10.times).each do
 Student.create({
-  name: Faker::Name.first_name,
+  name: Faker::Name.name,
   concentration: Faker::Hipster.word,
-  industry: Faker::Hipster.sentence,
+  industry: Faker::Hipster.sentence ,
   resume_link: Faker::Internet.url,
-  paired: false
+  email: Faker::Internet.free_email
   })
 end
 

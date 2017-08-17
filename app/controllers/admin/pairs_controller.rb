@@ -12,7 +12,7 @@ class Admin::PairsController < ApplicationController
   def create
     pair = Pair.new(pair_params)
 
-    if pair.save
+    if !pair.student.paired && !pair.applicant.paired && pair.save
       pair.student.update(paired: true)
       pair.applicant.update(paired: true)
       redirect_to admin_pairs_path, notice: "Pair Created !"

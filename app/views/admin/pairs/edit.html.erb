@@ -29,8 +29,14 @@
           <%= form.label :story, "Story:" %>
           <%= form.text_area :story, class: 'form-control', rows: '5' %>
         </div>
+<div class="form-group">
+        <%= form.radio_button :story_on_display, true %>
+  <%= form.label :story_on_display, 'Yes', :value => true %>
 
+  <%= form.radio_button :story_on_display, false, :checked => true %>
+  <%= form.label :story_on_display, 'No', :value => false %>
 
+</div>
 
         <%= form.submit 'Save changes', class: 'btn btn-primary' %>
 
