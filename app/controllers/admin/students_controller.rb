@@ -11,8 +11,13 @@ class Admin::StudentsController < ApplicationController
     end
   end
 
-  def index
-    @students = Student.all
+  def edit
+    @student = Student.find(params[:id])
+  end
+
+  def update
+    @student = Student.find(params[:id])
+    @student.update(student_params)
   end
 
   def delete
