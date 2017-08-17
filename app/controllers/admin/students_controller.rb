@@ -5,7 +5,6 @@ class Admin::StudentsController < ApplicationController
     student = Student.create(student_params)
 
     if student.save
-      student.update(paired: false)
       redirect_to admin_pairs_path
     else
       redirect_to admin_pairs_path
