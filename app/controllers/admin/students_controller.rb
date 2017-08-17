@@ -25,7 +25,7 @@ class Admin::StudentsController < ApplicationController
     redirect_to admin_pairs_path
   end
 
-  def delete
+  def destroy
     @student = Student.find(params[:id])
     @student.destroy
     redirect_to admin_pairs_path
