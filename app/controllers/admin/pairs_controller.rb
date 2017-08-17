@@ -39,6 +39,11 @@ class Admin::PairsController < ApplicationController
     @pair = Pair.find(params[:id])
   end
 
+  def update
+    @pair = Pair.find(params[:id])
+    @pair.update(pair_params)
+    redirect_to root_path(@pair)
+  end
 
   private
 
