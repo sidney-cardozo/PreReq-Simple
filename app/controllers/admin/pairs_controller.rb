@@ -15,8 +15,6 @@ class Admin::PairsController < ApplicationController
     if pair.save
       pair.student.update(paired: true)
       pair.applicant.update(paired: true)
-      # Student.update(params[:student_id], paired: true)
-      # Applicant.update(params[:applicant_id], paired: true)
       redirect_to admin_pairs_path, notice: "Pair Created !"
     else
       redirect_to admin_pairs_path, error: "Pair was not created!"
@@ -33,15 +31,9 @@ class Admin::PairsController < ApplicationController
     end
   end
 
-  # def edit
-  #   @pair = Pair.find(params[:id])
-
-  #   if @pair
-  #     Pair.update(pair_params), notice: "Pair story updated!"
-  #   else
-  #     redirect_to admin_pairs_path, error: "Couldnt find pair, make sure the id's are correct!"
-  #   end
-  # end
+  def edit
+    @pair = Pair.find(params[:id])
+  end
 
   def show
     @pair = Pair.find(params[:id])
