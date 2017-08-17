@@ -55,8 +55,9 @@
               <tr>
                 <th scope="row"><%= mba.id %></th>
                 <td><%= mba.name %></td>
-                <td>/</td>
-                <td>X</td>
+                <td><a type="submit" href="<%= edit_admin_student_path(mba) %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                <td><%= link_to fa_icon('trash'), admin_student_path(mba.id),
+            data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
               </tr>
               <% end %>
             </tbody>
