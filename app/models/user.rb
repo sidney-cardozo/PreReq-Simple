@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: { case_sensitive: false}
   validates :email, presence: true
   validates :password, length: { minimum: 4 }
+  validates :role, presence: true
   enum role: [ :applicant, :employer, :admin ]
 
   mount_uploader :image, ProfileImageUploader
@@ -24,7 +25,4 @@ class User < ActiveRecord::Base
     Employer.find_by_user_id(self.id)
   end
 
-  def admin
-    Admin.find_by_user_id(self.id)
-  end
 end

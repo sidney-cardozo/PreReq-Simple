@@ -1,30 +1,154 @@
-<section class="admin-products-index">
+<section class="admin-dashboard">
+  <div class="container">
 
-  <header class="page-header">
-    <h1>Admin &raquo; All Products</h1>
-  </header>
+    <div class="row">
+      <div class="col-xs-1"></div>
+      <div class="col-xs-5">
+        <div class="row text-center">
+          <h3>List of applicants</h3>
+        </div>
+        <div class="row">
 
-  <div class="well">
-    <%= link_to '+ New Product', [:new, :admin, :product], class: 'btn btn-info' %>
-  </div>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>D</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @applicants.each do |app| %>
+              <tr>
+                <th scope="row"><%= app.id %></th>
+                <td><a type="submit" href="<%= applicant_path(app) %>"><%= app.first_name %> <%= app.last_name %></a></td>
+                <td>X</td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
 
-  <div class="panel panel-default products">
 
+
+
+        </div>
+
+      </div>
+      <div class="col-xs-5">
+
+                <div class="row text-center">
+          <h3>List of MBA students</h3>
+          <a type="submit" href="<%= new_admin_student_path(@student) %>">+ New</a>
+        </div>
+        <div class="row">
+
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @students.each do |mba| %>
+              <tr>
+                <th scope="row"><%= mba.id %></th>
+                <td><a type="submit" href="<%= admin_student_path(mba) %>"><%= mba.name %></a></td>
+                <td><a type="submit" href="<%= edit_admin_student_path(mba) %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                <td><%= link_to fa_icon('trash'), admin_student_path(mba.id),
+            data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+
+
+        </div>
+      </div>
+      <div class="col-xs-1"></div>
+    </div>
+
+
+  <div class="row">
+  <div class="row text-center">
+          <h3>List of pairs</h3>
+        </div>
+        <div class="row">
     <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th colspan="2">Product</th>
-          <th>Category</th>
-          <th>Price</th>
-          <th>Qty Remaining</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= render @products %>
-      </tbody>
-    </table>
+  <thead>
+    <tr>
+      <th>Applicant name</th>
+      <th>Student name</th>
+      <th>Story on display</th>
+      <th>E</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @pairs.each do |pair| %>
+    <tr>
+
+
+      <td><a type="submit" href="<%= applicant_path(pair.applicant) %>"><%= pair.applicant.first_name %> <%= pair.applicant.last_name %></a></td>
+      <td><a type="submit" href="<%= admin_student_path(pair.student) %>"><%= pair.student.name %></a></td>
+
+
+
+      <td><% if pair.story_on_display %> Y <% else %> N <% end %></td>
+
+      <td>
+
+        <a type="submit" href="<%= edit_admin_pair_path(pair) %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+      </td>
+
+
+      <td><%= link_to fa_icon('trash'), admin_pair_path(pair.id),
+            data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
+
+    </tr>
+    <% end %>
+
+  </tbody>
+</table>
+</div>
 
   </div>
 
+<div class="row">
+  <div class="col-xs-4"></div>
+  <div class="col-xs-4 text-center">
+
+    <%= form_for @pair, url: {action: "create"} do |form| %>
+
+          <div class="form-group">
+          <%= form.label :applicant_id, "Applicant ID:" %>
+          <%= form.text_field :applicant_id, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= form.label :student_id, "MBA Student ID:" %>
+          <%= form.text_field :student_id, class: 'form-control' %>
+        </div>
+
+        <%= form.submit 'Create pair', class: 'btn btn-primary' %>
+
+<% if form.object.errors.any? %>
+          <div class="alert alert-danger">
+            <strong>The following errors prevented saving:</strong>
+            <ul>
+              <% form.object.errors.full_messages.each do |error| %>
+                <li><%= error %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      <% end %>
+
+  </div>
+  <div class="col-xs-4"></div>
+</div>
+
+  </div>
 </section>
+

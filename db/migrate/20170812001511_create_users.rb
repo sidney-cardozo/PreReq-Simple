@@ -23,7 +23,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :resume_link
       t.string :image
       t.text :fields, array: true, default: []
-      t.boolean :paired
+      t.boolean :paired , default: false
       t.timestamps null: false
     end
 
@@ -39,17 +39,20 @@ class CreateUsers < ActiveRecord::Migration
 
     create_table :students do |t|
       t.string :name
+      t.string :email
+      t.string :image
       t.string :concentration
       t.string :industry
       t.string :resume_link
-      t.boolean :paired
+      t.boolean :paired , default: false
       t.timestamps null: false
     end
 
     create_table :pairs do |t|
-      t.belongs_to :applicants, index: true
-      t.belongs_to :students, index: true
+      t.belongs_to :applicant, index: true
+      t.belongs_to :student, index: true
       t.text :story
+      t.boolean :story_on_display, default: false
       t.timestamps null: false
     end
 
@@ -58,8 +61,8 @@ class CreateUsers < ActiveRecord::Migration
     end
 
     create_table :job_tags do |t|
-      t.belongs_to :jobs, index: true
-      t.belongs_to :tags, index: true
+      t.belongs_to :job, index: true
+      t.belongs_to :tag, index: true
     end
   end
 
@@ -70,5 +73,7 @@ class CreateUsers < ActiveRecord::Migration
     drop_table :jobs
     drop_table :students
     drop_table :pairs
+    drop_table :tags
+    drop_table :job_tags
   end
 end

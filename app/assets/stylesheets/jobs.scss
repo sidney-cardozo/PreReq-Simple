@@ -7,7 +7,7 @@ main section.new-job{
   }
 }
 
-main section.job-edit{
+main section.edit-job{
   .take-out-margin-t{
     margin-top: 0px;
   }
@@ -24,6 +24,13 @@ main section.job-details{
   .take-out-margin-t{
     margin-top: 0px;
   }
+  .table-head{
+    width: 25%;
+    text-align: right;
+  }
+  .table-content{
+    text-align: left;
+  }
 }
 
 main section.job-postings-index{
@@ -33,7 +40,11 @@ main section.job-postings-index{
       border: 1px black solid;
       margin: 5px;
       padding: 10px;
-
+      .description-overflow{
+        height: 4em;
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }
     }
   }
 }

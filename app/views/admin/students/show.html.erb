@@ -1,2 +1,72 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<section class="mba-profile-edit">
+<div class="container">
+
+<div class="row text-center">
+<h2>Student profile</h2>
+</div>
+
+<div class="row">
+      <div class="col-xs-0 col-lg-3"></div>
+      <div class="col-xs-4 col-lg-2">
+        <%= image_tag @student.image.thumb, class: "mba-profile-pic"%>
+      </div>
+      <div class="col-xs-8 col-lg-4 take-out-padding-lr">
+        <h3 class="take-out-margin-t"><%= @student.name %></h3>
+        <a class="profile-email" href="#"><%= @student.email %></a>
+
+        <span><% if @student.paired %> Paired with <%= @student.applicants.first.first_name %> <%= @student.applicants.first.last_name%> <% else %> Not paired <% end %></span>
+
+      </div>
+      <div class="col-xs-0 col-lg-3"></div>
+      </div>
+
+<br>
+
+      <div class="row">
+
+        <div class="col-xs-0 col-lg-3"></div>
+        <div class="col-xs-12 col-lg-6 text-center">
+
+          <table class="table table-responsive">
+    <tbody>
+    <tr>
+      <th scope="row" class="table-head">Concentration:</th>
+      <td class="table-content"><%= @student.concentration %></td>
+
+    </tr>
+    <tr>
+      <th scope="row" class="table-head">Industry:</th>
+      <td class="table-content"><%= @student.industry %></td>
+
+    </tr>
+    <tr>
+      <th scope="row" class="table-head">Link to resume:</th>
+      <td class="table-content"><%= @student.resume_link %></td>
+
+    </tr>
+
+
+  </tbody>
+    </table>
+
+        </div>
+        <div class="col-xs-0 col-lg-3"></div>
+
+      </div>
+      <br>
+
+
+      </div>
+
+
+
+
+    <div class="row text-center">
+        <a type="submit" href="<%= edit_admin_student_path(@student) %>">Edit content</a>
+      </div>
+
+
+
+
+</div>
+</section>
