@@ -77,10 +77,11 @@
 
 
     <div class="row text-center">
-
+<% if current_user.employer && current_user.employer.id  == @employer.id %>
 <a type="submit" href="<%= edit_employer_job_path(@employer, @job) %>">Add/edit content</a>
+<% end %>
 
-<% if current_user.employer %>
+<% if current_user.employer && current_user.employer.id  == @employer.id %>
 <a type="submit" href="<%= employer_jobs_path(@employer, @job) %>">My job postings</a>
 <% end %>
     </div>
