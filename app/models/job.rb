@@ -7,4 +7,13 @@ class Job < ActiveRecord::Base
   validates :job_type, presence: true
   validates :apply_info, presence: true
 
+  def self.search(query)
+    if query
+      where('description LIKE ?', "%#{query}%").order('updated_at DESC')
+    else
+      all.order('updated_at DESC')
+    end
+  end
 end
+
+
