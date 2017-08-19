@@ -11,8 +11,9 @@
 <div class="col-xs-4">
   <%= link_to 'Details', job %>
 
-
+  <% if current_user.employer == employer %>
   <%= link_to 'Remove', [job], method: :delete, data: { confirm: "Are you sure?" } %>
+  <% end %>
 </div>
 
 </div>
