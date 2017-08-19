@@ -70,9 +70,14 @@
               <div class="row">
 
            <%= form_for @employer, html: {multipart: true}, url: {action: "update"} do |form| %>
+
+             <div class="upload-preview">
+              <img />
+            </div>
+
             <div class="form-group">
               <%= form.label :image, "Logo:" %>
-              <%= form.file_field :image %>
+              <%= form.file_field :image, class: "image" %>
             </div>
               <div class="form-group">
               <%= form.label :name, "Company name:" %>

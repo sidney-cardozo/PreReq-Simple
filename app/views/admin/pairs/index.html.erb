@@ -81,9 +81,14 @@
                         <div class="row">
 
                       <%= form_for mba, url: admin_student_path(mba.id), action: "update" do |form| %>
+
+                        <div class="upload-preview">
+                          <img />
+                        </div>
+
                         <div class="form-group">
                         <%= form.label :image, "Photo:" %>
-                        <%= form.file_field :image %>
+                        <%= form.file_field :image, class: "image" %>
                       </div>
 
                       <div class="form-group">
@@ -179,10 +184,14 @@
   <div class="col-xs-4 text-center">
 
     <%= form_for @pair, url: {action: "create"} do |form| %>
+        <div class="upload-preview">
+          <img />
+        </div>
+
 
         <div class="form-group">
           <%= form.label :applicant_id, "Applicant ID:" %>
-          <%= form.text_field :applicant_id, class: 'form-control' %>
+          <%= form.text_field :applicant_id, class: 'form-control image' %>
         </div>
         <div class="form-group">
           <%= form.label :student_id, "MBA Student ID:" %>
