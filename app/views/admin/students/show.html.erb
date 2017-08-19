@@ -60,10 +60,11 @@
 
 
 
-
+  <% if current_user.admin? %>
     <div class="row text-center">
         <a type="submit" href="<%= edit_admin_student_path(@student) %>">Edit content</a>
       </div>
+  <% end %>
 
 
 

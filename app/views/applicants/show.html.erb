@@ -42,7 +42,7 @@
     </tr>
     <tr>
       <th scope="row" class="table-head">Link to resume:</th>
-      <td class="table-content"><%= @applicant.resume_link %></td>
+      <td class="table-content"><%= link_to @applicant.resume_link, "#{@applicant.resume_link}" %></td>
 
     </tr>
 
