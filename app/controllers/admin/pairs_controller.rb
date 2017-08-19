@@ -15,6 +15,9 @@ class Admin::PairsController < ApplicationController
     if !pair.student.paired && !pair.applicant.paired && pair.save
       pair.student.update(paired: true)
       pair.applicant.update(paired: true)
+
+      NotificationMailer.notification_mail(pair).deliver
+
       redirect_to admin_pairs_path, notice: "Pair Created !"
     else
       redirect_to admin_pairs_path, error: "Pair was not created!"
@@ -44,7 +47,12 @@ class Admin::PairsController < ApplicationController
   def update
     @pair = Pair.find(params[:id])
     @pair.update(pair_params)
-    redirect_to root_path(@pair)
+
+    if @pair.save
+      redirect_to admin_pairs_path, notice: "Story saved !"
+    else
+      redirect_to :back, notice: "Story too long !"
+    end
   end
 
   private

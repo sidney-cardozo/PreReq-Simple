@@ -24,6 +24,10 @@
             <li>
               <%= link_to 'Profile', applicant_path(current_user.applicant)%>
             </li>
+          <% elsif current_user.admin? %>
+            <li>
+              <%= link_to 'Dashboard', admin_pairs_path%>
+            </li>
           <% end %>
         <% end %>
       </ul>

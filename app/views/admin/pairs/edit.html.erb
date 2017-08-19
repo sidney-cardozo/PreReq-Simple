@@ -10,33 +10,40 @@
         <div class="col-xs-10 col-lg-6">
           <div class="row">
           <div class="col-xs-6">
-            <span>Applicant ID: <%= @pair.applicant_id %></span>
-            <span>Applicant name: <%= @pair.applicant.first_name %> <%= @pair.applicant.last_name %></span>
+            <div class="row">
+              <span>Applicant ID: <%= @pair.applicant_id %></span>
+            </div>
+            <div class="row">
+              <span>Applicant name: <%= @pair.applicant.first_name %> <%= @pair.applicant.last_name %></span>
+            </div>
           </div>
           <div class="col-xs-6">
-            <span>Student ID: <%= @pair.student_id %></span>
-            <span>Student name: <%= @pair.student.name %></span>
+            <div class="row">
+              <span>Student ID: <%= @pair.student_id %></span>
+            </div>
+            <div class="row">
+              <span>Student name: <%= @pair.student.name %></span>
+            </div>
           </div>
           <div class="col-xs-6">
 
           </div>
           </div>
           <div class="row">
-        <%= form_for @pair, url: {action: "update"} do |form| %>
-
-
+        <%= form_for @pair, url: {action: "update"}, class: "story_update" do |form| %>
         <div class="form-group">
           <%= form.label :story, "Story:" %>
-          <%= form.text_area :story, class: 'form-control', rows: '5' %>
+          <%= form.text_area :story, class: 'form-control', rows: '5', id: "story_text_area" %>
+          <span id="counter"><%= 400 - @pair.story.size%></span>
         </div>
-<div class="form-group">
-        <%= form.radio_button :story_on_display, true %>
-  <%= form.label :story_on_display, 'Yes', :value => true %>
+        <div class="form-group">
+          <%= form.radio_button :story_on_display, true %>
+          <%= form.label :story_on_display, 'Yes', :value => true %>
 
-  <%= form.radio_button :story_on_display, false, :checked => true %>
-  <%= form.label :story_on_display, 'No', :value => false %>
+          <%= form.radio_button :story_on_display, false, :checked => true %>
+          <%= form.label :story_on_display, 'No', :value => false %>
 
-</div>
+        </div>
 
         <%= form.submit 'Save changes', class: 'btn btn-primary' %>
 

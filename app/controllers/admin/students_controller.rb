@@ -45,7 +45,7 @@ class Admin::StudentsController < ApplicationController
   def authorized_to_view
     if current_user
       if @student = Student.find(params[:id])
-        if @pair = Pair.find_by_student_id(params[:id])
+        if @pair = Pair.find_by_student_id(params[:id]) || current_user.admin?
           redirect_to "/", notice: "Access Denied" unless current_user.admin? || current_user == User.find(@pair.applicant.user_id)
         else
           redirect_to :back, notice: "Student is not paired !"
