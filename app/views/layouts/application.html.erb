@@ -16,15 +16,8 @@
 
   <main>
     <% flash.each do |name, msg| -%>
-      <%= content_tag :div, msg, class: name, id: "flash"%>
-      <%= javascript_include_tag do %>
-      $(document).ready(function(){
-        setTimeout(function(){
-          $("#flash").remove();
-        }, 5000);
-       })
-      <% end %>
-    <% end -%>
+      <%= content_tag :div, msg, class: name, id: "flash", class: "text-center"%>
+      <% end -%>
     <%= yield %>
 
   </main>

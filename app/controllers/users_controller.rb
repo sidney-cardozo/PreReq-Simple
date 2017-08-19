@@ -13,12 +13,16 @@ class UsersController < ApplicationController
         redirect_to new_employer_path
       end
     else
-      redirect_to :back, notice: "Please select a role"
+      redirect_to :back, notice: "Please verify your register information !"
     end
   end
 
   def welcome
     @pairs = Pair.where(story_on_display: true).take(3)
+    @user = User.new
+  end
+
+  def about
   end
 
   private
