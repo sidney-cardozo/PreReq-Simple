@@ -55,7 +55,7 @@
               <% @students.each do |mba| %>
               <tr>
                 <th scope="row"><%= mba.id %></th>
-                <td><a type="submit" href="<%= admin_student_path(mba) %>"><%= mba.name %></a></td>
+                <td><a type="submit" href="<%= admin_student_path(mba) %>"><%= mba.first_name %> <%= mba.last_name %></a></td>
                 <td><a type="submit" href="<%= edit_admin_student_path(mba) %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                 <td><%= link_to fa_icon('trash'), admin_student_path(mba.id),
             data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
@@ -92,7 +92,7 @@
 
 
       <td><a type="submit" href="<%= applicant_path(pair.applicant) %>"><%= pair.applicant.first_name %> <%= pair.applicant.last_name %></a></td>
-      <td><a type="submit" href="<%= admin_student_path(pair.student) %>"><%= pair.student.name %></a></td>
+      <td><a type="submit" href="<%= admin_student_path(pair.student) %>"><%= pair.student.first_name %> <%= pair.student.last_name %></a></td>
 
 
 

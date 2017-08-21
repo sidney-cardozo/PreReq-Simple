@@ -218,7 +218,7 @@ $(document).ready(function(){
 
 
   <p class="story-im-name text-right"><%= pair.applicant.first_name %> <%= pair.applicant.last_name %></p>
-  <p class="story-mba-name text-right"><%= pair.student.name %></p>
+  <p class="story-mba-name text-right"><%= pair.student.first_name %> <%= pair.student.first_name %></p>
   </div>
   <div class="col-xs-2"></div>
 </div>
@@ -238,7 +238,7 @@ $(document).ready(function(){
   <%= image_tag pair.student.image.thumb, class: "mba-story-pic-mobile"%>
   </div>
   <div class="col-xs-3 take-out-padding-lr">
-    <p class="story-mba-name text-left"><%= pair.student.name %></p>
+    <p class="story-mba-name text-left"><%= pair.student.first_name %> <%= pair.student.first_name %></p>
 
   </div>
 </div>

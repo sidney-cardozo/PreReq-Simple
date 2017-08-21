@@ -77,7 +77,8 @@ ActiveRecord::Schema.define(version: 20170812001511) do
   add_index "pairs", ["student_id"], name: "index_pairs_on_student_id", using: :btree
 
   create_table "students", force: :cascade do |t|
-    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "email"
     t.string   "image"
     t.string   "concentration"
