@@ -18,11 +18,31 @@
 // Students
 @import "admin/students";
 
+// Pairs
+@import "admin/pairs";
+
 // Global
-body {
-  padding-top: 70px;
-  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+html {
+  min-height: 100%;
 }
+
+body {
+  // padding-top: 70px;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  .row{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .top-title{
+    margin-top:100px;
+  }
+  #flash{
+    margin: 0 auto;
+    border: 1px solid black;
+  }
+}
+
+
 
 @media(min-width:1200px){
   .navbar{

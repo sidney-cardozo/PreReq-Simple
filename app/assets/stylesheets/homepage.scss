@@ -1,7 +1,18 @@
 main section.welcome-page{
 .top-bg{
-  background: linear-gradient(to bottom, #28d1fc, white);
+  background-image: url('bg.png');
+  background-width: 100%;
+  // background: #28d1fc;
+   // background: linear-gradient(to right, lime, #28d1fc);
+   // background: linear-gradient(#28d1fc, white);
 }
+
+h2{
+  margin: 25px 0px 25px 0px;
+  // font-family: Goudy Old Style,Garamond,Big Caslon,Times New Roman,serif;
+
+}
+
 .row.welcome-msg{
 
 
@@ -15,13 +26,15 @@ main section.welcome-page{
   }
 
   h1{
-  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: black;
+    // font-family: Goudy Old Style,Garamond,Big Caslon,Times New Roman,serif;
+    // font-style: italic;
     margin-top: 100px;
     margin-bottom: 25px;
     font-size: 3em;
   }
   #welcome-msg-text{
-    font-size:18px;
+    font-size:16px;
     color: #3d3d3d;
   }
 }
@@ -33,16 +46,19 @@ main section.welcome-page{
   }
 
   .welcome-for-box {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.70);
     border-radius: 5px;
     // opacity: .6;
     // border: 1px black solid;
-    padding: 60px 10px 60px 10px;
+    padding: 55px 10px 55px 10px;
     // border: 1px solid rgba(0,0, 0, 1.0);
+    // &:hover{
+    //   background-color: rgba(0, 0, 0, 1.0);
+    // }
   }
     .for-x{
       color: rgba(255, 255, 255, 1.0);
-      font-size: 22px;
+      font-size: 20px;
       font-weight: bold;
 
     }
@@ -54,10 +70,14 @@ main section.welcome-page{
     .register-btn{
       font-size: 14px;
       font-weight: bold;
-
+      margin-left: 10px;
       background-color: rgba(0, 0, 0, 0);
       color: rgba(255, 255, 0, 1.0);
       border: 1px solid rgba(255, 255, 0, 1.0);
+      transition: all .2s ease-in-out;
+      &:hover{
+        transform: scale(1.1);
+      }
     }
 
   .add-5-margin-rl {
@@ -70,8 +90,9 @@ main section.welcome-page{
     height: 300px;
 
     // border: 1px solid #aaa;
-    margin-left: 7px;
+    margin-left: 0px;
     .story-im-pic{
+      border:1px yellow solid;
       width: 150px;
       height: 150px;
       border-radius: 50%;
@@ -82,6 +103,7 @@ main section.welcome-page{
 
     }
     .story-mba-pic{
+      border:1px yellow solid;
       width: 150px;
       height: 150px;
       border-radius: 50%;
@@ -93,6 +115,7 @@ main section.welcome-page{
     }
 
     .story-box{
+      border: 1px solid lime;
       width: 600px;
       height: 188px;
 
@@ -104,16 +127,21 @@ main section.welcome-page{
       background: #eee;
       }
       .story-scroll{
+
         position: absolute;
         top: 41px;
         left: 270px;
         max-height: 168px;
-        // margin: 10px;
+
+        margin-bottom: 10px;
 
         width: 450px;
         overflow-y:auto;
 
         z-index: 1000;
+        .story-para{
+          font-size: 16px;
+        }
 
     }
 
@@ -123,6 +151,16 @@ main section.welcome-page{
       width: 100px;
       top: 150px;
       left: 0px;
+      z-index: 1;
+      .first-name{
+        margin:0px;
+        font-weight:bold;
+
+      }
+      .last-name{
+        margin:0px;
+        color: grey;
+      }
     }
 
     .story-mba-name{
@@ -132,6 +170,15 @@ main section.welcome-page{
       top: 250px;
       left: 80px;
       z-index: 1;
+      .first-name{
+        margin:0px;
+        font-weight:bold;
+
+      }
+      .last-name{
+        margin:0px;
+        color: grey;
+      }
     }
   }
 
@@ -171,6 +218,8 @@ main section.welcome-page{
     .partner-logo{
       height: 75px;
       width: 100%;
+      margin-top: 20px;
+      margin-bottom:20px;
     }
     .take-out-padding-lr{
       padding-left: 0px;

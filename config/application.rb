@@ -35,7 +35,7 @@ module Jungle
       g.assets       false
     end
 
-    config.serve_static_assets = false
+    # config.serve_static_assets = false
 
 # # Compress JavaScripts and CSS
 # config.assets.compress = true
@@ -47,6 +47,6 @@ module Jungle
 # config.assets.digest = true
 #     # config.assets.paths << "#{Rails.root}/app/assets/images"
 #     # Do not swallow errors in after_commit/after_rollback callbacks.
-#     config.active_record.raise_in_transactional_callbacks = true
+config.active_record.raise_in_transactional_callbacks = true
  end
 end
