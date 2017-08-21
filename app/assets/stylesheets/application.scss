@@ -54,12 +54,13 @@ body {
   .navbar-brand{
     font-size: 24px;
     color: white;
+
   }
   .navbar-nav > li > a {
     color: white;
     font-size:16px;
     &:hover {
-     color:#7f7682;
+     color: rgba(255, 255, 0, 1.0);
 
     }
   }
@@ -73,12 +74,13 @@ body {
     width: 100%;
     background-color: black;
   .nav-title{
-    color: white;
+    color: #858687;
+    font-size: 16px;
 
   }
   .nav > li {
     color: white;
     margin: 10px;
-    font-size:16px;
+    font-size:12px;
   }
 }
