@@ -50,7 +50,8 @@ Student.destroy_all
 
 (10.times).each do
 Student.create({
-  name: Faker::Name.name,
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
   concentration: Faker::Hipster.word,
   industry: Faker::Hipster.sentence ,
   resume_link: Faker::Internet.url,

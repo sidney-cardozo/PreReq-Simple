@@ -38,7 +38,8 @@ class CreateUsers < ActiveRecord::Migration
     end
 
     create_table :students do |t|
-      t.string :name
+      t.string :first_name
+      t.string :last_name
       t.string :email
       t.string :image
       t.string :concentration

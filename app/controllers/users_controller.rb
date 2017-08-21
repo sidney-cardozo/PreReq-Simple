@@ -13,7 +13,7 @@ class UsersController < ApplicationController
         redirect_to new_employer_path
       end
     else
-      redirect_to :back, notice: "Please select a role"
+      redirect_to :back
     end
   end
 
