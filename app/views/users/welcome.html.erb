@@ -223,41 +223,11 @@ $(document).ready(function(){
   <p class="text-right last-name"><%= pair.student.last_name %></p>
   </div>
 
- <!--  <p class="story-im-name text-right"><%= pair.applicant.first_name %> <%= pair.applicant.last_name %></p>
-  <p class="story-mba-name text-right"><%= pair.student.first_name %> <%= pair.student.first_name %></p> -->
   </div>
   <div class="col-xs-2"></div>
 </div>
 
-<!-- <div class="row hidden-xs hidden-sm hidden-md visible-lg">
-  <div class="col-xs-2"></div>
 
-  <div class="col-xs-8 story-container">
-<%= image_tag pair.applicant.image.thumb, class: "story-im-pic"%>
-<%= image_tag pair.student.image.thumb, class: "story-mba-pic"%>
- -->
-
-
- <!--  <div class="story-box">
-
-  <div class="story-scroll">
-
-    <p class="story-para"><%= pair.story %></p>
-
-  </div>
-
-  <div class="story-im-name">
-  <p class="text-right first-name"><%= pair.applicant.first_name %></p>
-  <p class="text-right last-name"><%= pair.applicant.last_name %></p>
-  </div>
-<div class="story-mba-name">
-  <p class="text-right first-name"><%= pair.student.first_name %></p>
-  <p class="text-right last-name"><%= pair.student.last_name %></p>
-  </div>
-
-</div>
-<div class="col-xs-2"></div>
-</div> <!--closes row w hidden & visible -->
 
 <!-- MOBILE -->
 <div class="story-box-sm hidden-lg hidden-md hidden-sm visible-xs">
@@ -293,8 +263,9 @@ $(document).ready(function(){
 <!-- READ OUR STORIES SECTION END -->
 
 <!-- OUR PARTNERS SECTION -->
-<section class="container our-partners">
 
+<div class="container our-partners">
+<%= image_tag("black-bottom-wave.svg")%>
 <div class="row">
   <div class="col-xs-2"></div>
   <div class="col-xs-8 text-center">
@@ -381,7 +352,7 @@ $(document).ready(function(){
 
 </div>
 
-</section>
+</div>
 <!-- OUR PARTNERS SECTION END -->
 
 </section>
