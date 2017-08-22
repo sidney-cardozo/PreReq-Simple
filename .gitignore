@@ -59,4 +59,4 @@ bower.json
 # Ignore Byebug command history file.
 .byebug_history
 
-./app/assets/javascripts/image-preview.js
+./app/assets/javascripts/image_preview.js
