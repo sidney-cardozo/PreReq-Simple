@@ -9,7 +9,7 @@ $(document).ready(function(){
        reader.onload = function(e){
            image_base64 = e.target.result;
            preview.attr("src", image_base64);
-           preview.attr("style", "max-width: 350px; height: auto;")
+           preview.attr("style", "max-width: 200px; height: auto;")
        };
        reader.readAsDataURL(file);
     });
