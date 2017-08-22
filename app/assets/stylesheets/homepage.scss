@@ -1,3 +1,4 @@
+$main-blue: #5094D3;
 main section.welcome-page{
 .top-bg{
   background-image: url('bg.png');
@@ -115,7 +116,7 @@ h2{
     }
 
     .story-box{
-      border: 1px solid lime;
+      border: 1px solid #A6E890;
       width: 600px;
       height: 188px;
 
@@ -201,10 +202,12 @@ h2{
     }
     }
   .our-partners {
-    background-color: #28d1fc;
+    // background: url(asset_path('black-bottom-wave.svg'));
+    // background-color: #28d1fc;
     //background: url(asset-path('pink-blue.png'));
     // fill: gold;
     // background: url(asset-path('bottom-wave.svg'));
+    background-color: $main-blue;
     width:100%;
 
 
@@ -212,6 +215,9 @@ h2{
     padding-top:10px;
     padding-bottom: 30px;
     margin:0px;
+      .set-bg-back{
+        z-index: -1;
+      }
     .row{
       margin:0px;
     }

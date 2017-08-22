@@ -1,4 +1,5 @@
-main section.mba-profile-edit{
+main section.mba-profile{
+
   .mba-profile-pic{
     width: 100%;
   }
@@ -18,4 +19,22 @@ main section.mba-profile-edit{
   .table-content{
     text-align: left;
   }
+  .bottom-margin{
+    margin: 30px 15px 30px 15px;
+  }
+  .card-bg{
+    background-color: #eee;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+  }
+
+}
+
+
+main section.mba-profile-edit{
+.mba-profile-pic{
+    width: 100%;
+  }
+
 }

@@ -41,7 +41,9 @@ class ProfileImageUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    "/public/uploads/fallback/" + [version_name, "default.jpg"].compact.join('_')
+
+    "/assets/fallback/" + ["thumb_default.jpg"].compact.join('_')
+
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

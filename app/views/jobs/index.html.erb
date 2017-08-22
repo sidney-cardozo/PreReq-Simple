@@ -18,8 +18,9 @@
           <%= render 'job', job: job, employer: @employer %>
           <% end %>
           <% else %>
+          <div class="text-center">
           <h3>You haven't posted any jobs yet</h3>
-
+        </div>
         <% end %>
 
       </div>
@@ -27,7 +28,63 @@
     </div>
     <div class="row">
 <div class="col-xs-12 text-center">
-<%= link_to 'Create new job', "jobs/new" %>
+  <a data-toggle="modal" data-target="#job-new">Add/edit content</a>
+</div>
+</div>
+</div>
 
-</div>
-</div>
+    <div class="modal fade" id="job-new" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header ">
+            <div class="col-xs-10">
+              <h4 class="modal-title" id="loginLabel">New Job</h4>
+            </div>
+            <div class="col-xs-2">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-xs-1 col-lg-3"></div>
+              <div class="col-xs-10 col-lg-6">
+                <div class="row">
+
+                <%= form_for @job, url: {action: "create"} do |form| %>
+
+                  <div class="form-group">
+                    <%= form.label :position, "Position:" %>
+                    <%= form.text_field :position, class: 'form-control' %>
+                  </div>
+                  <div class="form-group">
+                    <%= form.label :job_type, "Job type:" %>
+                    <%= form.text_field :job_type, class: 'form-control' %>
+                  </div>
+
+                  <div class="form-group">
+                    <%= form.label :description, "Description:" %>
+                    <%= form.text_area :description, class: 'form-control', rows: '5' %>
+                  </div>
+                  <div class="form-group">
+                    <%= form.label :requirements, "Requirements:" %>
+                    <%= form.text_area :requirements, class: 'form-control', rows: '5' %>
+                  </div>
+                  <div class="form-group">
+                    <%= form.label :apply_info, "To apply:" %>
+                    <%= form.text_area :apply_info, class: 'form-control', rows: '5' %>
+                  </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
