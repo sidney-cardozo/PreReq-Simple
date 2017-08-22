@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
       end
 
     else
-      redirect_to login_path
+      render
     end
   end
 

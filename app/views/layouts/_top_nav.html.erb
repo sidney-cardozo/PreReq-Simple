@@ -12,51 +12,40 @@
 
   <div id="navbar" class="navbar-collapse collapse navbar-right">
       <ul class="nav navbar-nav">
-        <li class="navbar-text">
-          <%= link_to 'Home', :root, class: 'btn nav-links' %>
-        </li>
         <% if current_user %>
           <% if current_user.employer %>
             <li class="navbar-text">
-              <%= link_to 'Profile', employer_path(current_user.employer.id), class: 'nav-links' %>
+              <%= link_to "#{current_user.employer.name}", employer_path(current_user.employer.id), class: 'nav-links' %>
             </li>
           <% elsif current_user.applicant %>
             <li class="navbar-text">
-              <%= link_to 'Profile', applicant_path(current_user.applicant), class: 'nav-links'%>
+              <%= link_to "#{current_user.applicant.first_name}", applicant_path(current_user.applicant), class: 'nav-links'%>
+            </li>
+            <li class="navbar-text">
+              <%= link_to 'Job Postings', jobs_path, class: 'nav-links' %>
             </li>
           <% elsif current_user.admin? %>
-          <li class="navbar-text">
-              <%= link_to 'Dashboard', admin_pairs_path, class: 'nav-links' %>
+            <li class="navbar-text">
+              <%= link_to 'Admin', admin_pairs_path, class: 'nav-links' %>
             </li>
-          <% elsif current_user.admin? %>
-            <li>
-              <%= link_to 'Dashboard', admin_pairs_path%>
-            </li>
-          <% elsif current_user.admin? %>
-            <li>
-              <%= link_to "Dashboard", admin_pairs_path %>
-            </li>
-          <% end %>
-        <% end %>
-      </ul>
-      <ul class="nav navbar-nav">
-       <li class="navbar-text">
-          <% if current_user %>
-            <% if current_user.employer %>
-            <a class='nav-links'>Signed in as <%=  current_user.employer.name ? current_user.employer.name : Employer%></a>
-            <% elsif current_user.applicant %>
-            <a class='nav-links'>Signed in as <%=  current_user.applicant.first_name ? current_user.applicant.first_name : Applicant%></a>
-            <% elsif current_user.admin? %>
-            <a class='nav-links'>Signed in as Admin</a>
+          <% elsif current_user.applicant? %>
+            <% if !current_user.applicant%>
+              <li class="navbar-text">
+                <%= link_to 'Create Profile', new_applicant_path, class: 'nav-links' %>
+              </li>
             <% end %>
-        </li>
-        <li class="navbar-text">
-        <%= link_to "Logout", '/logout', class: 'nav-links'%>
-
-        </li>
-          <% else %>
-        <a data-toggle="modal" data-target="#login" class='nav-links'>Login</a>
+            <li class="navbar-text">
+              <%= link_to 'Job Postings', Jobs_path, class: 'nav-links' %>
+            </li>
           <% end %>
+          <li class="navbar-text">
+            <%= link_to "Logout", '/logout', class: 'nav-links'%>
+          </li>
+        <% else %>
+        <li class="navbar-text">
+          <a data-toggle="modal" data-target="#login" class='nav-links'>Login</a>
+        </li>
+        <% end %>
       </ul>
     </div>
 
