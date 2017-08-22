@@ -7,6 +7,7 @@ class JobsController < ApplicationController
   def index
     @employer = Employer.find(params[:employer_id])
     @jobs = @employer.jobs.order(created_at: :desc)
+    @job = Job.new
   end
 
   def show
