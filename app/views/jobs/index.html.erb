@@ -18,8 +18,9 @@
           <%= render 'job', job: job, employer: @employer %>
           <% end %>
           <% else %>
+          <div class="text-center">
           <h3>You haven't posted any jobs yet</h3>
-
+        </div>
         <% end %>
 
       </div>
@@ -27,7 +28,7 @@
     </div>
     <div class="row">
 <div class="col-xs-12 text-center">
-<%= link_to 'Create new job', "jobs/new" %>
+<%= link_to 'Create New Job', "jobs/new", { :class=>"btn btn-primary bottom-margin" } %>
 
 </div>
 </div>

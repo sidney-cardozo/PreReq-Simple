@@ -5,15 +5,22 @@ main section.admin-dashboard{
   }
   .green-island{
     margin-top:100px;
-    background-color: #60ff98;
+    background-color:   #A6E890;
     border-radius: 10px;
     padding:0px 15px 0px 15px;
+    h3{
+      margin: 12px 0px 12px 0px;
+    }
   }
   .green-island-no-tm{
-  margin-top: 20px;
-    background-color: #60ff98;
+  margin-top: 30px;
+  margin-bottom: 20px;
+    background-color:   #A6E890;
     border-radius: 10px;
     padding:0px 15px 0px 15px;
+    h3{
+      margin: 12px 0px 12px 0px;
+    }
   }
   table{
     background-color:white;
@@ -23,11 +30,6 @@ main section.admin-dashboard{
     padding: 10px 30px 20px 30px;
     margin-bottom: 30px;
 
-  .btn{
-    color: black;
-    font-weight: bold;
-    background-color: #60ff98;
-    border: 1px solid black;
-  }
+
 }
 }

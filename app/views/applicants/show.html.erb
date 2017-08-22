@@ -66,10 +66,11 @@
       </div>
 
     <div class="row text-center">
+
       <% if current_user.role == "applicant" %>
-        <a data-toggle="modal" data-target="#applicant-edit">Add/edit content</a>
+        <a data-toggle="modal" data-target="#applicant-edit" class="btn btn-primary bottom-margin">Add/edit content</a>
       <% elsif current_user.role == "admin" %>
-        <a type="submit" href="<%= admin_pairs_path %>">Back to dashboard</a>
+        <a type="submit" class="btn btn-primary bottom-margin" href="<%= admin_pairs_path %>">Back to dashboard</a>
       <%end%>
     </div>
 
@@ -132,6 +133,7 @@
           <button type="submit" class="btn btn-primary">Submit</button>
         </div>
         <% end %>
+
       </div>
     </div>
   </div>
