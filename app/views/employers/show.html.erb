@@ -1,62 +1,69 @@
 <section class="employer-profile">
   <div class="container">
-    <div class="row">
-      <div class="col-xs-1 col-lg-4"></div>
-      <div class="col-xs-10 col-lg-4 text-center">
-      <h2 class="top-title">Company Profile</h2>
-        </div>
-        <div class="col-xs-1 col-lg-4"></div>
-      </div> <!-- CLOSES ROW -->
 
-      <div class="row">
+
+    <div class="row text-center">
+
+        <h2 class="top-title">Company Profile</h2>
+
+    </div> <!-- CLOSES ROW -->
+
+
+
+<div class="row">
       <div class="col-xs-0 col-lg-3"></div>
-      <div class="col-xs-4 col-lg-2">
+      <div class="col-xs-12 col-lg-6">
+      <div class="row card-bg">
+      <div class="col-xs-4 col-lg-4">
         <%= image_tag @employer.image.thumb, class: "comp-logo"%>
       </div>
-      <div class="col-xs-8 col-lg-4 take-out-padding-lr">
+      <div class="col-xs-8 col-lg-8 take-out-padding-lr">
         <h3 class="take-out-margin-t"><%= @employer.name %></h3>
         <a class="company-email" href="#"><%= @user.email %></a>
+
+
+
+      </div>
+      </div>
       </div>
       <div class="col-xs-0 col-lg-3"></div>
       </div>
 
-  <br>
-
-      <div class="row">
-
-        <div class="col-xs-1 col-lg-3"></div>
-        <div class="col-xs-10 col-lg-6 text-center">
-          <table class="table table-responsive">
-    <tbody>
-
-    <tr>
-      <th scope="row" class="table-head">Description:</th>
-      <td class="table-content"><%= @employer.description %></td>
-
-    </tr>
-
-  </tbody>
-    </table>
+<!--  -->
 
 
-        </div>
-        <div class="col-xs-1 col-lg-3"></div>
 
+
+    <div class="row">
+      <div class="col-xs-1 col-lg-3"></div>
+      <div class="col-xs-10 col-lg-6 text-center">
+        <table class="table table-responsive">
+          <tbody>
+            <tr>
+              <th scope="row" class="table-head">Description:</th>
+              <td class="table-content"><%= @employer.description %></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="row text-center">
-
-          <a data-toggle="modal" data-target="#employer-edit" class="btn btn-primary bottom-margin" href="<%= edit_employer_path(@employer) %>">Edit Content</a>
-
-
-          <a type="submit" class="btn btn-primary bottom-margin" href="<%= employer_jobs_path(@employer) %>">Job Postings</a>
-
-      </div>
+      <div class="col-xs-1 col-lg-3"></div>
     </div>
 
+
+    <div class="row text-center">
+      <a data-toggle="modal" data-target="#employer-edit" class="btn btn-primary bottom-margin">Edit Content</a>
+      <a type="submit" class="btn btn-primary bottom-margin" href="<%= employer_jobs_path(@employer) %>">Job Postings</a>
+    </div>
+
+
+  </div> <!-- CLOSES CONTAINER -->
+
+<!-- MODAL START -->
 
   <div class="modal fade" id="employer-edit" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
+
         <div class="modal-header ">
           <div class="col-xs-10">
             <h4 class="modal-title" id="loginLabel">Employer Edit</h4>
@@ -67,40 +74,47 @@
             </button>
           </div>
         </div>
+
         <div class="modal-body">
           <div class="row">
             <div class="col-xs-1 col-lg-3"></div>
             <div class="col-xs-10 col-lg-6">
               <div class="row">
 
-           <%= form_for @employer, html: {multipart: true}, url: {action: "update"} do |form| %>
+               <%= form_for @employer, html: {multipart: true}, url: {action: "update"} do |form| %>
 
-            <div class="upload-preview">
-              <img />
-            </div>
+               <div class="upload-preview">
+                <img />
+              </div>
 
-            <div class="form-group">
-              <%= form.label :image, "Photo:" %>
-              <%= form.file_field :image , class: "form-control image"%>
-            </div>
-            <div class="form-group">
-              <%= form.label :name, "Company name:" %>
-              <%= form.text_field :name, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-              <%= form.label :description, "Description:" %>
-              <%= form.text_area :description, class: 'form-control', rows: '5' %>
-            </div>
+              <div class="form-group">
+                <%= form.label :image, "Photo:" %>
+                <%= form.file_field :image , class: "form-control image"%>
+              </div>
+              <div class="form-group">
+                <%= form.label :name, "Company name:" %>
+                <%= form.text_field :name, class: 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= form.label :description, "Description:" %>
+                <%= form.text_area :description, class: 'form-control', rows: '5' %>
+              </div>
 
             </div>
           </div>
         </div>
       </div>
-      <div class="modal-footer">
+
+      <div class="modal-footer text-center">
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>
+
       <% end %>
     </div>
   </div>
-  </div>
+</div>
+
+
+<!-- MODAL ENDS -->
+
 </section>
