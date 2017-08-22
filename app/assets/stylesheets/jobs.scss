@@ -35,15 +35,60 @@ main section.job-details{
 
 main section.job-postings-index{
   .job-postings-box{
-    border: 1px black solid;
+    box-shadow: 0px 0px 5px grey;
+    background-color: #60CCFA;
+    padding: 13px 13px 0px 13px;
+    // border: 1px black solid;
     .job-posting-item{
-      border: 1px black solid;
-      margin: 5px;
+      margin: 0px 0px 13px 0px;
+      background-color: rgba(0, 0, 0, 0.7);
+      // border-radius: 5px;
+      box-shadow: 0px 0px 4px black;
+
       padding: 10px;
+      .white-text{
+        color: white;
+      }
+
+      h4{
+        margin-top: 0px;
+        margin-bottom: 5px;
+      }
+      hr{
+        color: white;
+        margin: 5px 0px 7px 0px;
+      }
+
+
       .description-overflow{
         height: 4em;
         overflow:hidden;
         text-overflow:ellipsis;
+
+        margin-bottom: 10px;
+        .job-item-description{
+          color: #858687;
+        }
+      }
+
+
+      .btn{
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      // font-weight: bold;
+
+      background-color: rgba(0, 0, 0, 0);
+      color: rgba(255, 255, 0, 1.0);
+      border: 1px solid rgba(255, 255, 0, 1.0);
+      transition: all .2s ease-in-out;
+        &:hover{
+          transform: scale(1.1);
+        }
+      }
+      .timeago{
+        font-size: 12px;
+        font-style: italic;
       }
     }
   }
