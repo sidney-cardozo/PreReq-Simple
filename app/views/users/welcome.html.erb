@@ -1,22 +1,28 @@
 <section class="welcome-page">
 <!-- WELCOME MSG SECTION -->
 
-<section class="container welcome-msg">
-<div class="row">
-  <div class="col-lg-4 col-xs-1"></div>
-  <div class="col-lg-4 col-xs-10 text-center">
-    <h2>Welcome to PreReq</h2>
-  </div>
-  <div class="col-lg-4 col-xs-1"></div>
+
+
+
+<div class="top-bg">
+
+<div class="row welcome-msg">
+<div class="row text-center">
+
+
+    <h1>Welcome to PreReq</h1>
+
+
 </div>
+
 <div class="row">
   <div class="col-lg-2 col-xs-1"></div>
   <div class="col-lg-8 col-xs-10 text-center">
-  <p>Maids table how learn drift but purse stand yet set. Music me house could among oh as their. Piqued our sister shy nature almost his wicket. Hand dear so we hour to. He we be hastily offence effects he service. Sympathize it projection ye insipidity celebrated my pianoforte indulgence.</p>
+  <p id="welcome-msg-text">We, a group of MBA and undergraduate students from various disciplines, seek to help newcomers (refugees and recent migrants alike) bridge the gap between knowing where they want to work and landing their first job by addressing the individual needs of each and every member.</p>
   </div>
   <div class="col-lg-2 col-xs-1"></div>
 </div>
-</section> <!-- closes welcome-msg section -->
+</div> <!-- closes welcome-msg section -->
 <!-- WELCOME MSG SECTION END-->
 
 <br>
@@ -25,16 +31,16 @@
 <section class="container">
 <div class="row hidden-xs hidden-sm visible-md visible-lg">
   <div class="col-xs-2"></div>
-  <div class="col-xs-8 welome-for-box">
+  <div class="col-xs-8 welcome-for-box emps">
     <div class="row">
-      <div class="col-xs-2 vcenter text-center">
-      <span>For employers</span>
+      <div class="col-xs-3 vcenter text-center">
+      <span class="for-x">For employers</span>
       </div>
-      <div class="col-xs-7 vcenter text-center">
-      <p>Ladyship it daughter securing procured or am moreover mr. Put sir she exercise vicinity cheerful wondered.</p>
+      <div class="col-xs-6 vcenter text-center">
+      <p class="for-x-msg">Thanks for stopping by! Here’s today’s list of awesome candidates for you.</p>
       </div>
       <div class="col-xs-2 vcenter text-center">
-      <a id="register-employer" class="btn btn-primary" role="button" data-toggle="modal" data-target="#signup">Register</a>
+      <a id="register-employer" class="btn btn-primary register-btn" role="button" data-toggle="modal" data-target="#signup">Register</a>
       </div>
     </div>
   </div>
@@ -42,22 +48,22 @@
 
 </div>
 <br>
-<div class="row hidden-xs hidden-sm visible-md visible-lg">
-  <div class="col-xs-2"></div>
-  <div class="col-xs-8 welome-for-box">
+<div class="row hidden-xs hidden-sm visible-md visible-lg apps">
+  <div class="col-xs-2 for-apps-sides-color"></div>
+  <div class="col-xs-8 welcome-for-box">
     <div class="row">
-      <div class="col-xs-2 vcenter text-center">
-      <span>For immigrants</span>
+      <div class="col-xs-3 vcenter text-center">
+      <span class="for-x">For immigrants</span>
       </div>
-      <div class="col-xs-7 vcenter text-center">
-      <p>Ladyship it daughter securing procured or am moreover mr. Put sir she exercise vicinity cheerful wondered.</p>
+      <div class="col-xs-6 vcenter text-center">
+      <p class="for-x-msg">Thanks for stopping by! Here’s the latest on your job search progress.</p>
       </div>
       <div class="col-xs-2 vcenter text-center">
-      <a id="register-applicant" class="btn btn-primary" role="button" data-toggle="modal" data-target="#signup">Register</a>
+      <a id="register-applicant" class="btn btn-primary register-btn" role="button" data-toggle="modal" data-target="#signup">Register</a>
       </div>
     </div>
   </div>
-  <div class="col-xs-2"></div>
+  <div class="col-xs-2 for-apps-sides-color"></div>
 </div>
 <!-- FOR MOBILE XS -->
 
@@ -111,6 +117,7 @@
 
 </section>
 <% end %>
+</div>
 
 <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -153,6 +160,20 @@
               </tr>
             </tbody>
           </table>
+             <% if @user.errors.any? %>
+                <div id="error_explanation">
+                  <h2>
+                    <%= pluralize(@user.errors.count, "error") %> prohibited
+                    this article from being saved:
+                  </h2>
+                  <ul>
+                    <% @user.errors.full_messages.each do |msg| %>
+                      <li><%= msg %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              <% end %>
+
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary">Submit</button>
@@ -161,147 +182,123 @@
     </div>
   </div>
 </div>
-
-<%= javascript_tag do %>
-$(document).ready(function(){
-  $("a#register-employer").on("click", function(){
-    $("#radio-employer").prop("checked", true)
-  });
-
-  $("a#register-applicant").on("click", function(){
-    $("#radio-applicant").prop("checked", true)
-  });
-});
-
-<% end %>
-
 <!-- FOR EMPLOYERS FOR IMMIGRANT BOXES SECTION END -->
 
-<br>
 
 
 <!-- READ OUR STORIES SECTION -->
+
 <section class="container">
-<div class="row">
-  <div class="col-xs-2"></div>
-  <div class="col-xs-8 text-center">
-    <h3>Read our stories</h3>
-  </div>
-  <div class="col-xs-2"></div>
+<div class="row text-center">
+    <h2 class="hidden-md hidden-sm">Read our Stories</h2>
+
 </div>
+
+
+<% @pairs.each do |pair| %>
 
 <div class="row hidden-xs hidden-sm hidden-md visible-lg">
   <div class="col-xs-2"></div>
 
   <div class="col-xs-8 story-container">
-  <img class="story-im-pic" src="http://lorempixel.com/200/200/">
-  <img class="story-mba-pic" src="http://lorempixel.com/200/200/sports/">
-  <div class="story-box"></div>
-  <p class="story-im-name text-right">Philippe-Jean Desrosiers</p>
-  <p class="story-mba-name text-right">Nicholas Blain-Carpenter</p>
+<%= image_tag pair.applicant.image.thumb, class: "story-im-pic"%>
+<%= image_tag pair.student.image.thumb, class: "story-mba-pic"%>
+
+
+
+  <div class="story-box">
+  </div>
+  <div class="story-scroll">
+
+    <p class="story-para"><%= pair.story %></p>
+
+  </div>
+
+<div class="story-im-name">
+  <p class="text-right first-name"><%= pair.applicant.first_name %></p>
+  <p class="text-right last-name"><%= pair.applicant.last_name %></p>
+  </div>
+<div class="story-mba-name">
+  <p class="text-right first-name"><%= pair.student.first_name %></p>
+  <p class="text-right last-name"><%= pair.student.last_name %></p>
+  </div>
+
+ <!--  <p class="story-im-name text-right"><%= pair.applicant.first_name %> <%= pair.applicant.last_name %></p>
+  <p class="story-mba-name text-right"><%= pair.student.first_name %> <%= pair.student.first_name %></p> -->
   </div>
   <div class="col-xs-2"></div>
 </div>
 
-<div class="row hidden-xs visible-lg">
+<!-- <div class="row hidden-xs hidden-sm hidden-md visible-lg">
   <div class="col-xs-2"></div>
+
   <div class="col-xs-8 story-container">
-  <img class="story-im-pic" src="http://lorempixel.com/200/200/">
-  <img class="story-mba-pic" src="http://lorempixel.com/200/200/sports/">
-  <div class="story-box"></div>
-  <p class="story-im-name text-right">Philippe-Jean Desrosiers</p>
-  <p class="story-mba-name text-right">Nicholas Blain-Carpenter</p>
+<%= image_tag pair.applicant.image.thumb, class: "story-im-pic"%>
+<%= image_tag pair.student.image.thumb, class: "story-mba-pic"%>
+ -->
+
+
+ <!--  <div class="story-box">
+
+  <div class="story-scroll">
+
+    <p class="story-para"><%= pair.story %></p>
+
   </div>
-  <div class="col-xs-2"></div>
-</div>
 
-<div class="row hidden-xs visible-lg">
-  <div class="col-xs-2"></div>
-  <div class="col-xs-8 story-container">
-  <img class="story-im-pic" src="http://lorempixel.com/200/200/">
-  <img class="story-mba-pic" src="http://lorempixel.com/200/200/sports/">
-  <div class="story-box"></div>
-  <p class="story-im-name text-right">Philippe-Jean Desrosiers</p>
-  <p class="story-mba-name text-right">Nicholas Blain-Carpenter</p>
+  <div class="story-im-name">
+  <p class="text-right first-name"><%= pair.applicant.first_name %></p>
+  <p class="text-right last-name"><%= pair.applicant.last_name %></p>
   </div>
-  <div class="col-xs-2"></div>
+<div class="story-mba-name">
+  <p class="text-right first-name"><%= pair.student.first_name %></p>
+  <p class="text-right last-name"><%= pair.student.last_name %></p>
+  </div>
+
 </div>
+<div class="col-xs-2"></div>
+</div> <!--closes row w hidden & visible -->
 
-
-<!-- FOR MOBILE XS -->
-<div class="story-box-sm hidden-lg visible-md visible-sm visible-xs">
+<!-- MOBILE -->
+<div class="story-box-sm hidden-lg hidden-md hidden-sm visible-xs">
 <div class="row">
-  <div class="col-xs-4 col-xs-offset-1">
-    <img class="im-story-pic-mobile" src="http://lorempixel.com/200/200/">
+<div class="col-xs-3 take-out-padding-lr">
+  <p class="story-im-name-mobile text-right"><%= pair.applicant.first_name %> <%= pair.applicant.last_name %></p>
+</div>
+  <div class="col-xs-3 take-out-padding-lr">
+  <%= image_tag pair.applicant.image.thumb, class: "im-story-pic-mobile"%>
   </div>
-  <div class="col-xs-2"></div>
-  <div class="col-xs-4">
-    <img class="mba-story-pic-mobile" src="http://lorempixel.com/200/200/">
+
+  <div class="col-xs-3 take-out-padding-lr">
+  <%= image_tag pair.student.image.thumb, class: "mba-story-pic-mobile"%>
   </div>
-  <div class="col-xs-1"></div>
+  <div class="col-xs-3 take-out-padding-lr">
+    <p class="story-mba-name text-left"><%= pair.student.first_name %> <%= pair.student.first_name %></p>
+
+  </div>
 </div>
   <div class="row">
     <div class="col-xs-1"></div>
     <div class="col-xs-10 text-center">
-      <p>Maids table how learn drift but purse stand yet set. Music me house could among oh as their. Piqued our sister shy nature almost his wicket. Hand dear so we hour to. He we be hastily offence effects he service. Sympathize it projection ye insipidity celebrated my pianoforte indulgence.</p>
+      <p class="story-para"><%= pair.story %></p>
     </div>
     <div class="col-xs-1"></div>
   </div>
 </div>
 
-<br>
-
-<div class="story-box-sm hidden-lg visible-xs">
-<div class="row">
-  <div class="col-xs-4 col-xs-offset-1">
-    <img class="im-story-pic-mobile" src="http://lorempixel.com/200/200/">
-  </div>
-  <div class="col-xs-2"></div>
-  <div class="col-xs-4">
-    <img class="mba-story-pic-mobile" src="http://lorempixel.com/200/200/">
-  </div>
-  <div class="col-xs-1"></div>
-</div>
-  <div class="row">
-    <div class="col-xs-1"></div>
-    <div class="col-xs-10 text-center">
-      <p>Maids table how learn drift but purse stand yet set. Music me house could among oh as their. Piqued our sister shy nature almost his wicket. Hand dear so we hour to. He we be hastily offence effects he service. Sympathize it projection ye insipidity celebrated my pianoforte indulgence.</p>
-    </div>
-    <div class="col-xs-1"></div>
-  </div>
-</div>
-
-<br>
-
-<div class="story-box-sm hidden-lg visible-xs">
-<div class="row">
-  <div class="col-xs-4 col-xs-offset-1">
-    <img class="im-story-pic-mobile" src="http://lorempixel.com/200/200/">
-  </div>
-  <div class="col-xs-2"></div>
-  <div class="col-xs-4">
-    <img class="mba-story-pic-mobile" src="http://lorempixel.com/200/200/">
-  </div>
-  <div class="col-xs-1"></div>
-</div>
-  <div class="row">
-    <div class="col-xs-1"></div>
-    <div class="col-xs-10 text-center">
-      <p>Maids table how learn drift but purse stand yet set. Music me house could among oh as their. Piqued our sister shy nature almost his wicket. Hand dear so we hour to. He we be hastily offence effects he service. Sympathize it projection ye insipidity celebrated my pianoforte indulgence.</p>
-    </div>
-    <div class="col-xs-1"></div>
-  </div>
-</div>
+<% end %>
 
 </section>
+
 <!-- READ OUR STORIES SECTION END -->
 
 <!-- OUR PARTNERS SECTION -->
-<section class="container">
+<section class="container our-partners">
+
 <div class="row">
   <div class="col-xs-2"></div>
   <div class="col-xs-8 text-center">
-    <h3>Our partners</h3>
+    <h2 class="hidden-md hidden-sm">Our Partners</h2>
   </div>
   <div class="col-xs-2"></div>
 </div>
@@ -331,7 +328,9 @@ $(document).ready(function(){
     </div>
     <div class="col-xs-3"></div>
 
-    </div>
+</div>
+
+
 <!-- row 3 -->
 <div class="row">
     <div class="col-xs-2 col-xs-offset-1">
@@ -349,6 +348,8 @@ $(document).ready(function(){
 
   </div>
   </div>
+
+
 <!-- FOR MOBILE XS -->
 <div class="hidden-lg visible-xs">
   <div class="row">

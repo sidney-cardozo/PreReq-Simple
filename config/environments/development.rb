@@ -9,15 +9,15 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+ config.serve_static_assets = true
+
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-
-  config.action_mailer.raise_delivery_errors = false
-
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.delivery_method = :smtp
   # SMTP settings for gmail
@@ -54,4 +54,6 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.web_console.whitelisted_ips = ['10.0.2.0/24']
+
+
 end

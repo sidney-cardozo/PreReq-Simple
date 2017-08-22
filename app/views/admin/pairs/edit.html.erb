@@ -1,0 +1,77 @@
+<section class="edit-pair">
+<div class="container">
+
+<div class="row text-center">
+  <h2 class="top-title">Edit Pair</h2>
+</div>
+
+   <div class="row">
+        <div class="col-xs-1 col-lg-3"></div>
+        <div class="col-xs-10 col-lg-6">
+          <div class="row">
+          <div class="col-xs-6">
+            <div class="row">
+              <span>Applicant ID: <%= @pair.applicant_id %></span>
+            </div>
+            <div class="row">
+              <span>Applicant name: <%= @pair.applicant.first_name %> <%= @pair.applicant.last_name %></span>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="row">
+              <span>Student ID: <%= @pair.student_id %></span>
+            </div>
+            <div class="row">
+              <span>Student name: <%= @pair.student.first_name %> <%= @pair.student.last_name %></span>
+            </div>
+          </div>
+          <div class="col-xs-6">
+
+          </div>
+          </div>
+          <div class="row">
+        <%= form_for @pair, url: {action: "update"}, class: "story_update" do |form| %>
+        <div class="form-group">
+          <%= form.label :story, "Story:" %>
+          <%= form.text_area :story, class: 'form-control', rows: '5', id: "story_text_area" %>
+          <% if @pair.story %>
+          <span id="counter"><%= 400 - @pair.story.size%></span>
+          <% else %>
+          <span id="counter">400</span>
+          <% end %>
+        </div>
+        <div class="form-group">
+          <%= form.radio_button :story_on_display, true %>
+          <%= form.label :story_on_display, 'Yes', :value => true %>
+
+          <%= form.radio_button :story_on_display, false, :checked => true %>
+          <%= form.label :story_on_display, 'No', :value => false %>
+
+        </div>
+
+        <%= form.submit 'Save changes', class: 'btn btn-primary' %>
+
+        <% if form.object.errors.any? %>
+            <div class="alert alert-danger">
+              <strong>The following errors prevented saving:</strong>
+              <ul>
+                <% form.object.errors.full_messages.each do |error| %>
+                  <li><%= error %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+        <% end %>
+
+          </div>
+        </div>
+
+        <div class="col-xs-1 col-lg-3"></div>
+      </div>
+
+
+
+
+</div>
+
+</section>

@@ -1,22 +1,98 @@
 main section.welcome-page{
+.top-bg{
+  background-image: url('bg.png');
+  background-width: 100%;
+  // background: #28d1fc;
+   // background: linear-gradient(to right, lime, #28d1fc);
+   // background: linear-gradient(#28d1fc, white);
+}
+
+h2{
+  margin: 25px 0px 25px 0px;
+  // font-family: Goudy Old Style,Garamond,Big Caslon,Times New Roman,serif;
+
+}
+
+.row.welcome-msg{
+
+
+  width:100%;
+
+
+  margin-top:0px;
+  margin-bottom:25px;
+  .row{
+    margin:0px;
+  }
+
+  h1{
+    color: black;
+    // font-family: Goudy Old Style,Garamond,Big Caslon,Times New Roman,serif;
+    // font-style: italic;
+    margin-top: 100px;
+    margin-bottom: 25px;
+    font-size: 3em;
+  }
+  #welcome-msg-text{
+    font-size:16px;
+    color: #3d3d3d;
+  }
+}
+
   .vcenter {
     display: inline-block;
     vertical-align: middle;
     float: none;
   }
-  .welome-for-box {
-    border: 1px black solid;
+
+  .welcome-for-box {
+    background-color: rgba(0, 0, 0, 0.70);
+    border-radius: 5px;
+    // opacity: .6;
+    // border: 1px black solid;
+    padding: 55px 10px 55px 10px;
+    // border: 1px solid rgba(0,0, 0, 1.0);
+    // &:hover{
+    //   background-color: rgba(0, 0, 0, 1.0);
+    // }
   }
+    .for-x{
+      color: rgba(255, 255, 255, 1.0);
+      font-size: 20px;
+      font-weight: bold;
+
+    }
+    .for-x-msg{
+      color: rgba(255, 255, 255, 1.0);
+      font-size:16px;
+      margin-bottom:0px;
+    }
+    .register-btn{
+      font-size: 14px;
+      font-weight: bold;
+      margin-left: 10px;
+      background-color: rgba(0, 0, 0, 0);
+      color: rgba(255, 255, 0, 1.0);
+      border: 1px solid rgba(255, 255, 0, 1.0);
+      transition: all .2s ease-in-out;
+      &:hover{
+        transform: scale(1.1);
+      }
+    }
+
   .add-5-margin-rl {
     margin-left: 5px;
     margin-right: 5px;
   }
+
   .story-container{
     width: 740px;
     height: 300px;
-    /*position: absolute;*/
-    border: 1px solid #aaa;
+
+    // border: 1px solid #aaa;
+    margin-left: 0px;
     .story-im-pic{
+      border:1px yellow solid;
       width: 150px;
       height: 150px;
       border-radius: 50%;
@@ -24,9 +100,10 @@ main section.welcome-page{
       top: 0px;
       left: 30px;
       z-index: 1;
-      background: orange;
+
     }
     .story-mba-pic{
+      border:1px yellow solid;
       width: 150px;
       height: 150px;
       border-radius: 50%;
@@ -34,24 +111,39 @@ main section.welcome-page{
       top: 100px;
       left: 105px;
       z-index: 0;
-      background: green;
+
     }
 
     .story-box{
+      border: 1px solid lime;
       width: 600px;
       height: 188px;
+
+
       position: absolute;
       top: 31px;
       left: 140px;
       z-index: -1;
       background: #eee;
-      .story-para{
-        position: absolute;
-        left: 120px;
-        margin: 10px;
       }
-    }
+      .story-scroll{
 
+        position: absolute;
+        top: 41px;
+        left: 270px;
+        max-height: 168px;
+
+        margin-bottom: 10px;
+
+        width: 450px;
+        overflow-y:auto;
+
+        z-index: 1000;
+        .story-para{
+          font-size: 16px;
+        }
+
+    }
 
     .story-im-name{
       position: absolute;
@@ -59,6 +151,16 @@ main section.welcome-page{
       width: 100px;
       top: 150px;
       left: 0px;
+      z-index: 1;
+      .first-name{
+        margin:0px;
+        font-weight:bold;
+
+      }
+      .last-name{
+        margin:0px;
+        color: grey;
+      }
     }
 
     .story-mba-name{
@@ -68,8 +170,25 @@ main section.welcome-page{
       top: 250px;
       left: 80px;
       z-index: 1;
+      .first-name{
+        margin:0px;
+        font-weight:bold;
+
+      }
+      .last-name{
+        margin:0px;
+        color: grey;
+      }
     }
   }
+
+  .story-im-name-mobile{
+    width: 100%;
+  }
+  .story-mba-name-mobile{
+    width: 100%;
+  }
+
   .story-box-sm{
       border: 1px black solid;
     .im-story-pic-mobile{
@@ -81,14 +200,33 @@ main section.welcome-page{
       height: auto;
     }
     }
+  .our-partners {
+    background-color: #28d1fc;
+    //background: url(asset-path('pink-blue.png'));
+    // fill: gold;
+    // background: url(asset-path('bottom-wave.svg'));
+    width:100%;
 
-  .partner-logo{
-    height: 75px;
-    width: 100%;
+
+    // background-repeat: no-repeat;
+    padding-top:10px;
+    padding-bottom: 30px;
+    margin:0px;
+    .row{
+      margin:0px;
+    }
+    .partner-logo{
+      height: 75px;
+      width: 100%;
+      margin-top: 20px;
+      margin-bottom:20px;
+    }
+    .take-out-padding-lr{
+      padding-left: 0px;
+      padding-right: 0px;
+    }
   }
-  .take-out-padding-lr{
-  padding-left: 0px;
-  padding-right: 0px;
-}
+
+
 }
 

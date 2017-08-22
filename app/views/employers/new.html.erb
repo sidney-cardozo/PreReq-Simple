@@ -3,7 +3,7 @@
       <div class="row">
         <div class="col-xs-1 col-lg-4"></div>
         <div class="col-xs-10 col-lg-4 text-center">
-          <h2 class="take-out-margin-t">Create company profile</h2>
+          <h2 class="top-title">Create Company Profile</h2>
         </div>
         <div class="col-xs-1 col-lg-4"></div>
       </div>
@@ -15,9 +15,13 @@
           <div class="row">
 
         <%= form_for @employer, url: {action: "create"} do |form| %>
+        <div class="upload-preview">
+          <img />
+        </div>
+
         <div class="form-group">
-          <%= form.label :image, "Logo:" %>
-          <%= form.file_field :image %>
+          <%= form.label :image, "Photo:" %>
+          <%= form.file_field :image , class: "form-control image"%>
         </div>
           <div class="form-group">
           <%= form.label :name, "Company name:" %>
@@ -25,7 +29,7 @@
         </div>
         <div class="form-group">
           <%= form.label :description, "Description:" %>
-          <%= form.text_area :description, class: 'form-control' %>
+          <%= form.text_area :description, class: 'form-control', rows: '5' %>
         </div>
 
         <%= form.submit 'Create account', class: 'btn btn-primary' %>

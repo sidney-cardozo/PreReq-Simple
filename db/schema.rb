@@ -24,10 +24,10 @@ ActiveRecord::Schema.define(version: 20170812001511) do
     t.text     "description"
     t.string   "resume_link"
     t.string   "image"
-    t.text     "fields",       default: [],              array: true
-    t.boolean  "paired"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.text     "fields",       default: [],                 array: true
+    t.boolean  "paired",       default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   add_index "applicants", ["user_id"], name: "index_applicants_on_user_id", using: :btree
@@ -44,12 +44,12 @@ ActiveRecord::Schema.define(version: 20170812001511) do
   add_index "employers", ["user_id"], name: "index_employers_on_user_id", using: :btree
 
   create_table "job_tags", force: :cascade do |t|
-    t.integer "jobs_id"
-    t.integer "tags_id"
+    t.integer "job_id"
+    t.integer "tag_id"
   end
 
-  add_index "job_tags", ["jobs_id"], name: "index_job_tags_on_jobs_id", using: :btree
-  add_index "job_tags", ["tags_id"], name: "index_job_tags_on_tags_id", using: :btree
+  add_index "job_tags", ["job_id"], name: "index_job_tags_on_job_id", using: :btree
+  add_index "job_tags", ["tag_id"], name: "index_job_tags_on_tag_id", using: :btree
 
   create_table "jobs", force: :cascade do |t|
     t.integer  "employer_id"
@@ -68,21 +68,25 @@ ActiveRecord::Schema.define(version: 20170812001511) do
     t.integer  "applicant_id"
     t.integer  "student_id"
     t.text     "story"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.boolean  "story_on_display", default: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   add_index "pairs", ["applicant_id"], name: "index_pairs_on_applicant_id", using: :btree
   add_index "pairs", ["student_id"], name: "index_pairs_on_student_id", using: :btree
 
   create_table "students", force: :cascade do |t|
-    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "image"
     t.string   "concentration"
     t.string   "industry"
     t.string   "resume_link"
-    t.boolean  "paired"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.boolean  "paired",        default: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "tags", force: :cascade do |t|

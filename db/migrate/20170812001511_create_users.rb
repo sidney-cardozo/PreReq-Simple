@@ -23,7 +23,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :resume_link
       t.string :image
       t.text :fields, array: true, default: []
-      t.boolean :paired
+      t.boolean :paired , default: false
       t.timestamps null: false
     end
 
@@ -38,11 +38,14 @@ class CreateUsers < ActiveRecord::Migration
     end
 
     create_table :students do |t|
-      t.string :name
+      t.string :first_name
+      t.string :last_name
+      t.string :email
+      t.string :image
       t.string :concentration
       t.string :industry
       t.string :resume_link
-      t.boolean :paired
+      t.boolean :paired , default: false
       t.timestamps null: false
     end
 
@@ -50,6 +53,7 @@ class CreateUsers < ActiveRecord::Migration
       t.belongs_to :applicant, index: true
       t.belongs_to :student, index: true
       t.text :story
+      t.boolean :story_on_display, default: false
       t.timestamps null: false
     end
 

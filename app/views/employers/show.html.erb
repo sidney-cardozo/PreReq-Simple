@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-xs-1 col-lg-4"></div>
       <div class="col-xs-10 col-lg-4 text-center">
-      <h2 class="take-out-margin-t">Company profile</h2>
+      <h2 class="top-title">Company Profile</h2>
         </div>
         <div class="col-xs-1 col-lg-4"></div>
       </div> <!-- CLOSES ROW -->
@@ -20,7 +20,7 @@
       <div class="col-xs-0 col-lg-3"></div>
       </div>
 
-<br>
+  <br>
 
       <div class="row">
 
@@ -44,8 +44,59 @@
 
       </div>
       <div class="row text-center">
-          <a type="submit" href="<%= edit_employer_path(@employer) %>">Add/edit content</a>
+          <a data-toggle="modal" data-target="#employer-edit">Add/edit content</a>
           <a type="submit" href="<%= employer_jobs_path(@employer) %>">Job postings</a>
       </div>
+    </div>
+
+
+  <div class="modal fade" id="employer-edit" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header ">
+          <div class="col-xs-10">
+            <h4 class="modal-title" id="loginLabel">Employer Edit</h4>
+          </div>
+          <div class="col-xs-2">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-xs-1 col-lg-3"></div>
+            <div class="col-xs-10 col-lg-6">
+              <div class="row">
+
+           <%= form_for @employer, html: {multipart: true}, url: {action: "update"} do |form| %>
+
+            <div class="upload-preview">
+              <img />
+            </div>
+
+            <div class="form-group">
+              <%= form.label :image, "Photo:" %>
+              <%= form.file_field :image , class: "form-control image"%>
+            </div>
+            <div class="form-group">
+              <%= form.label :name, "Company name:" %>
+              <%= form.text_field :name, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= form.label :description, "Description:" %>
+              <%= form.text_area :description, class: 'form-control', rows: '5' %>
+            </div>
+
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  </div>
+</section>

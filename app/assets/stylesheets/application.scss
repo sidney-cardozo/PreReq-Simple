@@ -15,16 +15,98 @@
 // Jobs
 @import "jobs";
 
+// Students
+@import "admin/students";
+
+// Pairs
+@import "admin/pairs";
+
 // Global
+html {
+  min-height: 100%;
+}
+
 body {
-  padding-top: 65px;
+  // padding-top: 70px;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  .row{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .top-title{
+    margin-top:100px;
+  }
+  #flash{
+    margin: 0 auto;
+    border: 1px solid black;
+  }
+}
+
+
+
+@media(min-width:1200px){
+  .navbar{
+    padding-right: 80px;
+    padding-left: 80px;
+
+  }
 }
 
 .navbar{
-  background-color: #f9c0e0;
+  background-color: black;
+  border:none;
+  opacity: .75;
+  height: 70px;
+  // .navbar-nav{
+  //   color:blue;
+  //   &:hover {
+  //     color:red;
+  //     // opacity:.8;
+  //   }
+
+  .navbar-text {
+    margin-left:0px;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+  }
+  .navbar-brand{
+    font-size: 24px;
+    color: white;
+
+  }
+  .navbar-nav > li > a {
+    color: white;
+    font-size:16px;
+    &:hover {
+     color: rgba(255, 255, 0, 1.0);
+
+    }
+  }
+}
+
+.notValid {
+  color: red;
 }
 // .footer {
 //     bottom: 0;
 //     width: 100%;
 //     background-color: #eee;
 // }
+.footer {
+    padding-top:40px;
+    padding-bottom:40px;
+    width: 100%;
+    background-color: black;
+  .nav-title{
+    color: #858687;
+    font-size: 16px;
+
+  }
+  .nav > li {
+    color: white;
+    margin: 10px;
+    font-size:12px;
+  }
+}

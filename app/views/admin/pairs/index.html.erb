@@ -3,26 +3,27 @@
 
     <div class="row">
       <div class="col-xs-1"></div>
-      <div class="col-xs-5">
+      <div class="col-xs-4 green-island top-margin">
+      <!-- <div class="green-island"> -->
         <div class="row text-center">
-          <h3>List of applicants</h3>
+          <h3>Applicants</h3>
         </div>
         <div class="row">
 
           <table class="table table-bordered">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>D</th>
+                <th class="text-center">ID</th>
+                <th class="text-center">Name</th>
+
               </tr>
             </thead>
             <tbody>
               <% @applicants.each do |app| %>
               <tr>
-                <th scope="row"><%= app.id %></th>
-                <td><%= app.first_name %> <%= app.last_name %></td>
-                <td>X</td>
+                <th scope="row" class="text-center"><%= app.id %></th>
+                <td class="text-center"><a type="submit" href="<%= applicant_path(app) %>"><%= app.first_name %> <%= app.last_name %></a></td>
+
               </tr>
               <% end %>
             </tbody>
@@ -34,35 +35,107 @@
         </div>
 
       </div>
-      <div class="col-xs-5">
+      <div class="col-xs-1"></div>
 
-                <div class="row text-center">
-          <h3>List of MBA students</h3>
+      <div class="col-xs-5 green-island top-margin">
+
+        <div class="row text-center">
+          <h3>List of MBA students <a data-toggle="modal" data-target="#student-new">+ New</a></h3>
         </div>
         <div class="row">
+
 
           <table class="table table-bordered">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th class="text-center">ID</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Edit</th>
+                <th class="text-center">Delete</th>
               </tr>
             </thead>
             <tbody>
               <% @students.each do |mba| %>
               <tr>
-                <th scope="row"><%= mba.id %></th>
-                <td><%= mba.name %></td>
-                <td>/</td>
-                <td>X</td>
+                <th scope="row" class="text-center"><%= mba.id %></th>
+                <td class="text-center"><a type="submit" href="<%= admin_student_path(mba) %>"><%= mba.first_name %> <%= mba.last_name %></a></td>
+                <td class="text-center"><a data-toggle="modal" data-target="#student-edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                <td class="text-center"><%= link_to fa_icon('trash'), admin_student_path(mba.id),data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
               </tr>
+
+
+                <div class="modal fade" id="student-edit" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header ">
+                      <div class="col-xs-10">
+                        <h4 class="modal-title" id="loginLabel">Student Edit</h4>
+                      </div>
+                      <div class="col-xs-2">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="modal-body">
+                    <div class="row">
+                      <div class="col-xs-1 col-lg-3"></div>
+                      <div class="col-xs-10 col-lg-6">
+                        <div class="row">
+
+                      <%= form_for mba, url: admin_student_path(mba.id), action: "update" do |form| %>
+
+                      <div class="upload-preview">
+                        <img />
+                      </div>
+
+                      <div class="form-group">
+                        <%= form.label :image, "Photo:" %>
+                        <%= form.file_field :image , class: "form-control image"%>
+                      </div>
+
+                      <div class="form-group">
+                        <%= form.label :first_name, "First Name:" %>
+                        <%= form.text_field :first_name, class: 'form-control' %>
+                      </div>
+                      <div class="form-group">
+                        <%= form.label :last_name, "Last Name:" %>
+                        <%= form.text_field :last_name, class: 'form-control' %>
+                      </div>
+
+                      <div class="form-group">
+                        <%= form.label :email, "Email:" %>
+                        <%= form.text_field :email, class: 'form-control' %>
+                      </div>
+                        <div class="form-group">
+                        <%= form.label :concentration, "Concentration:" %>
+                        <%= form.text_field :concentration, class: 'form-control' %>
+                      </div>
+                      <div class="form-group">
+                        <%= form.label :industry, "Industry:" %>
+                        <%= form.text_field :industry, class: 'form-control' %>
+                      </div>
+
+
+                      <div class="form-group">
+                        <%= form.label :resume_link, "Link to resume:" %>
+                        <%= form.text_field :resume_link, class: 'form-control' %>
+                      </div>
+                        <div class="modal-footer">
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                      <% end %>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <% end %>
             </tbody>
           </table>
-
-
         </div>
       </div>
       <div class="col-xs-1"></div>
@@ -70,56 +143,73 @@
 
 
   <div class="row">
+  <div class="col-xs-1"></div>
+  <div class="col-xs-10 green-island-no-tm">
   <div class="row text-center">
-          <h3>List of pairs</h3>
+          <h3>Pairs</h3>
         </div>
         <div class="row">
     <table class="table table-bordered">
   <thead>
     <tr>
-      <th>Applicant name</th>
-      <th>Student name</th>
-      <th>Story</th>
-      <th>E</th>
-      <th>D</th>
+      <th class="text-center">Applicant name</th>
+      <th class="text-center">Student name</th>
+      <th class="text-center">Story on display</th>
+      <th class="text-center">Edit</th>
+      <th class="text-center">Delete</th>
     </tr>
   </thead>
   <tbody>
   <% @pairs.each do |pair| %>
     <tr>
 
-      <td><%= pair.applicant.first_name %> <%= pair.applicant.last_name %></td>
-      <td><%= pair.student.name %></td>
-      <td><% if pair.story %> Y <% else %> N <% end %></td>
-      <td>/</td>
-      <td>X</td>
+
+      <td class="text-center"><a type="submit" href="<%= applicant_path(pair.applicant) %>"><%= pair.applicant.first_name %> <%= pair.applicant.last_name %></a></td>
+      <td class="text-center"><a type="submit" href="<%= admin_student_path(pair.student) %>"><%= pair.student.first_name %> <%= pair.student.last_name %></a></td>
+
+
+
+      <td class="text-center"><% if pair.story_on_display %> Yes <% else %> No <% end %></td>
+
+      <td class="text-center">
+
+        <a type="submit" href="<%= edit_admin_pair_path(pair) %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+      </td>
+
+
+      <td class="text-center"><%= link_to fa_icon('trash'), admin_pair_path(pair.id),
+            data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
+
     </tr>
     <% end %>
 
   </tbody>
 </table>
 </div>
-
+</div>
+<div class="col-xs-1"></div>
   </div>
 
 <div class="row">
+<div class="text-center">
+          <h3>New Pair</h3>
+        </div>
   <div class="col-xs-4"></div>
   <div class="col-xs-4 text-center">
 
     <%= form_for @pair, url: {action: "create"} do |form| %>
-
-          <div class="form-group">
+        <div class="form-group">
           <%= form.label :applicant_id, "Applicant ID:" %>
-          <%= form.text_field :applicant_id, class: 'form-control' %>
+          <%= form.text_field :applicant_id, class: 'form-control image' %>
         </div>
         <div class="form-group">
           <%= form.label :student_id, "MBA Student ID:" %>
           <%= form.text_field :student_id, class: 'form-control' %>
         </div>
 
-        <%= form.submit 'Create pair', class: 'btn btn-primary' %>
+        <%= form.submit 'Create', class: 'btn btn-primary' %>
 
-<% if form.object.errors.any? %>
+      <% if form.object.errors.any? %>
           <div class="alert alert-danger">
             <strong>The following errors prevented saving:</strong>
             <ul>
@@ -135,6 +225,81 @@
   <div class="col-xs-4"></div>
 </div>
 
+</div>
+
+
+  <div class="modal fade" id="student-new" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header ">
+          <div class="col-xs-10">
+            <h4 class="modal-title" id="loginLabel">New Student</h4>
+          </div>
+          <div class="col-xs-2">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+        <div class="modal-body">
+        <div class="row">
+          <div class="col-xs-1 col-lg-3"></div>
+          <div class="col-xs-10 col-lg-6">
+            <div class="row">
+
+          <%= form_for :student, url: "/admin/students/" do |form| %>
+            <div class="upload-preview">
+              <img />
+            </div>
+
+            <div class="form-group">
+              <%= form.label :image, "Photo:" %>
+              <%= form.file_field :image , class: "form-control image"%>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :first_name, "First Name:" %>
+              <%= form.text_field :first_name, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :last_name, "Last Name:" %>
+              <%= form.text_field :last_name, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :email, "Email:" %>
+              <%= form.text_field :email, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :concentration, "Concentration:" %>
+              <%= form.text_field :concentration, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :industry, "Industry:" %>
+              <%= form.text_field :industry, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :resume_link, "Link to resume:" %>
+              <%= form.text_field :resume_link, class: 'form-control' %>
+            </div>
+
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          <% end %>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+  </div>
+
+
 </section>
 

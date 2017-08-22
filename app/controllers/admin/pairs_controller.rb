@@ -2,12 +2,8 @@ class Admin::PairsController < ApplicationController
   before_filter :authorize_admin
 
   def index
-    @students = Student.where(paired: false)
-    # @students = Student.all
-
-    @applicants = Applicant.where(paired: false)
-    # @applicants = Applicant.all
-
+    @students = Student.where(paired: false).order(:first_name)
+    @applicants = Applicant.where(paired: false).order(:first_name)
     @pairs = Pair.all
     @pair = Pair.new
   end
@@ -16,9 +12,12 @@ class Admin::PairsController < ApplicationController
   def create
     pair = Pair.new(pair_params)
 
-    if pair.save
+    if !pair.student.paired && !pair.applicant.paired && pair.save
       pair.student.update(paired: true)
       pair.applicant.update(paired: true)
+
+      NotificationMailer.notification_mail(pair).deliver
+
       redirect_to admin_pairs_path, notice: "Pair Created !"
     else
       redirect_to admin_pairs_path, error: "Pair was not created!"
@@ -28,6 +27,8 @@ class Admin::PairsController < ApplicationController
   def destroy
     @pair = Pair.find(params[:id])
     if @pair
+      @pair.student.update(paired: false)
+      @pair.applicant.update(paired: false)
       @pair.destroy
       redirect_to admin_pairs_path, alert: "Pair deleted!"
     else
@@ -35,20 +36,24 @@ class Admin::PairsController < ApplicationController
     end
   end
 
-  # def edit
-  #   @pair = Pair.find(params[:id])
-
-  #   if @pair
-  #     Pair.update(pair_params), notice: "Pair story updated!"
-  #   else
-  #     redirect_to admin_pairs_path, error: "Couldnt find pair, make sure the id's are correct!"
-  #   end
-  # end
+  def edit
+    @pair = Pair.find(params[:id])
+  end
 
   def show
     @pair = Pair.find(params[:id])
   end
 
+  def update
+    @pair = Pair.find(params[:id])
+    @pair.update(pair_params)
+
+    if @pair.save
+      redirect_to admin_pairs_path, notice: "Story saved !"
+    else
+      redirect_to :back, notice: "Story too long !"
+    end
+  end
 
   private
 
@@ -61,6 +66,6 @@ class Admin::PairsController < ApplicationController
   end
 
   def pair_params
-    params.require(:pair).permit(:student_id, :applicant_id, :story)
+    params.require(:pair).permit(:student_id, :applicant_id, :story, :story_on_display)
   end
 end
