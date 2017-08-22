@@ -1,3 +1,4 @@
+$main-blue: #5094D3;
 main section.welcome-page{
 .top-bg{
   background-image: url('bg.png');
@@ -206,7 +207,7 @@ h2{
     //background: url(asset-path('pink-blue.png'));
     // fill: gold;
     // background: url(asset-path('bottom-wave.svg'));
-    background-image: url('black-bottom-wave.svg');
+    background-color: $main-blue;
     width:100%;
 
 
