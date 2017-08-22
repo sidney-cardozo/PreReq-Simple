@@ -1,21 +1,76 @@
 main section.welcome-page{
+.row.welcome-msg{
+  background-color: #28d1fc;
+  // background: url(asset-path('top-wave.svg'));
+  width:100%;
+  height:300px;
+  // background-size:100% 100%;
+  // background-repeat: no-repeat;
+  margin:0px;
+  .row{
+    margin:0px;
+  }
+
+  h1{
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-top: 100px;
+    margin-bottom: 25px;
+    font-size: 3em;
+  }
+  #welcome-msg-text{
+    font-size:18px;
+    color: white;
+  }
+}
+// #top-wave {
+//   display: inline-block;
+//   position: relative;
+//   width: 100%;
+//   padding-bottom: 0px;
+//   vertical-align: middle;
+//   overflow: hidden;
+//   .svg {
+//   display: inline-block;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+// }
+// }
   .vcenter {
     display: inline-block;
     vertical-align: middle;
     float: none;
   }
+  // .for-emps-sides-color{
+  //   background-color: #df42f4;
+  // }
+  // .for-apps-sides-color{
+  //   background-color: green;
+  // }
   .welome-for-box {
-    border: 1px black solid;
+    background-color: yellow;
+    // border: 1px black solid;
+    padding: 60px 10px 60px 10px;
+    span{
+      font-size: 22px;
+
+    }
+    p{
+      font-size:16px;
+      margin-bottom:0px;
+    }
   }
   .add-5-margin-rl {
     margin-left: 5px;
     margin-right: 5px;
   }
+
   .story-container{
     width: 740px;
     height: 300px;
-    /*position: absolute;*/
-    border: 1px solid #aaa;
+
+    // border: 1px solid #aaa;
+    margin-left: 7px;
     .story-im-pic{
       width: 150px;
       height: 150px;
@@ -60,13 +115,7 @@ main section.welcome-page{
 
         z-index: 1000;
 
-
-
-
-
-
     }
-
 
     .story-im-name{
       position: absolute;
@@ -104,14 +153,31 @@ main section.welcome-page{
       height: auto;
     }
     }
+  .our-partners {
+    background-color: #28d1fc;
+    //background: url(asset-path('pink-blue.png'));
+    // fill: gold;
+    // background: url(asset-path('bottom-wave.svg'));
+    width:100%;
 
-  .partner-logo{
-    height: 75px;
-    width: 100%;
+
+    // background-repeat: no-repeat;
+    padding-top:10px;
+    padding-bottom: 30px;
+    margin:0px;
+    .row{
+      margin:0px;
+    }
+    .partner-logo{
+      height: 75px;
+      width: 100%;
+    }
+    .take-out-padding-lr{
+      padding-left: 0px;
+      padding-right: 0px;
+    }
   }
-  .take-out-padding-lr{
-  padding-left: 0px;
-  padding-right: 0px;
-  }
+
+
 }
 
