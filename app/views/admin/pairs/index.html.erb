@@ -59,12 +59,12 @@
               <tr>
                 <th scope="row" class="text-center"><%= mba.id %></th>
                 <td class="text-center"><a type="submit" href="<%= admin_student_path(mba) %>"><%= mba.first_name %> <%= mba.last_name %></a></td>
-                <td class="text-center"><a data-toggle="modal" data-target="#student-edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                <td class="text-center"><a data-toggle="modal" data-target="#student-edit-<%= mba.id%>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                 <td class="text-center"><%= link_to fa_icon('trash'), admin_student_path(mba.id),data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
               </tr>
 
 
-                <div class="modal fade" id="student-edit" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
+                <div class="modal fade" id="student-edit-<%= mba.id%>" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header ">
