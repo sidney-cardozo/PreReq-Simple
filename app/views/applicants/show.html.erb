@@ -65,16 +65,74 @@
 
       </div>
 
-
-
-
     <div class="row text-center">
-<% if current_user.role == "applicant" %>
-        <a type="submit" href="<%= edit_applicant_path(@applicant) %>">Add/edit content</a>
-<% elsif current_user.role == "admin" %>
-<a type="submit" href="<%= admin_pairs_path %>">Back to dashboard</a>
-<%end%>
+      <% if current_user.role == "applicant" %>
+        <a data-toggle="modal" data-target="#applicant-edit">Add/edit content</a>
+      <% elsif current_user.role == "admin" %>
+        <a type="submit" href="<%= admin_pairs_path %>">Back to dashboard</a>
+      <%end%>
+    </div>
+
+    <div class="modal fade" id="applicant-edit" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header ">
+            <div class="col-xs-10">
+              <h4 class="modal-title" id="loginLabel">Applicant Edit</h4>
+            </div>
+            <div class="col-xs-2">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-xs-1 col-lg-3"></div>
+              <div class="col-xs-10 col-lg-6">
+                <div class="row">
+
+                  <%= form_for @applicant, url: {action: "update"} do |form| %>
+
+                  <div class="upload-preview">
+                    <img />
+                  </div>
+
+                  <div class="form-group">
+                    <%= form.label :image, "Photo:" %>
+                    <%= form.file_field :image , class: "form-control image"%>
+                  </div>
+                    <div class="form-group">
+                    <%= form.label :first_name, "First name:" %>
+                    <%= form.text_field :first_name, class: 'form-control' %>
+                  </div>
+                  <div class="form-group">
+                    <%= form.label :last_name, "Last name:" %>
+                    <%= form.text_field :last_name, class: 'form-control' %>
+                  </div>
+                  <div class="form-group">
+                    <%= form.label :phone_number, "Phone:" %>
+                    <%= form.text_field :phone_number, class: 'form-control' %>
+                  </div>
+                  <div class="form-group">
+                    <%= form.label :description, "Description:" %>
+                    <%= form.text_area :description, class: 'form-control', rows: '5' %>
+                  </div>
+
+                  <div class="form-group">
+                    <%= form.label :resume_link, "Link to resume:" %>
+                    <%= form.text_field :resume_link, class: 'form-control' %>
+                  </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <% end %>
       </div>
-
-
-    </section>
+    </div>
+  </div>
+</section>

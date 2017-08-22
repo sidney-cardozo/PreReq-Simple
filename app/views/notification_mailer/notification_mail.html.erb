@@ -7,7 +7,7 @@
     <h1>Hi <%= @applicant.first_name %></h1>
     <p>This automatic message is to inform you that you have been paired with an MBA student. </p>
 
-    <p> You have been paired with : <%= @pair.student.name %> ! <br/>
+    <p> You have been paired with : <%= @pair.student.first_name %> <%= @pair.student.last_name %>! <br/>
      Have a Good Day ! <br/>
      PreReq Team </p>
   </body>

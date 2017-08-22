@@ -5,10 +5,10 @@
   </head>
   <body>
     <h1>Hi <%= @applicant.first_name %></h1>
-    <h2>This automatic message is to inform you that you have been paired with an MBA student. </h2>
+    <p>This automatic message is to inform you that you have been paired with an MBA student. </p>
 
-    <h2> You have been paired with : <%= @pair.student.name %> ! </h2>
-    <h2> Have a Good Day ! </h2>
-    <h2> PreReq Team </h2>
+    <p> You have been paired with : <%= @pair.student.first_name %> <%= @pair.student.last_name %>! <br/>
+     Have a Good Day ! <br/>
+     PreReq Team </p>
   </body>
 </html>
