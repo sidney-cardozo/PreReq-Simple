@@ -2,7 +2,7 @@
 <div class="container">
 
 <div class="row text-center">
-<h2>Student profile</h2>
+<h2 class="top-title">Student Profile</h2>
 </div>
 
 <div class="row">
@@ -11,7 +11,7 @@
         <%= image_tag @student.image.thumb, class: "mba-profile-pic"%>
       </div>
       <div class="col-xs-8 col-lg-4 take-out-padding-lr">
-        <h3 class="take-out-margin-t"><%= @student.name %></h3>
+        <h3 class="take-out-margin-t"><%= @student.first_name %> <%= @student.last_name %></h3>
         <a class="profile-email" href="#"><%= @student.email %></a>
 
         <span><% if @student.paired %> Paired with <%= @student.applicants.first.first_name %> <%= @student.applicants.first.last_name%> <% else %> Not paired <% end %></span>

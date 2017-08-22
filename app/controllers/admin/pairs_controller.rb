@@ -2,7 +2,7 @@ class Admin::PairsController < ApplicationController
   before_filter :authorize_admin
 
   def index
-    @students = Student.where(paired: false).order(:name)
+    @students = Student.where(paired: false).order(:first_name)
     @applicants = Applicant.where(paired: false).order(:first_name)
     @pairs = Pair.all
     @pair = Pair.new

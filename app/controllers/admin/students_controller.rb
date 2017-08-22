@@ -39,7 +39,7 @@ class Admin::StudentsController < ApplicationController
   private
 
   def student_params
-    params.require(:student).permit(:name, :email, :concentration, :industry, :resume_link, :image)
+    params.require(:student).permit(:first_name, :last_name, :email, :concentration, :industry, :resume_link, :image)
   end
 
   def authorized_to_view

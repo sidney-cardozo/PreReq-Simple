@@ -18,11 +18,31 @@
 // Students
 @import "admin/students";
 
+// Pairs
+@import "admin/pairs";
+
 // Global
+html {
+  min-height: 100%;
+}
+
 body {
   // padding-top: 70px;
   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  .row{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .top-title{
+    margin-top:100px;
+  }
+  #flash{
+    margin: 0 auto;
+    border: 1px solid black;
+  }
 }
+
+
 
 @media(min-width:1200px){
   .navbar{
@@ -54,12 +74,13 @@ body {
   .navbar-brand{
     font-size: 24px;
     color: white;
+
   }
   .navbar-nav > li > a {
     color: white;
     font-size:16px;
     &:hover {
-     color:#7f7682;
+     color: rgba(255, 255, 0, 1.0);
 
     }
   }
@@ -79,12 +100,13 @@ body {
     width: 100%;
     background-color: black;
   .nav-title{
-    color: white;
+    color: #858687;
+    font-size: 16px;
 
   }
   .nav > li {
     color: white;
     margin: 10px;
-    font-size:16px;
+    font-size:12px;
   }
 }
