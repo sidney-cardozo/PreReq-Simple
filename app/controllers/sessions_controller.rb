@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
       end
 
     else
-      render
+      redirect_to :back, notice: "Your email or password is incorrect. Please try again!"
     end
   end
 
