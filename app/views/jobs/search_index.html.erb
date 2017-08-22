@@ -19,8 +19,6 @@
 
     <% if @jobs.count != 0 %>
 
-
-
       <% @jobs.each do |job| %>
       <hr>
         <%= render 'job', job: job, employer: job.employer %>
@@ -31,11 +29,7 @@
 
       <% end %>
 
-
-
 </div>
-
-
 
   </div>
 

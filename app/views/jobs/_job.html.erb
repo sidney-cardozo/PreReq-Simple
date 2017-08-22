@@ -11,7 +11,7 @@
   <span class="white-text timeago"><%= time_ago_in_words(job.created_at) %> ago</span>
 </div>
 <div class="col-xs-3 text-center">
-  <%= link_to 'Details', job, { :class=>"btn btn-primary" } %>
+  <%= link_to 'Details', job, { :class=>"btn btn-primary" } %><br>
 
   <% if current_user.employer == employer %>
   <%= link_to 'Remove', [job], :class => 'btn btn-primary', method: :delete, data: { confirm: "Are you sure?" } %>
