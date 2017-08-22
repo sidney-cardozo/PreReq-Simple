@@ -7,6 +7,7 @@ class JobsController < ApplicationController
   def index
     @employer = Employer.find(params[:employer_id])
     @jobs = @employer.jobs.order(created_at: :desc)
+    @job = Job.new
   end
 
   def show
@@ -47,7 +48,7 @@ class JobsController < ApplicationController
     if job.save
       redirect_to employer_jobs_path
     else
-      redirect_to new_employer_job
+      redirect_to :back
     end
   end
 
