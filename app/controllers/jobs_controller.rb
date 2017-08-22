@@ -48,7 +48,7 @@ class JobsController < ApplicationController
     if job.save
       redirect_to employer_jobs_path
     else
-      redirect_to new_employer_job
+      redirect_to :back
     end
   end
 
