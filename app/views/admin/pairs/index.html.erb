@@ -173,7 +173,7 @@
 
       <td class="text-center">
 
-        <a type="submit" href="<%= edit_admin_pair_path(pair) %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+        <a data-toggle="modal" data-target="#pair-edit-<%= pair.id %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
       </td>
 
 
@@ -181,7 +181,85 @@
             data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
 
     </tr>
-    <% end %>
+      <div class="modal fade" id="pair-edit-<%= pair.id%>" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="col-xs-10">
+            <h4 class="modal-title" id="loginLabel">Add Story</h4>
+          </div>
+          <div class="col-xs-2">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+        <div class="modal-body">
+        <div class="row">
+          <div class="col-xs-10 col-lg-12">
+            <div class="row">
+
+          <div class="row">
+        <div class="col-xs-10 col-lg-12">
+          <div class="row">
+          <div class="col-xs-6">
+            <div class="row">
+              <span>Applicant ID: <%= pair.applicant_id %></span>
+            </div>
+            <div class="row">
+              <span>Applicant name: <%= pair.applicant.first_name %> <%= pair.applicant.last_name %></span>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="row">
+              <span>Student ID: <%= pair.student_id %></span>
+            </div>
+            <div class="row">
+              <span>Student name: <%= pair.student.first_name %> <%= pair.student.last_name %></span>
+            </div>
+          </div>
+          <div class="col-xs-6">
+
+          </div>
+          </div>
+          <div class="row">
+        <%= form_for @pair, url: admin_pair_path(pair.id), action: "update", class: "story_update" do |form| %>
+        <div class="form-group">
+          <%= form.label :story, "Story:" %>
+          <%= form.text_area :story, class: 'form-control', rows: '5', id: "story_text_area" %>
+          <% if pair.story %>
+          <span id="counter"><%= 400 - pair.story.size%></span>
+          <% else %>
+          <span id="counter">400</span>
+          <% end %>
+        </div>
+        <div class="form-group">
+          <%= form.radio_button :story_on_display, true %>
+          <%= form.label :story_on_display, 'Yes', :value => true %>
+
+          <%= form.radio_button :story_on_display, false, :checked => true %>
+          <%= form.label :story_on_display, 'No', :value => false %>
+
+        </div>
+          </div>
+        </div>
+
+        <div class="col-xs-1 col-lg-3"></div>
+      </div>
+
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          <% end %>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <% end %>
 
   </tbody>
 </table>
@@ -299,7 +377,5 @@
     </div>
   </div>
   </div>
-
-
 </section>
 
