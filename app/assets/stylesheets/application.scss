@@ -1,3 +1,4 @@
+$main-blue: #5094D3;
 // Vendor
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -26,7 +27,10 @@ html {
   min-height: 100%;
 }
 
+
+
 body {
+
   // padding-top: 70px;
   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   .row{
