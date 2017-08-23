@@ -1,4 +1,7 @@
+<% @applicants.each do |app| %>
   <tr>
     <th scope="row" class="text-center"><%= app.id %></th>
     <td class="text-center"><a type="submit" href="<%= applicant_path(app) %>"><%= app.first_name %> <%= app.last_name %></a></td>
   </tr>
+<% end %>
+

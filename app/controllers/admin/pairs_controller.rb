@@ -26,6 +26,8 @@ class Admin::PairsController < ApplicationController
 
   def destroy
     @pair = Pair.find(params[:id])
+    @students = Student.where(paired: false).order(:first_name)
+    @applicants = Applicant.where(paired: false).order(:first_name)
     @pair.student.update(paired: false)
     @pair.applicant.update(paired: false)
     @pair.destroy

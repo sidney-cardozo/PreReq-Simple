@@ -1,29 +1,61 @@
+
+
 main section.admin-dashboard{
-  .new-mba-btn{
-    font-size: 14px;
-    font-style: normal;
-  }
+  background: url('bg.png');
+
   .green-island{
     margin-top:100px;
-    background-color:   #A6E890;
-    border-radius: 10px;
+    background-color: $main-blue;
+    border-radius: 5px;
     padding:0px 15px 0px 15px;
+    box-shadow: 0px 0px 10px gray;
     h3{
+      color: white;
       margin: 12px 0px 12px 0px;
+      #plus-sign{
+        color: #346089;
+        padding: 0px 20px 0px 20px;
+        &:hover{
+          color: #192f44;
+        }
+        &:active{
+          -webkit-box-shadow: none;
+          box-shadow: none;
+          color: #eee;
+        }
+      }
     }
   }
   .green-island-no-tm{
+    box-shadow: 0px 0px 10px gray;
   margin-top: 30px;
   margin-bottom: 20px;
-    background-color:   #A6E890;
-    border-radius: 10px;
+    background-color:  $main-blue;
+    border-radius: 5px;
     padding:0px 15px 0px 15px;
     h3{
       margin: 12px 0px 12px 0px;
+      color: white;
+      #plus-sign{
+        color: #346089;
+        padding: 0px 20px 0px 20px;
+        &:hover{
+          color: #192f44;
+        }
+        &:active{
+          -webkit-box-shadow: none;
+          box-shadow: none;
+          color: #eee;
+        }
+      }
     }
   }
   table{
     background-color:white;
+    .fa{
+      padding:0px;
+
+    }
   }
 
   .bottom-margin{
