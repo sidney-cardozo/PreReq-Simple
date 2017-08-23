@@ -161,7 +161,7 @@
   </thead>
   <tbody>
   <% @pairs.each do |pair| %>
-    <tr>
+    <tr id="pair_<%= pair.id %>">
 
 
       <td class="text-center"><a type="submit" href="<%= applicant_path(pair.applicant) %>"><%= pair.applicant.first_name %> <%= pair.applicant.last_name %></a></td>
@@ -178,7 +178,7 @@
 
 
       <td class="text-center"><%= link_to fa_icon('trash'), admin_pair_path(pair.id),
-            data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
+            data: {:confirm => 'Are you sure?'}, :method => :delete, remote: true, class: "delete_pair" %></td>
 
     </tr>
 
