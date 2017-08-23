@@ -10,7 +10,9 @@
             <%= submit_tag "Search", name: nil, class: 'btn btn-primary search-btn' %>
           </p>
           <% end %>
+          <% if @query %>
           <p> <i><%= pluralize(@jobs.count, 'job') %> that met the search criteria </i> </p>
+          <% end %>
         </div>
         <div class="row">
           <% if @jobs.count != 0 %>

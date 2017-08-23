@@ -25,11 +25,19 @@ main section.admin-dashboard{
   table{
     background-color:white;
   }
-  form{
-    border: 1px #ddd solid;
-    padding: 10px 30px 20px 30px;
-    margin-bottom: 30px;
 
-
+  .bottom-margin{
+    margin: 20px 15px 30px 15px;
+  }
+  .modal{
+  .no-border{
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  .form-submit{
+    text-align: center;
+  }
 }
+
 }

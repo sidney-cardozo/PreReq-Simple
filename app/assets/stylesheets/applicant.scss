@@ -19,7 +19,7 @@ main section.applicant-profile{
     text-align: left;
   }
   .bottom-margin{
-    margin-bottom: 30px;
+    margin: 20px 15px 30px 15px;
   }
   .card-bg{
     margin-top:10px;
@@ -30,6 +30,16 @@ main section.applicant-profile{
     border-radius: 5px;
     border: 1px solid #A6E890;
   }
+  .modal{
+  .no-border{
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  .form-submit{
+    text-align: center;
+  }
+}
 }
 
 main section.applicant-profile-edit{
@@ -55,5 +65,18 @@ main section.new-applicant{
   }
   .form-control{
     width:100%;
+  }
+
+  .no-border{
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  .form-submit{
+    text-align: center;
+  }
+
+  .bottom-margin{
+    margin: 20px 15px 30px 15px;
   }
 }
