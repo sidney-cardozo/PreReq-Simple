@@ -17,6 +17,9 @@
             <li class="navbar-text">
               <%= link_to "#{current_user.employer.name}", employer_path(current_user.employer.id), class: 'nav-links' %>
             </li>
+            <li class="navbar-text">
+              <%= link_to "Company Postings", employer_jobs_path(current_user.employer), class: 'nav-links' %>
+            </li>
           <% elsif current_user.applicant %>
             <li class="navbar-text">
               <%= link_to "#{current_user.applicant.first_name}", applicant_path(current_user.applicant), class: 'nav-links'%>
