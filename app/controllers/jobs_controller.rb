@@ -21,6 +21,13 @@ class JobsController < ApplicationController
 
   def search_index
     @jobs = Job.search(params[:query])
+    if params[:query]
+      @query = true
+      @jobs = Job.search(params[:query])
+    else
+      @query = false
+      @jobs = Job.all.order('updated_at DESC')
+    end
   end
 
   def edit
