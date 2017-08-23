@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(version: 20170812001511) do
 
   add_index "applicants", ["user_id"], name: "index_applicants_on_user_id", using: :btree
 
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer "applicant_id"
+    t.integer "job_id"
+  end
+
+  add_index "bookmarks", ["applicant_id"], name: "index_bookmarks_on_applicant_id", using: :btree
+  add_index "bookmarks", ["job_id"], name: "index_bookmarks_on_job_id", using: :btree
+
   create_table "employers", force: :cascade do |t|
     t.string   "name"
     t.integer  "user_id"

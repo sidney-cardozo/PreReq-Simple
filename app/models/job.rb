@@ -1,6 +1,8 @@
 class Job < ActiveRecord::Base
   include PgSearch
   belongs_to :employer
+  has_many :bookmarks
+  has_many :applicants, through: :bookmarks
   validates :position, presence: true
   validates :description, presence: true
   validates :employer_id, presence: true

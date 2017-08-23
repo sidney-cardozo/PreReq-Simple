@@ -16,7 +16,7 @@
         <h3 class="take-out-margin-t"><%= @student.first_name %> <%= @student.last_name %></h3>
         <a class="profile-email" href="#"><%= @student.email %></a>
 
-        <span><% if @student.paired %> Paired with <%= @student.applicants.first.first_name %> <%= @student.applicants.first.last_name%> <% else %> Not paired <% end %></span>
+        <span><% if @student.applicants.exists?(:paired => true) %> Paired with <%= @student.applicants.first.first_name %> <%= @student.applicants.first.last_name%> <% else %> Not paired <% end %></span>
 
       </div>
       </div>

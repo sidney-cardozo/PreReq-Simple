@@ -65,6 +65,11 @@ class CreateUsers < ActiveRecord::Migration
       t.belongs_to :job, index: true
       t.belongs_to :tag, index: true
     end
+
+    create_table :bookmarks do |t|
+      t.belongs_to :applicant, index: true
+      t.belongs_to :job, index: true
+    end
   end
 
   def down
