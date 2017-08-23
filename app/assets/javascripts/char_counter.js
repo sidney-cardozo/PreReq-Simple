@@ -1,5 +1,5 @@
 $(document).ready(function (){
-  $(document).on("turbolinks:load", function (){
+
     $("#story_text_area").on("keyup", function (){
       let charCounter = $(this).closest("#story_text_area").val().length;
       $("#counter").text(400 - charCounter);
@@ -9,7 +9,7 @@ $(document).ready(function (){
         $("span#counter").removeClass("notValid")
       }
     });
-  })
+
 });
 
 // This changes the character counter everytime a key is released.

@@ -1,5 +1,4 @@
 $(document).ready(function(){
-  $(document).on("turbolinks:load", function (){
     var preview = $(".upload-preview img");
 
     $(".image").change(function(event){
@@ -13,5 +12,5 @@ $(document).ready(function(){
        };
        reader.readAsDataURL(file);
     });
-  })
+
 });
