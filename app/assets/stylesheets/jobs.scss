@@ -47,6 +47,16 @@ main section.job-details{
     margin-top: 0px;
     margin-bottom: 20px;
   }
+  .modal{
+  .no-border{
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  .form-submit{
+    text-align: center;
+  }
+  }
 
 }
 

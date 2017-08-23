@@ -83,21 +83,17 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <div class="col-xs-10">
-            <h4 class="modal-title" id="loginLabel">Applicant Edit</h4>
-          </div>
-          <div class="col-xs-2">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-          </div>
+            <h4 class="modal-title" id="loginLabel">Applicant Edit</h4>
+
         </div>
 
         <div class="modal-body">
-          <div class="row">
-            <div class="col-xs-1 col-lg-3"></div>
-            <div class="col-xs-10 col-lg-6">
-              <div class="row">
+
+
+
 
                 <%= form_for @applicant, url: {action: "update"} do |form| %>
 
@@ -107,7 +103,7 @@
 
                 <div class="form-group">
                   <%= form.label :image, "Photo:" %>
-                  <%= form.file_field :image , class: "form-control image"%>
+                  <%= form.file_field :image , class: "form-control image no-border"%>
                 </div>
                 <div class="form-group">
                   <%= form.label :first_name, "First name:" %>
@@ -130,12 +126,9 @@
                   <%= form.label :resume_link, "Link to resume:" %>
                   <%= form.text_field :resume_link, class: 'form-control' %>
                 </div>
-
-              </div>
-            </div>
-          </div>
         </div>
-        <div class="modal-footer">
+
+        <div class="modal-footer form-submit">
           <button type="submit" class="btn btn-primary">Submit</button>
         </div>
         <% end %>
