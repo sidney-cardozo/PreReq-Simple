@@ -1,50 +1,27 @@
 <section class="job-search">
-<div class="container">
-
-<div class="row top-title">
-  <div class="col-xs-0 col-lg-2"></div>
-
-  <div class="col-xs-12 col-lg-8 outer-box">
-  <div class="row text-center">
-<%= form_tag(jobs_path, method: :get) do %>
-  <p>
-    <%= text_field_tag :query, params[:query] %>
-    <%= submit_tag "Search", name: nil, class: 'btn btn-primary search-btn' %>
-  </p>
-<% end %>
-
-</div>
-
-<div class="row">
-
-    <% if @jobs.count != 0 %>
-
-
-
-      <% @jobs.each do |job| %>
-      <hr>
-        <%= render 'job', job: job, employer: job.employer %>
-
-        <% end %>
-        <% else %>
-        <h3>There are no jobs that meet that criteria</h3>
-
-      <% end %>
-
-
-
-</div>
-
-
-
+  <div class="container">
+    <div class="row top-title">
+      <div class="col-xs-0 col-lg-2"></div>
+      <div class="col-xs-12 col-lg-8 outer-box">
+        <div class="row text-center">
+          <%= form_tag(jobs_path, method: :get) do %>
+          <p>
+            <%= text_field_tag :query, params[:query] %>
+            <%= submit_tag "Search", name: nil, class: 'btn btn-primary search-btn' %>
+          </p>
+          <% end %>
+          <p> <i><%= pluralize(@jobs.count, 'job') %> that met the search criteria </i> </p>
+        </div>
+        <div class="row">
+          <% if @jobs.count != 0 %>
+            <% @jobs.each do |job| %>
+              <hr>
+              <%= render 'job', job: job, employer: job.employer %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-xs-0 col-lg-2"></div>
+    </div>
   </div>
-
-  <div class="col-xs-0 col-lg-2"></div>
-</div>
-
-
-
-
-
-</div>
 </section>
