@@ -79,8 +79,8 @@ h2{
       &:hover{
         transform: scale(1.1);
       }
-      &:focus{
-        background-color: rgba(255, 255, 0, 0.5);
+      &:active{
+        background-color: rgba(255, 255, 0, 0.1);
         color: rgba(255, 255, 0, 1.0);
         border: 1px solid rgba(255, 255, 0, 1.0);
       }

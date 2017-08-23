@@ -2,16 +2,16 @@
 <div class="job-posting-item">
 <div class="row">
 
-<div class="col-xs-9 take-out-padding-r">
-  <h4 class="white-text"><%= job.position %>&nbsp; | &nbsp;<%= employer.name %></h4>
-
+<div class="col-xs-10 take-out-padding-r">
+  <%= link_to job do %><h4 class="white-text"><%= job.position %>&nbsp; | &nbsp;<%= employer.name %></h4>
+  <% end %>
   <div class="description-overflow white-text">
   <p class="job-item-description"><%= job.description %></p>
   </div>
   <span class="white-text timeago"><%= time_ago_in_words(job.created_at) %> ago</span>
 </div>
-<div class="col-xs-3 text-center">
-  <%= link_to 'Details', job, { :class=>"btn btn-primary" } %><br>
+<div class="col-xs-2 text-center vcenter">
+
 
   <% if current_user.employer == employer %>
   <%= link_to 'Remove', [job], :class => 'btn btn-primary', method: :delete, data: { confirm: "Are you sure?" } %>

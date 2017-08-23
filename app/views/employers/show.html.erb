@@ -66,7 +66,7 @@
 
                <%= form_for @employer, url: {action: "update"} do |form| %>
 
-               <div class="upload-preview">
+               <div class="upload-preview form-submit">
                 <img />
               </div>
 
@@ -83,8 +83,8 @@
                 <%= form.text_area :description, class: 'form-control', rows: '5' %>
               </div>
           </div>
-              <div class="modal-footer text-center">
-                <button type="submit" class="btn btn-primary form-submit">Submit</button>
+              <div class="modal-footer form-submit">
+                <button type="submit" class="btn btn-primary">Submit</button>
               </div>
               <% end %>
 </div>

@@ -46,10 +46,14 @@ body {
 
 @media(min-width:1200px){
   .navbar{
-    padding-right: 80px;
-    padding-left: 80px;
+    padding-right: 160px;
+    padding-left: 160px;
 
   }
+}
+
+.form-submit{
+      text-align: center;
 }
 
 .navbar{
@@ -84,6 +88,7 @@ body {
 
     }
   }
+
 }
 
 .notValid {
@@ -99,14 +104,31 @@ body {
     padding-bottom:40px;
     width: 100%;
     background-color: black;
+  .fa{
+    font-size: 30px;
+    transition: all .2s ease-in-out;
+    &:hover{
+     transform: scale(1.1);
+  }
+}
   .nav-title{
     color: #858687;
-    font-size: 16px;
+    font-size: 18px;
 
   }
   .nav > li {
     color: white;
     margin: 10px;
-    font-size:12px;
+    font-size:14px;
+
+    a{
+      padding: 4px 2px;
+      color: white;
+      &:hover{
+        background-color:black;
+
+      }
+    }
   }
+
 }
