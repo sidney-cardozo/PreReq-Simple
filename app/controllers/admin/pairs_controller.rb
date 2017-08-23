@@ -5,7 +5,6 @@ class Admin::PairsController < ApplicationController
     @students = Student.where(paired: false).order(:first_name)
     @applicants = Applicant.where(paired: false).order(:first_name)
     @pairs = Pair.all
-    @pair = Pair.new
   end
 
 
