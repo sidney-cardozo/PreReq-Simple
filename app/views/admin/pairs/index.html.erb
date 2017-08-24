@@ -18,14 +18,9 @@
 
               </tr>
             </thead>
-            <tbody>
-              <% @applicants.each do |app| %>
-              <tr>
-                <th scope="row" class="text-center"><%= app.id %></th>
-                <td class="text-center"><a type="submit" href="<%= applicant_path(app) %>"><%= app.first_name %> <%= app.last_name %></a></td>
+            <tbody id="applicants">
 
-              </tr>
-              <% end %>
+                <%= render "applicant" %>
             </tbody>
           </table>
 
@@ -59,82 +54,8 @@
                 <th class="text-center">Delete</th>
               </tr>
             </thead>
-            <tbody>
-              <% @students.each do |mba| %>
-              <tr>
-                <th scope="row" class="text-center"><%= mba.id %></th>
-                <td class="text-center"><a type="submit" href="<%= admin_student_path(mba) %>"><%= mba.first_name %> <%= mba.last_name %></a></td>
-                <td class="text-center"><a data-toggle="modal" data-target="#student-edit-<%= mba.id%>"><i class="fa fa-pencil-square-o btn" id="edit-sign" aria-hidden="true"></i></a></td>
-                <td class="text-center"><%= link_to fa_icon('trash'), admin_student_path(mba.id),data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
-              </tr>
-
-<!--  -->
-<div class="modal fade" id="student-edit-<%= mba.id%>" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-
-                    <div class="modal-header ">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="modal-title" id="loginLabel">Edit Profile</h4>
-                    </div>
-
-                    <div class="modal-body">
-
-                      <%= form_for mba, url: admin_student_path(mba.id), action: "update" do |form| %>
-
-                      <div class="upload-preview form-submit">
-                        <img />
-                      </div>
-
-                      <div class="form-group">
-                        <%= form.label :image, "Photo:" %>
-                        <%= form.file_field :image , class: "form-control image no-border"%>
-                      </div>
-
-                      <div class="form-group">
-                        <%= form.label :first_name, "First Name:" %>
-                        <%= form.text_field :first_name, class: 'form-control' %>
-                      </div>
-                      <div class="form-group">
-                        <%= form.label :last_name, "Last Name:" %>
-                        <%= form.text_field :last_name, class: 'form-control' %>
-                      </div>
-
-                      <div class="form-group">
-                        <%= form.label :email, "Email:" %>
-                        <%= form.text_field :email, class: 'form-control' %>
-                      </div>
-                        <div class="form-group">
-                        <%= form.label :concentration, "Concentration:" %>
-                        <%= form.text_field :concentration, class: 'form-control' %>
-                      </div>
-                      <div class="form-group">
-                        <%= form.label :industry, "Industry:" %>
-                        <%= form.text_field :industry, class: 'form-control' %>
-                      </div>
-
-
-                      <div class="form-group">
-                        <%= form.label :resume_link, "Link to resume:" %>
-                        <%= form.text_field :resume_link, class: 'form-control' %>
-                      </div>
-                  </div>
-
-                        <div class="modal-footer form-submit">
-                          <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                      <% end %>
-
-                        </div>
-                      </div>
-                    </div>
-
-<!--  -->
-
-
-              <% end %>
+            <tbody id="students">
+                <%= render "student" %>
               </tbody>
 
 
@@ -173,7 +94,7 @@
   </thead>
   <tbody>
   <% @pairs.each do |pair| %>
-    <tr>
+    <tr class="pair_row">
 
 
       <td class="text-center"><a type="submit" href="<%= applicant_path(pair.applicant) %>"><%= pair.applicant.first_name %> <%= pair.applicant.last_name %></a></td>
@@ -185,15 +106,92 @@
 
       <td class="text-center">
 
-        <a type="submit" href="<%= edit_admin_pair_path(pair) %>"><i class="fa fa-pencil-square-o btn" id="edit-sign" aria-hidden="true"></i></a>
+         <a data-toggle="modal" data-target="#pair-edit-<%= pair.id %>"><i class="fa fa-pencil-square-o btn" id="edit-sign" aria-hidden="true"></i></a>
       </td>
 
 
       <td class="text-center"><%= link_to fa_icon('trash'), admin_pair_path(pair.id),
-            data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
+            data: {:confirm => 'Are you sure?'}, method: :delete, remote: true, class: "delete_pair" %></td>
 
     </tr>
+    <div class="modal fade" id="pair-edit-<%= pair.id%>" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="col-xs-10">
+            <h4 class="modal-title" id="loginLabel">Add Story</h4>
+          </div>
+          <div class="col-xs-2">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+        <div class="modal-body">
+        <div class="row">
+          <div class="col-xs-10 col-lg-12">
+            <div class="row">
 
+          <div class="row">
+        <div class="col-xs-10 col-lg-12">
+          <div class="row">
+          <div class="col-xs-6">
+            <div class="row">
+              <span>Applicant ID: <%= pair.applicant_id %></span>
+            </div>
+            <div class="row">
+              <span>Applicant name: <%= pair.applicant.first_name %> <%= pair.applicant.last_name %></span>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="row">
+              <span>Student ID: <%= pair.student_id %></span>
+            </div>
+            <div class="row">
+              <span>Student name: <%= pair.student.first_name %> <%= pair.student.last_name %></span>
+            </div>
+          </div>
+          <div class="col-xs-6">
+
+          </div>
+          </div>
+          <div class="row">
+        <%= form_for :pair, url: admin_pair_path(pair.id), method: "put", class: "story_update" do |form| %>
+        <div class="form-group">
+          <%= form.label :story, "Story:" %>
+          <% if pair.story %>
+          <%= form.text_area :story, class: 'form-control', rows: '5', id: "story_text_area", value: pair.story %>
+          <span id="counter"><%= 400 - pair.story.size%></span>
+          <% else %>
+          <span id="counter">400</span>
+          <% end %>
+        </div>
+        <div class="form-group">
+          <%= form.radio_button :story_on_display, true %>
+          <%= form.label :story_on_display, 'Yes', :value => true %>
+
+          <%= form.radio_button :story_on_display, false, :checked => true %>
+          <%= form.label :story_on_display, 'No', :value => false %>
+
+        </div>
+          </div>
+        </div>
+
+        <div class="col-xs-1 col-lg-3"></div>
+      </div>
+
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          <% end %>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
   <% end %>
 
   </tbody>
@@ -291,7 +289,7 @@
           <%= form_for :pair, url: {action: "create"} do |form| %>
         <div class="form-group">
           <%= form.label :applicant_id, "Applicant ID:" %>
-          <%= form.text_field :applicant_id, class: 'form-control image' %>
+          <%= form.text_field :applicant_id, class: 'form-control' %>
         </div>
         <div class="form-group">
           <%= form.label :student_id, "MBA Student ID:" %>

@@ -12,11 +12,13 @@ class JobsController < ApplicationController
 
   def show
     # if Employer.exists?(params[:employer_id]) && Job.exists?(params[:id])
+      @bookmark = Bookmark.new
       @job = Job.find(params[:id])
       @employer = @job.employer
     # else
     #   redirect_to "/", notice: "Employer or Job not existant"
     # end
+
   end
 
   def search_index

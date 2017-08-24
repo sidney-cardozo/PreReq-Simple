@@ -20,6 +20,14 @@ User.create!({
   })
 end
 
+(10.times).each do
+User.create!({
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(8),
+  role: 1
+  })
+end
+
 
 puts "applicant users created"
 
@@ -60,4 +68,34 @@ Student.create({
 end
 
 puts "students created"
+
+puts "creating Employers"
+
+Employer.destroy_all
+User.where(role: 1).each do |user|
+  Employer.create!({
+    name: Faker::Company.name,
+    user_id: user.id,
+    description: Faker::Company.bs
+  })
+end
+
+puts "Employers created"
+
+puts "creating Jobs"
+
+Employer.all.each do |employer|
+  (5.times).each do
+    Job.create!({
+      employer_id: employer.id,
+      position: Faker::Company.profession,
+      description: Faker::Hipster.paragraph(3),
+      requirements: Faker::Hipster.paragraph(3),
+      job_type: Faker::Company.profession,
+      apply_info: Faker::Hipster.paragraph(2)
+    })
+  end
+end
+
+puts "jobs created"
 

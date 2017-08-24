@@ -24,6 +24,8 @@ main section.job-details{
   .take-out-margin-t{
     margin-top: 0px;
   }
+  .table{
+    margin-top:5px;
   .table-head{
     width: 25%;
     text-align: right;
@@ -31,6 +33,7 @@ main section.job-details{
   .table-content{
     text-align: left;
   }
+}
   .bottom-margin{
     margin: 20px 15px 30px 15px;
   }
@@ -45,7 +48,20 @@ main section.job-details{
   }
   h3.job-position{
     margin-top: 0px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    #bookmark-btn{
+      padding:0px;
+      margin-left: 15px;
+      color: gray;
+      &:hover{
+        color: black;
+      }
+    }
+  }
+  .timeago{
+    font-size: 12px;
+    font-style: italic;
+    margin: 0px 0px 10px 0px;
   }
   .modal{
   .no-border{

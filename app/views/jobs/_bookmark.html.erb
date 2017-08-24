@@ -1,1 +1,17 @@
+
 <a><i class="fa fa-bookmark-o btn" id="bookmark-btn" aria-hidden="true"></i></a>
+
+<%= @job.position %>
+<% if current_user.applicant %>
+  <% if @job.applicants.exists?(:id => current_user.applicant.id) %>
+    <% @bookmark = Bookmark.where(applicant_id: current_user.applicant.id, job_id: @job.id).first %>
+    <%= link_to job_bookmark_path(@job.id, @bookmark.id), method: "DELETE", remote:true do %>
+      <i class="fa fa-bookmark btn" id="bookmark-btn" aria-hidden="true"></i>
+    <% end %>
+  <% else %>
+    <%= link_to job_bookmarks_path(@job.id), method: "POST", remote:true do %>
+      <i class="fa fa-bookmark-o btn" id="bookmark-btn" aria-hidden="true"></i>
+    <% end %>
+  <% end %>
+<% end %>
+
