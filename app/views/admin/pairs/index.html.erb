@@ -114,26 +114,26 @@
             data: {:confirm => 'Are you sure?'}, method: :delete, remote: true, class: "delete_pair" %></td>
 
     </tr>
+
     <div class="modal fade" id="pair-edit-<%= pair.id%>" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <div class="col-xs-10">
-            <h4 class="modal-title" id="loginLabel">Add Story</h4>
-          </div>
-          <div class="col-xs-2">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-          </div>
+            <h4 class="modal-title" id="loginLabel">Edit Pair</h4>
+
+
+
+
         </div>
         <div class="modal-body">
         <div class="row">
           <div class="col-xs-10 col-lg-12">
-            <div class="row">
 
-          <div class="row">
-        <div class="col-xs-10 col-lg-12">
+
+
           <div class="row">
           <div class="col-xs-6">
             <div class="row">
@@ -151,36 +151,43 @@
               <span>Student name: <%= pair.student.first_name %> <%= pair.student.last_name %></span>
             </div>
           </div>
-          <div class="col-xs-6">
 
           </div>
+          <br>
+          <div class="row">
+          <div class="col-xs-12">
+        <%= form_for :pair, url: admin_pair_path(pair.id), method: "put", class: "story_update" do |form| %>
+
+
+ <div class="form-group">
+          <%= form.label :story, "Story:" %>
+          <%= form.text_area :story, class: 'form-control', value: pair.story, rows: '5' %>
+        </div>
+
+</div>
           </div>
           <div class="row">
-        <%= form_for :pair, url: admin_pair_path(pair.id), method: "put", class: "story_update" do |form| %>
         <div class="form-group">
-          <%= form.label :story, "Story:" %>
-          <% if pair.story %>
-          <%= form.text_area :story, class: 'form-control', rows: '5', id: "story_text_area", value: pair.story %>
-          <span id="counter"><%= 400 - pair.story.size%></span>
-          <% else %>
-          <span id="counter">400</span>
-          <% end %>
+        <div class="col-xs-3">
+        <span>Display: </span>
         </div>
-        <div class="form-group">
+        <div class="col-xs-3">
           <%= form.radio_button :story_on_display, true %>
           <%= form.label :story_on_display, 'Yes', :value => true %>
-
+</div>
+<div class="col-xs-3">
           <%= form.radio_button :story_on_display, false, :checked => true %>
           <%= form.label :story_on_display, 'No', :value => false %>
-
+</div>
+        </div>
         </div>
           </div>
         </div>
 
-        <div class="col-xs-1 col-lg-3"></div>
+
       </div>
 
-            <div class="modal-footer">
+            <div class="modal-footer form-submit">
               <button type="submit" class="btn btn-primary">Submit</button>
             </div>
           <% end %>

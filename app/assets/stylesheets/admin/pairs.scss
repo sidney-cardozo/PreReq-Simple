@@ -1,29 +1,60 @@
 main section.admin-dashboard{
-  .new-mba-btn{
-    font-size: 14px;
-    font-style: normal;
-  }
+  background: url('bg.png');
+
   .green-island{
     margin-top:100px;
-    background-color:   #A6E890;
+    background-color: $main-blue;
     border-radius: 10px;
     padding:0px 15px 0px 15px;
+    box-shadow: 0px 0px 5px black;
     h3{
       margin: 12px 0px 12px 0px;
+      color: white;
     }
+    #plus-sign{
+      padding: 0px 0px 0px 15px;
+      color: #30597f;
+      &:hover{
+        color: #213e59;
+      }
+      &:active{
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        color: #0d1823;
+      }
+    }
+
   }
   .green-island-no-tm{
+    box-shadow: 0px 0px 5px black;
   margin-top: 30px;
-  margin-bottom: 20px;
-    background-color:   #A6E890;
+  margin-bottom: 60px;
+    background-color: $main-blue;
     border-radius: 10px;
     padding:0px 15px 0px 15px;
     h3{
       margin: 12px 0px 12px 0px;
+      color: white;
     }
+    #plus-sign{
+      padding: 0px 0px 0px 15px;
+      color: #30597f;
+      &:hover{
+        color: #213e59;
+      }
+      &:active{
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        color: #0d1823;
+      }
+    }
+
   }
   table{
     background-color:white;
+    #edit-sign{
+      padding: 0px;
+    }
   }
 
   .bottom-margin{
