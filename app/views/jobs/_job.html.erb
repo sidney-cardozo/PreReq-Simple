@@ -14,7 +14,7 @@
 
 
   <% if current_user.employer == employer %>
-  <%= link_to fa_icon('times'), [job], method: :delete, data: { confirm: "Are you sure?" } %>
+  <%= link_to fa_icon('times'), [job], method: :delete, data: { confirm: "Are you sure you want to delete the job?" } %>
   <% end %>
 </div>
 
