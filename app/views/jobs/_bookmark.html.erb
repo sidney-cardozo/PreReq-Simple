@@ -1,6 +1,3 @@
-
-<a><i class="fa fa-bookmark-o btn" id="bookmark-btn" aria-hidden="true"></i></a>
-
 <%= @job.position %>
 <% if current_user.applicant %>
   <% if @job.applicants.exists?(:id => current_user.applicant.id) %>
