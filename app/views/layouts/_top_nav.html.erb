@@ -21,7 +21,6 @@
             <li class="navbar-text">
               <%= link_to "Company Postings", employer_jobs_path(current_user.employer), class: 'nav-links' %>
             </li>
-
           <% elsif current_user.admin? %>
             <li class="navbar-text">
               <%= link_to 'Admin', admin_pairs_path, class: 'nav-links' %>
@@ -30,6 +29,10 @@
             <% if !current_user.applicant%>
               <li class="navbar-text">
                 <%= link_to 'Create Profile', new_applicant_path, class: 'nav-links' %>
+              </li>
+            <% else %>
+              <li class="navbar-text">
+                <%= link_to "#{current_user.applicant.first_name}", applicant_path(current_user.applicant.id), class: 'nav-links' %>
               </li>
             <% end %>
             <li class="navbar-text">
