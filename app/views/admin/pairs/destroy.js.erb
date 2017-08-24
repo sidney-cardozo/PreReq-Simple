@@ -1,0 +1,7 @@
+$(document).ready(function(){
+  $('.delete_pair').bind('ajax:success',function() {
+    $(this).closest('tr').fadeOut();
+    $("#students").html("<%= j (render "student") %>")
+    $("#applicants").html("<%= j (render "applicant") %>")
+  });
+})

@@ -16,7 +16,9 @@ Rails.application.routes.draw do
     resources :jobs, except: [:show, :destroy]
   end
 
-  resources :jobs, only: [:show, :destroy]
+  resources :jobs, only: [:show, :destroy] do
+    resources :bookmarks, only: [:create, :destroy]
+  end
 
   resources :employers, only: [:show, :edit]
 

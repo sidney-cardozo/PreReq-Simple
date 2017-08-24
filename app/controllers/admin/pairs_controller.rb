@@ -26,14 +26,23 @@ class Admin::PairsController < ApplicationController
 
   def destroy
     @pair = Pair.find(params[:id])
-    if @pair
-      @pair.student.update(paired: false)
-      @pair.applicant.update(paired: false)
-      @pair.destroy
-      redirect_to admin_pairs_path, alert: "Pair deleted!"
-    else
-      redirect_to admin_pairs_path, notice: "Couldnt find pair, make sure the id's are correct!"
+    @students = Student.where(paired: false).order(:first_name)
+    @applicants = Applicant.where(paired: false).order(:first_name)
+    @pair.student.update(paired: false)
+    @pair.applicant.update(paired: false)
+    @pair.destroy
+
+    respond_to do |format|
+      format.html { redirect_to admin_pairs_path }
+      format.js   { }
     end
+
+    # if @pair
+    #   @pair.destroy
+      # redirect_to admin_pairs_path, alert: "Pair deleted!"
+    # else
+      # redirect_to admin_pairs_path, notice: "Couldnt find pair, make sure the id's are correct!"
+    # end
   end
 
   def edit
