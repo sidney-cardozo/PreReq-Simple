@@ -87,13 +87,18 @@ main section.job-postings-index{
       margin-bottom:0px;
     }
     hr{
-      margin-top:20px;
-      margin-bottom:20px;
+      margin-top:15px;
+      margin-bottom:15px;
     }
   }
   .job-posting-item{
     margin: 0px;
     padding: 5px;
+
+
+
+
+
     h4{
       margin-top: 0px;
       margin-bottom: 5px;
@@ -108,10 +113,12 @@ main section.job-postings-index{
         color: #595959;
       }
     }
+
+
     .btn{
 
-      margin-top: 10px;
-      margin-bottom: 10px;
+      margin-top: 30px;
+      margin-bottom: 30px;
       font-size: 14px;
       background-color:#389bf7;
       color: white;
@@ -120,10 +127,11 @@ main section.job-postings-index{
       &:hover{
         transform: scale(1.1);
       }
-      &:focus{
+      &:active{
         background-color:#2668a5;
       }
     }
+
     .timeago{
       font-size: 12px;
       font-style: italic;
@@ -132,6 +140,9 @@ main section.job-postings-index{
 
   .bottom-margin{
     margin: 20px 15px 30px 15px;
+  }
+  .form-submit{
+    text-align:center;
   }
 }
 

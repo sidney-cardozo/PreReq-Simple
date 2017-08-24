@@ -1,4 +1,4 @@
-$main-blue: #5094D3;
+
 main section.welcome-page{
 .top-bg{
   background-image: url('bg.png');
@@ -31,8 +31,14 @@ h2{
     // font-family: Goudy Old Style,Garamond,Big Caslon,Times New Roman,serif;
     // font-style: italic;
     margin-top: 100px;
-    margin-bottom: 25px;
+    margin-bottom: 12px;
     font-size: 3em;
+  }
+  hr{
+    border-top: 1px solid black;
+    width:50%;
+    margin-top: 0px;
+    margin-bottom: 20px;
   }
   #welcome-msg-text{
     font-size:16px;
@@ -79,8 +85,8 @@ h2{
       &:hover{
         transform: scale(1.1);
       }
-      &:focus{
-        background-color: rgba(255, 255, 0, 0.5);
+      &:active{
+        background-color: rgba(255, 255, 0, 0.1);
         color: rgba(255, 255, 0, 1.0);
         border: 1px solid rgba(255, 255, 0, 1.0);
       }
