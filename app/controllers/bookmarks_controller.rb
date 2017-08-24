@@ -23,4 +23,10 @@ class BookmarksController < ApplicationController
     end
 
   end
+
+  def index
+    @bookmarks = Bookmark.where(applicant_id: current_user.applicant.id )
+    @jobs = Job.where(id: @bookmarks.job_id)
+  end
+
 end
