@@ -4,6 +4,15 @@ main section.applicant-profile{
   }
   .take-out-padding-lr{
     padding: 0px;
+    a{
+
+
+    }
+    span{
+      display:block;
+      margin-top: 5px;
+
+    }
   }
   .take-out-margin-t{
     margin-top: 0px;
@@ -36,6 +45,12 @@ main section.applicant-profile{
     -webkit-box-shadow: none;
     box-shadow: none;
   }
+  .upload-preview{
+    img{
+      width: 25%;
+      max-height: 200px;
+  }
+}
   .form-submit{
     text-align: center;
   }
@@ -53,6 +68,7 @@ main section.applicant-profile-edit{
   .form-control{
     width:100%;
   }
+
 }
 
 main section.new-applicant{
@@ -65,6 +81,12 @@ main section.new-applicant{
   }
   .form-control{
     width:100%;
+  }
+  .upload-preview{
+    img{
+      width: 25%;
+      max-height: 200px;
+    }
   }
 
   .no-border{
@@ -79,4 +101,5 @@ main section.new-applicant{
   .bottom-margin{
     margin: 20px 15px 30px 15px;
   }
+
 }

@@ -2,7 +2,7 @@
 <div class="job-posting-item">
 <div class="row">
 
-<div class="col-xs-10 take-out-padding-r">
+<div class="col-xs-11 take-out-padding-r">
   <%= link_to job do %><h4 class="white-text"><%= job.position %>&nbsp; | &nbsp;<%= employer.name %></h4>
   <% end %>
   <div class="description-overflow white-text">
@@ -10,11 +10,11 @@
   </div>
   <span class="white-text timeago"><%= time_ago_in_words(job.created_at) %> ago</span>
 </div>
-<div class="col-xs-2 text-center vcenter">
+<div class="col-xs-1 text-right no-padding">
 
 
   <% if current_user.employer == employer %>
-  <%= link_to 'Remove', [job], :class => 'btn btn-primary', method: :delete, data: { confirm: "Are you sure?" } %>
+  <%= link_to fa_icon('times'), [job], method: :delete, data: { confirm: "Are you sure?" } %>
   <% end %>
 </div>
 

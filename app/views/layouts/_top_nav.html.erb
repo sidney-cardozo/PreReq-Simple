@@ -25,7 +25,7 @@
               <%= link_to "#{current_user.applicant.first_name}", applicant_path(current_user.applicant), class: 'nav-links'%>
             </li>
             <li class="navbar-text">
-              <%= link_to 'Job Postings', jobs_path, class: 'nav-links' %>
+              <%= link_to 'Job Search', jobs_path, class: 'nav-links' %>
             </li>
           <% elsif current_user.admin? %>
             <li class="navbar-text">

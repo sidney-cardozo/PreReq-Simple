@@ -16,6 +16,9 @@
         <h3 class="take-out-margin-t"><%= @applicant.first_name %> <%= @applicant.last_name %></h3>
         <a class="profile-email" href="#"><%= @user.email %></a>
 
+      <span><% if @applicant.paired %>Paired with <a type="submit" href="<%= admin_student_path(@applicant.students.first) %>"><%= @applicant.students.first.first_name %> <%= @applicant.students.first.last_name%></a> <% else %> Not paired </span><% end %>
+
+
 
 
       </div>

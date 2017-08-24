@@ -130,7 +130,14 @@ body {
       color: white;
       &:hover{
         background-color:black;
-
+      }
+      &:active{
+        background-color:black;
+        color: #858687;
+      }
+      &:focus{
+        background-color:black;
+        color: #858687;
       }
     }
   }

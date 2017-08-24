@@ -99,26 +99,36 @@ main section.job-postings-index{
     }
 
 
-    .btn{
+    // .btn{
 
-      margin-top: 30px;
-      margin-bottom: 30px;
-      font-size: 14px;
-      background-color:#389bf7;
-      color: white;
-      border: none;
-      transition: all .2s ease-in-out;
-      &:hover{
-        transform: scale(1.1);
-      }
-      &:active{
-        background-color:#2668a5;
-      }
-    }
+    //   margin-top: 30px;
+    //   margin-bottom: 30px;
+    //   font-size: 14px;
+    //   background-color:#389bf7;
+    //   color: white;
+    //   border: none;
+    //   transition: all .2s ease-in-out;
+    //   &:hover{
+    //     transform: scale(1.1);
+    //   }
+    //   &:active{
+    //     background-color:#2668a5;
+    //   }
+    // }
 
     .timeago{
       font-size: 12px;
       font-style: italic;
+    }
+
+
+      .fa{
+        font-size: 20px;
+        color: gray;
+        &:hover{
+          color:black;
+        }
+
     }
   }
 
@@ -140,6 +150,8 @@ main section.job-search{
     margin-bottom:30px;
     background-color: white;
     border: black solid 1px;
+    // box-shadow: 0px 0px 5px black;
+
     hr{
       margin-top:20px;
       margin-bottom:20px;
@@ -152,6 +164,8 @@ main section.job-search{
       input#query{
         width: 400px;
         padding: 5px 10px;
+
+
       }
       .search-btn{
         border: 1px solid black;
@@ -187,21 +201,22 @@ main section.job-search{
         color: #595959;
       }
     }
-    .btn{
-      margin-top: 10px;
-      margin-bottom: 10px;
-      font-size: 14px;
-      background-color:#389bf7;
-      color: white;
-      border: none;
-      transition: all .2s ease-in-out;
-      &:hover{
-        transform: scale(1.1);
-      }
-      &:focus{
-        background-color:#2668a5;
-      }
-    }
+
+    // .btn{
+    //   margin-top: 10px;
+    //   margin-bottom: 10px;
+    //   font-size: 14px;
+    //   background-color:#389bf7;
+    //   color: white;
+    //   border: none;
+    //   transition: all .2s ease-in-out;
+    //   &:hover{
+    //     transform: scale(1.1);
+    //   }
+    //   &:focus{
+    //     background-color:#2668a5;
+    //   }
+    // }
     .timeago{
       font-size: 12px;
       font-style: italic;
