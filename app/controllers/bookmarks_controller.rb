@@ -26,7 +26,11 @@ class BookmarksController < ApplicationController
 
   def index
     @bookmarks = Bookmark.where(applicant_id: current_user.applicant.id )
-    @jobs = Job.where(id: @bookmarks.job_id)
+    @jobs = Array.new
+    @bookmarks.each do |bookmark|
+      @jobs.push(bookmark.job)
+    end
+
   end
 
 end
