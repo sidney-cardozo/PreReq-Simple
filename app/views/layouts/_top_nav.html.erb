@@ -10,6 +10,7 @@
       <a class="navbar-brand navbar-text" href="/">PreReq</a>
     </div>
 
+
   <div id="navbar" class="navbar-collapse collapse navbar-right">
       <ul class="nav navbar-nav">
         <% if current_user %>
@@ -52,8 +53,12 @@
       </ul>
     </div>
 
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: "#{name} text-center", id: "flash"%>
+    <% end -%>
 
 </nav>
+
 
 <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -80,4 +85,6 @@
     </div>
   </div>
 </div>
+
+
 
