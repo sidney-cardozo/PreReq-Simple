@@ -1,22 +1,24 @@
 
 <div class="job-posting-item">
-<div class="row">
+  <div class="row">
 
-<div class="col-xs-11 take-out-padding-r">
-  <%= link_to job do %><h4 class="white-text"><%= job.position %>&nbsp; | &nbsp;<%= employer.name %></h4>
-  <% end %>
-  <div class="description-overflow white-text">
-  <p class="job-item-description"><%= job.description %></p>
+    <div class="col-xs-11 take-out-padding-r">
+      <%= link_to job do %><h4 class="white-text"><%= job.position %>&nbsp; | &nbsp;<%= employer.name %></h4>
+      <% end %>
+      <div class="description-overflow white-text">
+        <p class="job-item-description"><%= job.description %></p>
+      </div>
+      <span class="white-text timeago"><%= time_ago_in_words(job.created_at) %> ago</span>
+    </div>
+    <div class="col-xs-1 text-right no-padding">
+
+
+      <% if current_user.employer == employer %>
+      <%= link_to fa_icon('times'), [job], method: "DELETE", data: { confirm: "Are you sure you want to delete the job?" }, remote:true, class: "delete_job" %>
+      <% end %>
+    </div>
+
   </div>
-  <span class="white-text timeago"><%= time_ago_in_words(job.created_at) %> ago</span>
-</div>
-<div class="col-xs-1 text-right no-padding">
-
-
-  <% if current_user.employer == employer %>
-  <%= link_to fa_icon('times'), [job], method: :delete, data: { confirm: "Are you sure you want to delete the job?" } %>
-  <% end %>
 </div>
 
-</div>
-</div>
+

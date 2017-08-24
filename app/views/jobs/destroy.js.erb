@@ -1,0 +1,6 @@
+$(document).ready(function (){
+  $('.delete_job').bind('ajax:success',function() {
+    $(this).closest('.job-posting-item').fadeOut(800);
+  });
+})
+

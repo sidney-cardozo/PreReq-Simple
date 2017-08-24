@@ -47,7 +47,10 @@ class JobsController < ApplicationController
   def destroy
     @job = Job.find(params[:id])
     @job.destroy
-    redirect_to :back
+    respond_to do |format|
+      format.html { redirect_to :back}
+      format.js
+    end
   end
 
   def create
