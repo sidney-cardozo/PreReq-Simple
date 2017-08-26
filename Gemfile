@@ -35,7 +35,6 @@ gem 'font-awesome-rails'
 gem 'money-rails'
 gem 'carrierwave'
 gem 'rmagick'
-gem 'stripe'
 gem 'faker'
 
 # Use Capistrano for deployment
