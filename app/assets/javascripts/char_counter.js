@@ -1,7 +1,7 @@
 $(document).ready(function (){
 
     $("#story_text_area").on("keyup", function (){
-      let charCounter = $(this).closest("#story_text_area").val().length;
+      var charCounter = $(this).closest("#story_text_area").val().length;
       $("#counter").text(400 - charCounter);
       if ($("#counter").text() < 0 ) {
         $("span#counter").addClass("notValid");
