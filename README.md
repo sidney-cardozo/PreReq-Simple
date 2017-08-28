@@ -1,6 +1,6 @@
-# Jungle
+# Prereq
 
-A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
+Web Application to connect refugees/new immigrants with potential employers via the buddy system, where applicants get paired up with MBA students from Mcgill. 
 
 
 ## Setup
