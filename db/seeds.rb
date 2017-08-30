@@ -12,7 +12,7 @@ puts "creating applicant users"
 
 User.destroy_all
 
-(10.times).each do
+(5.times).each do
 User.create!({
   email: Faker::Internet.email,
   password: Faker::Internet.password(8),
@@ -20,7 +20,7 @@ User.create!({
   })
 end
 
-(10.times).each do
+(5.times).each do
 User.create!({
   email: Faker::Internet.email,
   password: Faker::Internet.password(8),
@@ -56,7 +56,7 @@ User.create!({
 puts "creating Students"
 Student.destroy_all
 
-(10.times).each do
+(5.times).each do
 Student.create({
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
