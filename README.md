@@ -11,7 +11,15 @@ Implemented with Ruby on Rails, Postgres, Bootstrap, & SASS.
 
 ## Screenshots
 
-!["Welcome page"](!["Welcome page"](https://github.com/sidney-cardozo/PreReq-Simple/blob/master/vendor/screenshots/homepage-welcome.png)
+!["Welcome page"](https://github.com/sidney-cardozo/PreReq-Simple/blob/master/vendor/screenshots/homepage-welcome.png)
+!["Welcome page - success stories"](https://github.com/sidney-cardozo/PreReq-Simple/blob/master/vendor/screenshots/homepage-stories.png)
+!["Admin dashboard"](https://github.com/sidney-cardozo/PreReq-Simple/blob/master/vendor/screenshots/admin-dashboard.png)
+!["Immigrant profile"](https://github.com/sidney-cardozo/PreReq-Simple/blob/master/vendor/screenshots/immigrant-profile.png)
+!["Job search"](https://github.com/sidney-cardozo/PreReq-Simple/blob/master/vendor/screenshots/job-search-engine.png)
+!["Job posting - bookmarked"](https://github.com/sidney-cardozo/PreReq-Simple/blob/master/vendor/screenshots/job-posting-bookmarked.png)
+!["Bookmarked jobs"](https://github.com/sidney-cardozo/PreReq-Simple/blob/master/vendor/screenshots/saved-jobs.png)
+!["Company postings"](https://github.com/sidney-cardozo/PreReq-Simple/blob/master/vendor/screenshots/company-postings.png)
+!["Create new job posting"](https://github.com/sidney-cardozo/PreReq-Simple/blob/master/vendor/screenshots/new-job.png)
 
 
 ## Setup
