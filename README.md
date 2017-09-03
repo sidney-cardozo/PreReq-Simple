@@ -11,8 +11,7 @@ Implemented with Ruby on Rails, Postgres, Bootstrap, & SASS.
 
 ## Screenshots
 
-!["urls page"](https://github.com/julierivest/Tiny-App/blob/master/docs/urls_page.png?raw=true)
-!["login page"](https://github.com/julierivest/Tiny-App/blob/master/docs/login_page.png?raw=true)
+!["Welcome page"](!["Welcome page"](https://github.com/sidney-cardozo/PreReq-Simple/blob/master/vendor/screenshots/homepage-welcome.png)
 
 
 ## Setup
