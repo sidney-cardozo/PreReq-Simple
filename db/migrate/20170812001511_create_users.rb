@@ -81,5 +81,6 @@ class CreateUsers < ActiveRecord::Migration
     drop_table :pairs
     drop_table :tags
     drop_table :job_tags
+    drop_table :bookmarks
   end
 end
