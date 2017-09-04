@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get '/jobs' => 'jobs#search_index'
 
-  resources :employers, except: [:index, :destroy] do
+  resources :employers, except: [:destroy] do
     resources :jobs, except: [:show, :destroy]
   end
 
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resources :bookmarks, only: [:create, :destroy]
   end
 
-  resources :employers, only: [:show, :edit]
+  # resources :employers, only: [:show, :edit]
 
   resources :applicants, except: [:destroy] do
     resources :bookmarks, only: [:index]

@@ -16,7 +16,7 @@ class Admin::PairsController < ApplicationController
       pair.student.update(paired: true)
       pair.applicant.update(paired: true)
 
-      NotificationMailer.notification_mail(pair).deliver
+      # NotificationMailer.notification_mail(pair).deliver
 
       redirect_to admin_pairs_path, notice: "Pair Created !"
     else
