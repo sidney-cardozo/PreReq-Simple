@@ -9,6 +9,20 @@ Suited for the needs of **3 types of users**: immigrants/applicants, employers, 
 
 Implemented with Ruby on Rails, Postgres, Bootstrap, & SASS.
 
+Live on https://polar-peak-56705.herokuapp.com/
+
+Login details:
+
+  Admin : email -> allo
+          password -> alloha
+          
+  Employer : email -> employer@employer.com 
+             password -> password
+             
+  Applicant : email -> applicant@applicant.com
+              password -> password
+           
+
 ## Screenshots
 
 Welcome page:
