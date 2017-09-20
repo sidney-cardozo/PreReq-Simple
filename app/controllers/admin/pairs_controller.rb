@@ -15,12 +15,7 @@ class Admin::PairsController < ApplicationController
     if !pair.student.paired && !pair.applicant.paired && pair.save
       pair.student.update(paired: true)
       pair.applicant.update(paired: true)
-<<<<<<< HEAD
-
       # NotificationMailer.notification_mail(pair).deliver
-
-=======
->>>>>>> 784faa6d8ec5358f7e9a672d2d5a3b399a6f9cb2
       redirect_to admin_pairs_path, notice: "Pair Created !"
     else
       redirect_to admin_pairs_path, error: "Pair was not created!"
