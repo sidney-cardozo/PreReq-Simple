@@ -1,11 +1,11 @@
 # Prereq
 
-App built for PreReq, a non-profit organization started by McGill MBA students, that seeks to help refugees enter the Montreal workforce in 2 main ways. First, PreReq invites employers to post job openings directed at the immigrant community on their site. Second, through their Buddy System, they match immigrants with MBA students who can help them find work through their connections and experience with the job search and application process. 
+App built for PreReq, a non-profit organization started by McGill MBA students, that seeks to help refugees enter the Montreal workforce in 2 main ways. First, PreReq invites employers to post job openings directed at the immigrant community on their site. Second, through their Buddy System, they match immigrants with MBA students who can help them find work through their connections and experience with the job search and application process.
 
-Suited for the needs of **3 types of users**: immigrants/applicants, employers, & admin. Employers can create an account for their company, edit their profile, & **post jobs**. Applicants can create an account, edit their profile, **search through job postings** and **bookmark their favorite ones**. Admin can view the names and profiles of all immigrants and MBA students in the system, create profiles for new MBA students, create new pairs, & write "success stories" for pairs to be displayed on the site's homepage. 
+Suited for the needs of **3 types of users**: immigrants/applicants, employers, & admin. Employers can create an account for their company, edit their profile, & **post jobs**. Applicants can create an account, edit their profile, **search through job postings** and **bookmark their favorite ones**. Admin can view the names and profiles of all immigrants and MBA students in the system, create profiles for new MBA students, create new pairs, & write "success stories" for pairs to be displayed on the site's homepage.
 
 
-**WORK IN PROGRESS** to be launched soon. 
+**WORK IN PROGRESS** to be launched soon.
 
 Implemented with Ruby on Rails, Postgres, Bootstrap, & SASS.
 
@@ -13,15 +13,15 @@ Live on https://polar-peak-56705.herokuapp.com/
 
 Login details:
 
-  Admin : email -> allo
-          password -> alloha
-          
-  Employer : email -> employer@employer.com 
+  Admin : email -> admin@admin.com
+          password -> password
+
+  Employer : email -> employer@employer.com
              password -> password
-             
+
   Applicant : email -> applicant@applicant.com
               password -> password
-           
+
 
 ## Screenshots
 
@@ -40,7 +40,7 @@ Immigrant profile:
 Job search:
 !["Job search"](https://github.com/sidney-cardozo/PreReq-Simple/blob/master/vendor/screenshots/job-search-engine.png)
 
-Job posting - bookmarked: 
+Job posting - bookmarked:
 !["Job posting - bookmarked"](https://github.com/sidney-cardozo/PreReq-Simple/blob/master/vendor/screenshots/job-posting-bookmarked.png)
 
 Bookmarked jobs:
