@@ -48,8 +48,8 @@ end
 
 puts "applicant profiles created"
 User.create!({
-  email: "allo",
-  password: "alloha",
+  email: "admin@admin.com",
+  password: "password",
   role: 2
 })
 
