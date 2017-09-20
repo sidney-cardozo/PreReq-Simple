@@ -40,8 +40,11 @@ class ProfileImageUploader < CarrierWave::Uploader::Base
     process resize_to_fit: [300, 300]
   end
 
-  def default_url
-    "/assets/fallback/" + [version_name, "default.jpg"].compact.join('_')
+  # def default_url
+  #   "/assets/fallback/" + [version_name, "default.jpg"].compact.join('_')
+  # end
+  def default_url(*args)
+    ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.jpg"].compact.join('_'))
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
