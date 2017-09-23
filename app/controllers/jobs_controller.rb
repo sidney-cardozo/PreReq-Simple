@@ -45,6 +45,8 @@ class JobsController < ApplicationController
   end
 
   def destroy
+    bookmark = Bookmark.where(job_id: params[:id])
+    bookmark.destroy_all
     @job = Job.find(params[:id])
     @job.destroy
     respond_to do |format|

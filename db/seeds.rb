@@ -46,7 +46,25 @@ User.where(role: 0).each do |user|
   })
 end
 
+User.create!({
+  email: "applicant@applicant.com",
+  password: "password",
+  role: 0
+})
+
+User.where({email: "applicant@applicant.com"}).each do |user|
+  Applicant.create!({
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    phone_number: Faker::PhoneNumber.cell_phone,
+    description: Faker::Hipster.paragraph(4),
+    resume_link: Faker::Internet.email,
+    user_id: user.id
+  })
+end
+
 puts "applicant profiles created"
+
 User.create!({
   email: "admin@admin.com",
   password: "password",
@@ -80,10 +98,24 @@ User.where(role: 1).each do |user|
   })
 end
 
+User.create!({
+  email: "employer@employer.com",
+  password: "password",
+  role: 1
+})
+
+User.where({email: "employer@employer.com"}).each do |user|
+  Employer.create!({
+    name: Faker::Company.name,
+    user_id: user.id,
+    description: Faker::Company.bs
+  })
+end
+
 puts "Employers created"
 
 puts "creating Jobs"
-
+Job.destroy_all
 Employer.all.each do |employer|
   (5.times).each do
     Job.create!({
