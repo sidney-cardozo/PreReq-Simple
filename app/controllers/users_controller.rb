@@ -25,11 +25,15 @@ class UsersController < ApplicationController
   def about
   end
 
+  def buddies
+    @pairs = Pair.all
+    @user = current_user
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :role)
   end
-
 end
 

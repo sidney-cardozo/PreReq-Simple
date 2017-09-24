@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get '/jobs' => 'jobs#search_index'
   get '/about' => 'users#about'
 
+  get '/buddies' => 'users#buddies'
+
   resources :employers, except: [:destroy] do
     resources :jobs, except: [:show, :destroy]
   end
