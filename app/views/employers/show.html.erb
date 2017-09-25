@@ -31,8 +31,15 @@
         <table class="table table-responsive">
           <tbody>
             <tr>
-              <th scope="row" class="table-head">Description:</th>
+              <th scope="row" class="table-head">Company Description:</th>
               <td class="table-content"><%= @employer.description %></td>
+            </tr><tr>
+              <th scope="row" class="table-head">Positions Offered:</th>
+              <td class="table-content"><%= @employer.positions_offered %></td>
+            </tr>
+            </tr><tr>
+              <th scope="row" class="table-head">LinkedIn Profile</th>
+              <td class="table-content"><%= @employer.linkedIn_profile %></td>
             </tr>
           </tbody>
         </table>
@@ -79,10 +86,17 @@
                 <%= form.text_field :name, class: 'form-control' %>
               </div>
               <div class="form-group">
-                <%= form.label :description, "Description:" %>
+                <%= form.label :description, "Company Description:" %>
                 <%= form.text_area :description, class: 'form-control', rows: '5' %>
               </div>
-          </div>
+              <div class="form-group">
+                <%= form.label :positions_offered, "Positions Offered:" %>
+                <%= form.text_area :positions_offered, class: 'form-control', rows: '7' %>
+              </div>
+              <div class="form-group">
+                <%= form.label :linkedIn_profile, "LinkedIn Link:" %>
+                <%= form.text_area :linkedIn_profile, class: 'form-control' %>
+              </div>
               <div class="modal-footer form-submit">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>

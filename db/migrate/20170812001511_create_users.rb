@@ -10,6 +10,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.belongs_to :user, index: true
       t.text :description
+      t.string :linkedIn_profile
+      t.text :positions_offered
       t.string :image
       t.timestamps null: false
     end
@@ -18,7 +20,7 @@ class CreateUsers < ActiveRecord::Migration
       t.belongs_to :user, index: true
       t.string :first_name
       t.string :last_name
-      t.string :phone_number
+      t.string :profession
       t.text :description
       t.string :resume_link
       t.string :image
@@ -42,8 +44,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :last_name
       t.string :email
       t.string :image
-      t.string :concentration
-      t.string :industry
+      t.text   :reason
       t.string :resume_link
       t.boolean :paired , default: false
       t.timestamps null: false
@@ -83,4 +84,5 @@ class CreateUsers < ActiveRecord::Migration
     drop_table :job_tags
     drop_table :bookmarks
   end
+
 end

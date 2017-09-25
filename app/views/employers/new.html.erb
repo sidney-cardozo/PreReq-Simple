@@ -28,8 +28,16 @@
           <%= form.text_field :name, class: 'form-control' %>
         </div>
         <div class="form-group">
-          <%= form.label :description, "Description:" %>
+          <%= form.label :description, "Company Description:" %>
           <%= form.text_area :description, class: 'form-control', rows: '5' %>
+        </div>
+        <div class="form-group">
+          <%= form.label :positions_offered, "Positions Offered:" %>
+          <%= form.text_area :positions_offered, class: 'form-control', rows: '7' %>
+        </div>
+        <div class="form-group">
+          <%= form.label :linkedIn_profile, "LinkedIn Link:" %>
+          <%= form.text_area :linkedIn_profile, class: 'form-control' %>
         </div>
         <div class="form-submit">
         <%= form.submit 'Create Account', class: 'btn btn-primary bottom-margin' %>

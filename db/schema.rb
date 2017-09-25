@@ -20,14 +20,14 @@ ActiveRecord::Schema.define(version: 20170812001511) do
     t.integer  "user_id"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "phone_number"
+    t.string   "profession"
     t.text     "description"
     t.string   "resume_link"
     t.string   "image"
-    t.text     "fields",       default: [],                 array: true
-    t.boolean  "paired",       default: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.text     "fields",      default: [],                 array: true
+    t.boolean  "paired",      default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   add_index "applicants", ["user_id"], name: "index_applicants_on_user_id", using: :btree
@@ -44,9 +44,11 @@ ActiveRecord::Schema.define(version: 20170812001511) do
     t.string   "name"
     t.integer  "user_id"
     t.text     "description"
+    t.string   "linkedIn_profile"
+    t.text     "positions_offered"
     t.string   "image"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   add_index "employers", ["user_id"], name: "index_employers_on_user_id", using: :btree
@@ -89,12 +91,11 @@ ActiveRecord::Schema.define(version: 20170812001511) do
     t.string   "last_name"
     t.string   "email"
     t.string   "image"
-    t.string   "concentration"
-    t.string   "industry"
+    t.text     "reason"
     t.string   "resume_link"
-    t.boolean  "paired",        default: false
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.boolean  "paired",      default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "tags", force: :cascade do |t|

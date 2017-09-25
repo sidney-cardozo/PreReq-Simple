@@ -39,7 +39,7 @@ User.where(role: 0).each do |user|
   Applicant.create!({
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    phone_number: Faker::PhoneNumber.cell_phone,
+    profession: Faker::Company.profession,
     description: Faker::Hipster.paragraph(4),
     resume_link: Faker::Internet.email,
     user_id: user.id
@@ -56,7 +56,7 @@ User.where({email: "applicant@applicant.com"}).each do |user|
   Applicant.create!({
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    phone_number: Faker::PhoneNumber.cell_phone,
+    profession: Faker::Company.profession,
     description: Faker::Hipster.paragraph(4),
     resume_link: Faker::Internet.email,
     user_id: user.id
@@ -78,10 +78,9 @@ Student.destroy_all
 Student.create({
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  concentration: Faker::Hipster.word,
-  industry: Faker::Hipster.sentence ,
+  reason: Faker::Hipster.sentence,
   resume_link: Faker::Internet.url,
-  email: Faker::Internet.free_email
+  email: Faker::Internet.free_email,
   })
 end
 
@@ -90,11 +89,13 @@ puts "students created"
 puts "creating Employers"
 
 Employer.destroy_all
+
 User.where(role: 1).each do |user|
   Employer.create!({
     name: Faker::Company.name,
     user_id: user.id,
-    description: Faker::Company.bs
+    description: Faker::Company.bs,
+    positions_offered: Faker::Company.bs
   })
 end
 
@@ -108,7 +109,8 @@ User.where({email: "employer@employer.com"}).each do |user|
   Employer.create!({
     name: Faker::Company.name,
     user_id: user.id,
-    description: Faker::Company.bs
+    description: Faker::Company.bs,
+    positions_offered: Faker::Company.bs
   })
 end
 
