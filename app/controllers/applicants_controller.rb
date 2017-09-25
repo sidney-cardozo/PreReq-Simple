@@ -48,6 +48,8 @@ class ApplicantsController < ApplicationController
   end
 
   def destroy
+    pair = Pair.where(applicant_id: params[:id])
+    pair.destroy_all
     @applicant = Applicant.find(params[:id])
     @applicant.destroy
     redirect_to admin_pairs_path
