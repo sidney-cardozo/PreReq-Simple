@@ -21,6 +21,9 @@
             <li class="navbar-text">
               <%= link_to "Company Postings", employer_jobs_path(current_user.employer), class: 'nav-links' %>
             </li>
+            <li class="navbar-text">
+              <%= link_to "Buddy List", '/buddies', class: 'nav-links' %>
+            </li>
           <% elsif current_user.admin? %>
             <li class="navbar-text">
               <%= link_to 'Admin', admin_pairs_path, class: 'nav-links' %>
