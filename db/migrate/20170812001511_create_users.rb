@@ -53,6 +53,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :pairs do |t|
       t.belongs_to :applicant, index: true
       t.belongs_to :student, index: true
+      t.text :summary_story
       t.text :story
       t.boolean :story_on_display, default: false
       t.timestamps null: false

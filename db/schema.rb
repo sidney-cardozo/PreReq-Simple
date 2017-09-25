@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20170812001511) do
   create_table "pairs", force: :cascade do |t|
     t.integer  "applicant_id"
     t.integer  "student_id"
+    t.text     "summary_story"
     t.text     "story"
     t.boolean  "story_on_display", default: false
     t.datetime "created_at",                       null: false

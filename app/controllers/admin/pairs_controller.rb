@@ -73,6 +73,6 @@ class Admin::PairsController < ApplicationController
   end
 
   def pair_params
-    params.require(:pair).permit(:student_id, :applicant_id, :story, :story_on_display)
+    params.require(:pair).permit(:student_id, :applicant_id, :story, :story_on_display, :summary_story)
   end
 end

@@ -1,5 +1,5 @@
 <div class="col-lg-4 col-pad">
-<div class="row pair-box">
+  <div class="row pair-box">
 
     <div class="col-lg-6 text-left">
       <a type="submit" href="<%= applicant_path(pair.applicant) %>"><%= image_tag pair.applicant.image.thumb, class: "buddies-im-pic"%></a>
@@ -8,13 +8,11 @@
 
     <div class="col-lg-6 text-right col-pad">
       <a type="submit" href="<%= admin_student_path(pair.student) %>"><%= image_tag pair.student.image.thumb, class: "buddies-im-pic"%></a>
-    <p class="buddies-mba-name"><%= pair.student.first_name %> <%= pair.student.last_name %></p>
+      <p class="buddies-mba-name"><%= pair.student.first_name %> <%= pair.student.last_name %></p>
     </div>
-
-
-
-
-
+    <div class="text-center">
+      <p> <%= pair.summary_story %> </p>
+    </div>
   </div>
   <br>
 </div>

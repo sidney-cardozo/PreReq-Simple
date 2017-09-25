@@ -283,20 +283,19 @@
 
         </div>
         <div class="modal-body">
-
-
-
-
-
           <%= form_for :pair, url: {action: "create"} do |form| %>
-        <div class="form-group">
-          <%= form.label :applicant_id, "Applicant ID:" %>
-          <%= form.text_field :applicant_id, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= form.label :student_id, "MBA Student ID:" %>
-          <%= form.text_field :student_id, class: 'form-control' %>
-        </div>
+          <div class="form-group">
+            <%= form.label :applicant_id, "Applicant ID:" %>
+            <%= form.text_field :applicant_id, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= form.label :student_id, "MBA Student ID:" %>
+            <%= form.text_field :student_id, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= form.label :summary_story, "Summary Story:" %>
+            <%= form.text_field :summary_story, class: 'form-control' %>
+          </div>
 
         </div>
             <div class="modal-footer form-submit">
