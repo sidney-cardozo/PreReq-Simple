@@ -56,7 +56,7 @@ h2{
     border-radius: 5px;
     // opacity: .6;
     // border: 1px black solid;
-    padding: 55px 10px 55px 10px;
+    padding: 55px 0px 55px 0px;
     // border: 1px solid rgba(0,0, 0, 1.0);
     // &:hover{
     //   background-color: rgba(0, 0, 0, 1.0);
@@ -67,6 +67,10 @@ h2{
       font-size: 20px;
       font-weight: bold;
 
+    }
+    .take-out-plr{
+      padding-left: 0px;
+      padding-right: 0px;
     }
     .for-x-msg{
       color: rgba(255, 255, 255, 1.0);

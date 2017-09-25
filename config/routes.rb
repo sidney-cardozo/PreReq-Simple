@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   # resources :employers, only: [:show, :edit]
 
-  resources :applicants, except: [:destroy] do
+  resources :applicants do
     resources :bookmarks, only: [:index]
   end
 

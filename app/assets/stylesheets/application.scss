@@ -39,6 +39,7 @@ body {
 
   // padding-top: 70px;
   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
   .row{
     margin-left: 0px;
     margin-right: 0px;
@@ -89,7 +90,9 @@ body {
   .navbar-brand{
     font-size: 24px;
     color: white;
-
+    &:hover {
+     color: rgba(255, 255, 0, 1.0);
+    }
   }
   .navbar-nav > li > a {
     color: white;
@@ -105,11 +108,7 @@ body {
 .notValid {
   color: red;
 }
-// .footer {
-//     bottom: 0;
-//     width: 100%;
-//     background-color: #eee;
-// }
+
 .footer {
     padding-top:40px;
     padding-bottom:40px;

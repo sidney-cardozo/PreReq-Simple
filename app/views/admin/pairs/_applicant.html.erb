@@ -2,6 +2,7 @@
   <tr>
     <th scope="row" class="text-center"><%= app.id %></th>
     <td class="text-center"><a type="submit" href="<%= applicant_path(app) %>"><%= app.first_name %> <%= app.last_name %></a></td>
+    <td class="text-center"><%= link_to fa_icon('trash'), applicant_path(app.id), data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
   </tr>
 <% end %>
 
