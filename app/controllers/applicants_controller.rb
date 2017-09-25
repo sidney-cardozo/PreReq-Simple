@@ -58,7 +58,7 @@ class ApplicantsController < ApplicationController
   private
 
   def applicant_params
-    params.require(:applicant).permit(:first_name, :last_name, :phone_number, :description, :resume_link, :fields, :image)
+    params.require(:applicant).permit(:first_name, :last_name, :phone_number, :description, :resume_link, :fields, :image, :profession)
   end
 
   def authorized_to_view_applicants

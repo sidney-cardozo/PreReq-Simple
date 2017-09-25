@@ -52,7 +52,7 @@ class EmployersController < ApplicationController
   private
 
   def employer_params
-    params.require(:employer).permit(:name, :description, :image)
+    params.require(:employer).permit(:name, :description, :image, :linkedIn_profile, :positions_offered)
   end
 
   def authorized_to_view_employers
